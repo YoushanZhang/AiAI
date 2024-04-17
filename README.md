@@ -1,6 +1,6 @@
 # AiAI
-The webpage for AiAI research group for Prof. Youshan Zhang
+The research projects for the AiAI group led by Prof. Youshan Zhang
 
-# Webpage link
+# Project Webpage Link
 
 https://youshanzhang.github.io/AiAI/
