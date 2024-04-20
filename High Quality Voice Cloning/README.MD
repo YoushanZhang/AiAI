@@ -1,8 +1,6 @@
 ```python
 from scipy.io.wavfile import write as write_wav
-
-
-
+from IPython.display import Audio
 ```
 
 # High Quality Voice Cloning
@@ -14,5 +12,5 @@ This work presents two different approaches to text-to-speech (TTS) synthesis. W
 ![](./Loss_total_loss.svg)
 
 ```python
-scipy.io.wavfile.write("clip_slide3_0000-0010.wav", rate=sample_rate, data=audio_array)
+Audio(audio_array, rate=16000)
 ```
