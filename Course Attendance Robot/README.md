@@ -12,7 +12,7 @@
       - [Website](#website-screenshots)
   - [Datasets](#datasets)
       - [Raw Images](#raw-images-data-collection)
-      - [Processed Images ](#processed-images-summary)
+      - [Processed Images ](#processed-images)
   - [Method](#method)
       - [RetinaFace](#retinaface)
       - [Face Recognition](#face-recognition)
