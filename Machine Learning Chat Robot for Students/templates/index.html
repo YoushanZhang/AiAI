@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q&A Chatbot</title>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/prism.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
+</head>
+<body>
+    <div id="voiceModal" class="modal">
+        <div class="modal-content">
+            <p>Please start voice typing...</p>
+        </div>
+    </div>
+       
+    <div class="sidebar">
+        <h3>Chat History</h3>
+        <ul id="history">
+            
+        </ul>
+        <button id="newChat">New Chat</button>
+    </div>
+    
+    <div class="chat">
+        <span class="toggle-icon" data-state="closed">
+            <a class="flex px-3 min-h-[44px] py-1 gap-3 transition-colors duration-200 dark:text-white cursor-pointer text-sm rounded-md border dark:border-white/20 gizmo:min-h-0 hover:bg-gray-500/10 h-11 gizmo:h-10 gizmo:rounded-lg gizmo:border-[rgba(0,0,0,0.1)] w-11 flex-shrink-0 items-center justify-center bg-white dark:bg-transparent">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-sm" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="9" y1="3" x2="9" y2="21"></line>
+                </svg>
+                <span style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; overflow-wrap: normal;">Close sidebar</span>
+            </a>
+        </span> 
+        <div id="chatbox"></div>
+        
+        <div id="inputWrapper"> 
+            <input type="text" id="input" placeholder="Type a message...">
+            <button id="microphone" title="Speak" class="mic-button">
+                <i class="fa-solid fa-microphone"></i>
+            </button>
+        </div>
+        <audio id="audioResponse" src="" type="audio/mp3"></audio>
+    </div>
+    
+    <script>
+        let isNewSession = true;
+        let currentChatSession = null;
+        var recognition;
+
+        function addChatHistory(userinput) {
+            let chatContent = $('#chatbox').html();
+
+            if (currentChatSession !== null) {
+                let listItem = $('#history').find(`[data-index="${currentChatSession}"]`);
+                listItem.attr('data-content', encodeURIComponent(chatContent));
+            } else {
+                let keyword = userinput.length > 15 ? userinput.substr(0, 15) + '...' : userinput;
+                let editIcon = `<button class="p-1 hover:text-token-text-primary edit-icon"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/></svg></button>`;
+                let deleteIcon = `<button class="p-1 hover:text-token-text-primary delete-icon"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-sm" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button>`;
+
+                let newItem = $('<li class="chatLabel" data-content="' + encodeURIComponent(chatContent) + '">' + keyword + editIcon + deleteIcon + '</li>');
+                $('#history').append(newItem);
+                currentChatSession = newItem.index();
+                newItem.attr('data-index', currentChatSession);
+            }
+            let currentHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+            if (currentChatSession === null) {
+                currentHistory.push({
+                    keyword: userinput,
+                    content: chatContent
+                });
+            } else {
+                currentHistory[currentChatSession] = {
+                    keyword: userinput,
+                    content: chatContent
+                };
+            }
+            localStorage.setItem('chatHistory', JSON.stringify(currentHistory));
+        }
+        $('#input').on('keypress', function(e) {
+            if (e.which == 13) {   
+                let userinput = $(this).val();
+                $('#chatbox').append('<div class="message user-message"><div class="message-content">' + userinput + '</div><img src="/static/image/user.jpg" alt="User" class="message-avatar"></div>');
+                $(this).val('');
+                scrollToBottom();
+
+
+
+                $.post('/', { userinput: userinput }, function(data) {
+                    if (data.qa1_response) {
+                        $('#chatbox').append('<div class="message bot-message"><img src="/static/image/bot.jpg" alt="Bot" class="message-avatar"><div class="message-content">' + data.qa1_response + '</div></div>');
+                    }
+
+                    if (data.gpt2_response) {
+                        $('#chatbox').append('<div class="message bot-message"><img src="/static/image/bot.jpg" alt="Bot" class="message-avatar"><div class="message-content">' + data.gpt2_response + '</div></div>');
+                    }
+
+                    if (data.llama_response) {
+                        $('#chatbox').append('<div class="message bot-message"><img src="/static/image/bot.jpg" alt="Bot" class="message-avatar"><div class="message-content">' + data.llama_response + '</div></div>');
+                    }
+
+                    if (data.is_code) {
+                        $('#chatbox').append('<div class="botmessage"><div class="bot-note">Of course! I can provide you with a code example. But please note that this is only an example.<br>To avoid academic consequences, such as scoring zero, please do not plagiarize this code.</div><pre><code class="language-python">' + data.botresponse + '</code></pre></div>');
+                    }
+                    
+                    addChatHistory(userinput);
+                    scrollToBottom();
+
+                    let chatContent = $('#chatbox').html();
+                    let currentHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+                    if (currentChatSession === null) {
+                        currentHistory.push({
+                            keyword: userinput,
+                            content: chatContent
+                        });
+                        localStorage.setItem('chatHistory', JSON.stringify(currentHistory));
+                    } else {
+                        let listItem = $('#history').find(`[data-index="${currentChatSession}"]`);
+                        listItem.attr('data-content', encodeURIComponent(chatContent));
+                    }
+                }, 'json');
+            }
+        });
+
+        function showModal() {
+            document.getElementById('voiceModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('voiceModal').style.display = 'none';
+        }
+
+        $('#microphone').on('click', function() {
+//            showModal();
+            $.post('/start_voice_interaction', function() {
+                console.log('Voice interaction started.');
+                let checkVoiceResponse = function() {
+                    $.get('/get_voice_response', function(data) {
+                        if (data.message && data.message !== 'No response available yet') {
+                            setTimeout(checkVoiceResponse, 1000);
+                        } else {
+                            if (data.transcription) {
+                                $('#chatbox').append('<div class="message user-message"><div class="message-content">' + data.transcription + '</div><img src="/static/image/user.jpg" alt="User" class="message-avatar"></div>');
+                                scrollToBottom();
+                            }
+                            if (data.gpt2_response) {
+                                let responseHTML = '<div class="message bot-message"><img src="/static/image/bot.jpg" alt="Bot" class="message-avatar"><div class="message-content">' + data.gpt2_response + '</div></div>';
+                                if (data.is_code) {
+                                    responseHTML = '<div class="message bot-message"><div class="bot-note">Of course! I can provide you with a code example. But please note that this is only an example.<br>To avoid academic consequences, such as scoring zero, please do not plagiarize this code.</div><pre><code class="language-python">' + data.gpt2_response + '</code></pre></div>';
+                                }
+                                $('#chatbox').append(responseHTML);
+                                scrollToBottom();
+                                playAudioResponse();
+                                let firstMessage = $('#chatbox .user-message .message-content').first().text();
+                                addChatHistory(firstMessage);
+                                let chatContent = $('#chatbox').html();
+                                let editIcon = `<button class="p-1 hover:text-token-text-primary edit-icon"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/></svg></button>`;
+                                let deleteIcon = `<button class="p-1 hover:text-token-text-primary delete-icon"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-sm" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button>`;
+
+                                if (currentChatSession !== null) {
+                                    let listItem = $('#history').find(`[data-index="${currentChatSession}"]`);
+                                    listItem.attr('data-content', encodeURIComponent(chatContent));
+                                } else {
+                                    let firstMessage = $('#chatbox .user-message .message-content').first().text();
+                                    let keyword = firstMessage.length > 15 ? firstMessage.substr(0, 15) + '...' : firstMessage;
+                                    let newItem = $('<li class="chatLabel" data-content="' + encodeURIComponent(chatContent) + '">' + keyword + editIcon + deleteIcon + '</li>');
+                                    $('#history').append(newItem);
+                                    currentChatSession = newItem.index();
+                                    newItem.attr('data-index', currentChatSession);
+                                }
+
+                                let currentHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+                                if (currentChatSession === null) {
+                                    currentHistory.push({
+                                        keyword: $('#chatbox .user-message .message-content').first().text(),
+                                        content: chatContent
+                                    });
+                                } else {
+                                    currentHistory[currentChatSession] = {
+                                        keyword: $('#chatbox .user-message .message-content').first().text(),
+                                        content: chatContent
+                                    };
+                                }
+                                localStorage.setItem('chatHistory', JSON.stringify(currentHistory));
+                            }
+                        }
+                        setTimeout(checkVoiceResponse, 1000);
+                    }).fail(function() {
+                        console.log("Error fetching voice response.");
+                        setTimeout(checkVoiceResponse, 1000);
+                    });
+                };
+                checkVoiceResponse();
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const wakeWord = 'Hi Echo';
+            recognition = new webkitSpeechRecognition(); 
+            recognition.continuous = true;
+            recognition.lang = 'en-US'; 
+            recognition.interimResults = false;
+
+            recognition.onresult = function(event) {
+                let lastResult = event.results[event.results.length - 1];
+                if (lastResult.isFinal) {
+                    let command = lastResult[0].transcript.trim();
+                    console.log('Heard:', command);
+                    if (command.toLowerCase() === wakeWord.toLowerCase()) {
+                        console.log('Wake word recognized! Starting voice interaction...');
+                        //showModal(); 
+                        startVoiceInteraction();
+                    }
+                }
+            };
+
+            function startVoiceInteraction() {
+                console.log('Voice interaction mode activated.');
+                //showModal();
+                $.post('/start_voice_interaction', function() {
+                    console.log('Voice interaction started.');
+                    let checkVoiceResponse = function() {
+                        $.get('/get_voice_response', function(data) {
+                            if (data.message && data.message !== 'No response available yet') {
+                                setTimeout(checkVoiceResponse, 1000);
+                            } else {
+                                if (data.transcription) {
+                                    $('#chatbox').append('<div class="message user-message"><div class="message-content">' + data.transcription + '</div><img src="/static/image/user.jpg" alt="User" class="message-avatar"></div>');
+                                    scrollToBottom();
+                                }
+                                if (data.gpt2_response) {
+                                    let responseHTML = '<div class="message bot-message"><img src="/static/image/bot.jpg" alt="Bot" class="message-avatar"><div class="message-content">' + data.gpt2_response + '</div></div>';
+                                    $('#chatbox').append(responseHTML);
+                                    scrollToBottom();
+                                    playAudioResponse();
+                                }
+                                let firstMessage = $('#chatbox .user-message .message-content').first().text();
+                                addChatHistory(firstMessage);
+                                let chatContent = $('#chatbox').html();
+                                let editIcon = `<button class="p-1 hover:text-token-text-primary edit-icon"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/></svg></button>`;
+                                let deleteIcon = `<button class="p-1 hover:text-token-text-primary delete-icon"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-sm" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button>`;
+
+                                if (currentChatSession !== null) {
+                                    let listItem = $('#history').find(`[data-index="${currentChatSession}"]`);
+                                    listItem.attr('data-content', encodeURIComponent(chatContent));
+                                } else {
+                                    let firstMessage = $('#chatbox .user-message .message-content').first().text();
+                                    let keyword = firstMessage.length > 15 ? firstMessage.substr(0, 15) + '...' : firstMessage;
+                                    let newItem = $('<li class="chatLabel" data-content="' + encodeURIComponent(chatContent) + '">' + keyword + editIcon + deleteIcon + '</li>');
+                                    $('#history').append(newItem);
+                                    currentChatSession = newItem.index();
+                                    newItem.attr('data-index', currentChatSession);
+                                }
+
+                                let currentHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+                                if (currentChatSession === null) {
+                                    currentHistory.push({
+                                        keyword: $('#chatbox .user-message .message-content').first().text(),
+                                        content: chatContent
+                                    });
+                                } else {
+                                    currentHistory[currentChatSession] = {
+                                        keyword: $('#chatbox .user-message .message-content').first().text(),
+                                        content: chatContent
+                                    };
+                                }
+                                localStorage.setItem('chatHistory', JSON.stringify(currentHistory));
+                            }
+                            setTimeout(checkVoiceResponse, 1000);
+                        }).fail(function() {
+                            console.log("Error fetching voice response.");
+                            setTimeout(checkVoiceResponse, 1000);
+                        });
+                    };
+                    checkVoiceResponse();
+                });
+                console.log('Voice interaction mode activated.');
+            }
+
+            function showModal() {
+                document.getElementById('voiceModal').style.display = 'block';
+            }
+
+            recognition.onerror = function(event) {
+                console.error('Speech recognition error', event.error);
+                if (event.error === 'no-speech') {
+                    console.log('No speech detected, restarting recognition...');
+                    restartRecognition(); 
+                }
+            };
+
+            recognition.start();
+            console.log('Speech recognition started, say the wake word to activate.');
+        });
+        function restartRecognition() {
+            if (recognition) {
+                recognition.stop();
+                setTimeout(() => recognition.start(), 1000); 
+                console.log('Wake word recognized! Starting voice interaction...');
+            }
+        }
+        $(document).ready(function() {
+            $('.toggle-icon').click(function() {
+                $('.sidebar').toggleClass('visible');
+                
+                let currentState = $(this).attr('data-state');
+                $(this).attr('data-state', currentState === 'closed' ? 'open' : 'closed');
+            });
+            const storedHistory = JSON.parse(localStorage.getItem('chatHistory'));
+            if (storedHistory) {
+                storedHistory.forEach((item, index)=> {
+                    let editIcon = `<button class="p-1 hover:text-token-text-primary edit-icon"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/></svg></button>`;
+                    let deleteIcon = `<button class="p-1 hover:text-token-text-primary delete-icon"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="icon-sm" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button>`;
+                    
+                    let displayKeyword = item.keyword.length > 15 ? item.keyword.substr(0, 15) + '...' : item.keyword;
+                    $('#history').append('<li class="chatLabel" data-index="' + index + '" data-content="' + encodeURIComponent(item.content) + '">' + displayKeyword + editIcon + deleteIcon + '</li>');
+                });
+            }
+            $('#newChat').click(function() {
+    
+                $('#chatbox').html('');
+                currentChatSession = null;
+            });
+
+            
+            $(document).on('click', '.chatLabel', function() {
+                let content = decodeURIComponent($(this).attr('data-content'));
+                $('#chatbox').html(content);
+                currentChatSession = $(this).attr('data-index');
+            });
+            $(document).on('click', '.delete-icon', function(event) {
+                event.stopPropagation(); 
+                let listItem = $(this).closest('.chatLabel');
+                
+                let currentHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+                let contentToRemove = decodeURIComponent(listItem.attr('data-content'));
+                currentHistory = currentHistory.filter(item => item.content !== contentToRemove);
+                localStorage.setItem('chatHistory', JSON.stringify(currentHistory));
+                
+                listItem.remove();
+            });
+            // edit
+            $(document).on('click', '.edit-icon', function(event) {
+                event.stopPropagation();
+                let listItem = $(this).closest('.chatLabel');
+                let currentName = listItem.contents().filter(function() {
+                    return this.nodeType === 3; 
+                }).text();
+                
+                let inputElement = $('<input type="text" class="edit-input">').val(currentName);
+                listItem.contents().filter(function() {
+                    return this.nodeType === 3; 
+                }).remove();
+                listItem.prepend(inputElement);
+                inputElement.focus();
+            });
+
+            $(document).on('keypress', '.edit-input', function(e) {
+                if (e.which == 13) {
+                    let inputElement = $(this);
+                    let newName = inputElement.val();
+                    inputElement.replaceWith(newName);
+                }
+            });
+            $(document).on('focusout', '.chatLabel input', function() {
+                let newValue = $(this).val();
+                let parentElement = $(this).parent();
+
+                parentElement.prepend(newValue);
+                $(this).remove();
+
+                let listItem = parentElement.closest('.chatLabel');
+                let currentHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+                
+                let contentToUpdate = decodeURIComponent(listItem.attr('data-content'));
+                let itemToUpdate = currentHistory.find(item => item.content === contentToUpdate);
+
+                if (itemToUpdate) {
+                    itemToUpdate.keyword = newValue;
+                }
+
+                localStorage.setItem('chatHistory', JSON.stringify(currentHistory));
+            });
+
+        });
+
+
+        function playAudioResponse() {
+            $.post('/text_to_voice', { text: $(".botmessage").last().text() }, function(data) {
+                if (data.status == 'done') {
+                    let audio = document.getElementById("audioResponse");
+                    audio.src = '/static/output.mp3?' + new Date().getTime();
+                audio.play();
+                }
+            });
+        }
+        function scrollToBottom() {
+            const chatbox = document.getElementById('chatbox');
+            chatbox.scrollTop = chatbox.scrollHeight;
+
+            let lastMessage = chatbox.lastElementChild;
+            if (lastMessage) {
+                lastMessage.style.marginBottom = "10px"; 
+            }
+        }
+        window.onload = function() {
+            document.cookie = "session_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        };
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                //closeModal();
+                console.log('ESC pressed, sending stop signal to backend.');
+                $.post('/stop_voice', {}, function(data) {
+                    console.log(data.message);
+                    restartRecognition(); 
+                });
+            }
+        });
+        
+    </script>
+    
+</body>
+</html>
