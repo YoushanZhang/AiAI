@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Katzbot - An AI assistant for Yeshiva University</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+        .section p {
+            margin-top: 5px;
+        }
+        table {
+            width: 80%;
+            margin: 0 auto; /* Center the table */
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #dddddd; /* Thin borders */
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        caption {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>KatzBot - An AI assistant for Yeshiva University</h1>
+    <div class="section">
+        <h2>Introduction</h2>
+        <p>KatzBot is a cutting-edge solution designed to enhance communication within university communities. Leveraging the Katz generative pre-trained transformer (KatzGPT), a sophisticated custom large language model (LLM), KatzBot addresses the precision gaps often observed in existing academic chatbot systems. By utilizing two meticulously curated datasets comprising sentence-completion and question-answer pairs, KatzGPT is trained to expand its knowledge base and improve its accuracy. This innovative system offers a concise and effective interface, facilitating seamless communication between users and the KatzGPT model, thereby revolutionizing the academic chatbot experience.</p>
+    </div>
+    <div class="section">
+        <h2>Data collection and processing</h2>
+        <h3>Text Data Collection</h3>
+<ul>
+    <li>Gathered text data relevant to the University from primary sources: University database, official website, articles, and social media feeds.</li>
+    <li>Aimed to collect comprehensive information on university courses, faculty, degrees, and enrollment procedures.</li>
+    <li>Initially used automated web scraping techniques with Python libraries BeautifulSoup and Requests.</li>
+    <li>Faced challenges like irrelevant or nonsensical information and inconsistencies in data format.</li>
+    <li>Shifted towards manual data collection for thoroughness and accuracy.</li>
+</ul>
+
+<h3>Preprocessing Data</h3>
+<ul>
+    <li>Meticulously curated dataset by hand to address inaccuracies and irrelevant content.</li>
+    <li>Preprocessed data using regular expressions and customized parsing techniques.</li>
+    <li>Standardized sentences by removing extraneous symbols, punctuation, and special characters.</li>
+    <li>Applied tokenization to break down sentences into individual words or phrases.</li>
+    <li>Identified and eliminated duplicates and unnecessary noise to enhance dataset's quality.</li>
+    <li>Organized dataset into sentence pairs and question-answer pairs.</li>
+    <li>Stored processed data in universally compatible formats like CSV and JSON.</li>
+</ul>
+
+<h3>Sentence Pairs Creation</h3>
+<ul>
+    <li>Developed an automated script to segment text into related sentence pairs.</li>
+    <li>Conducted manual review of dataset for accuracy and quality.</li>
+    <li>Compiled dataset comprising over 6,400 pairs of related sentences.</li>
+</ul>
+
+<h3>Question-Answer Pairs Creation</h3>
+<ul>
+    <li>Utilized an automated script to process text file, generating question-and-answer pairs.</li>
+    <li>Manually crafted additional pairs to enhance quality, resulting in 7,334 question-and-answer pairs.</li>
+</ul>
+
+<h3>Test Dataset Creation</h3>
+<ul>
+    <li>Developed a test dataset covering a wide array of unencountered questions and prompts.</li>
+    <li>Included 2,081 question-answer pairs meticulously selected to encompass a comprehensive range of subjects pertinent to the university community.</li>
+</ul>
+
+<h3>Data Summary</h3>
+<table>
+    <tr>
+        <th>Data Type</th>
+        <th>Description</th>
+        <th>Count</th>
+    </tr>
+    <tr>
+        <td>Sentence Completion</td>
+        <td>Training for knowledge integration</td>
+        <td>6,280</td>
+    </tr>
+    <tr>
+        <td>Train QA Pairs</td>
+        <td>Enhancing detailed understanding</td>
+        <td>7,334</td>
+    </tr>
+    <tr>
+        <td>Test QA Pairs</td>
+        <td>Assessing model's consistency</td>
+        <td>2,081</td>
+    </tr>
+</table>
+    </div>
+    <div class="section">
+        <h2>Settings</h2>
+
+<h3>Model Parameters</h3>
+<ul>
+    <li>PyTorch: 2.0.1</li>
+    <li>torchvision: 0.15.2</li>
+    <li>CUDA: 12.1</li>
+    <li>Learning Rate: $5e-5$</li>
+    <li>Optimizer: AdamW</li>
+    <li>Weight Decay: 5e-4</li>
+</ul>
+
+    </div>
+    <div class="section">
+        <h2>Results</h2>
+        <p>
+            In our comparative analysis detailed in the table below, we assess the performance of several Large Language Models (LLMs), highlighting our in-house developed KatzGPT model. This evaluation benchmarks the Rouge Scores, focusing on particularly Rouge-L, which measures the long-form coherence of generated texts.
+        </p>
+        <table>
+            <caption>Comparison of Rouge F-Scores for LLMs (sorted by Rouge L)</caption>
+            <tr>
+                <th>Model</th>
+                <th>Rouge-1</th>
+                <th>Rouge-2</th>
+                <th>Rouge-L</th>
+            </tr>
+            <tr>
+                <td>Llama2 3B</td>
+                <td>0.23</td>
+                <td>0.07</td>
+                <td>0.20</td>
+            </tr>
+            <tr>
+                <td>Microsoft Phi 1.5</td>
+                <td>0.26</td>
+                <td>0.10</td>
+                <td>0.24</td>
+            </tr>
+            <tr>
+                <td>Llama2 7B</td>
+                <td>0.28</td>
+                <td>0.12</td>
+                <td>0.25</td>
+            </tr>
+            <tr>
+                <td><strong>KatzGPT</strong></td>
+                <td><strong>0.29</strong></td>
+                <td><strong>0.16</strong></td>
+                <td><strong>0.25</strong></td>
+            </tr>
+            <tr>
+                <td>Microsoft Phi2</td>
+                <td>0.34</td>
+                <td>0.15</td>
+                <td>0.31</td>
+            </tr>
+            <tr>
+                <td>Mistral 7B Instruct</td>
+                <td>0.43</td>
+                <td>0.20</td>
+                <td>0.33</td>
+            </tr>
+            <tr>
+                <td><strong>GPT-2</strong></td>
+                <td><strong>0.45</strong></td>
+                <td><strong>0.32</strong></td>
+                <td><strong>0.43</strong></td>
+            </tr>
+        </table>
+    
+        <p>
+            KatzGPT, leveraging the foundational architecture of GPT, showcases notable performance, especially in terms of Rouge-L, where it matches the scores of advanced models such as Llama2 7B, indicating its robust capability in understanding and reproducing the context and structure of the source texts. Despite being a newcomer, KatzGPT outstrips many predecessors including Microsoft's Phi 1.5 and Llama2 models, underscoring its exceptional grasp of nuanced textual relationships. Notably, GPT-2 stands out as the leading model, affirming its influence and effectiveness as the base for KatzGPT development. Its top-tier performance across all Rouge metrics solidifies its position as a pivotal benchmark in the landscape of LLMs. While Mistral 7B Instruct leads in extractive and instructive capabilities, it still trails behind GPT-2, highlighting the competitive nature of these models in different aspects of language comprehension and generation. The under-performance of Llama2 3B across all metrics suggests areas requiring further refinement, particularly in enhancing its understanding and response generation capabilities. Our evaluation not only highlights KatzGPT's ability to preserve coherence and context in its outputs but also establishes its status as a formidable rival to more established models. The comparative study illuminates the varying capabilities and potential areas for enhancement among top Large Language Models, positioning KatzGPT as an impactful newcomer in text generation and understanding. With additional training and some adjustments to its architectural design, KatzGPT has the potential to achieve even greater performance.
+        </p>
+    </body>
+    
+    </html>
+    </div>
+    <div class="'section">
+        <table border="1" style="width:100%; border-collapse: collapse;">
+            <caption>LLMs Predictions Comparison</caption>
+            <thead>
+                <tr style="background-color: #f2f2f2;">
+                    <th>User Input</th>
+                    <th>GPT-2</th>
+                    <th>Mistral 7B</th>
+                    <th>Phi 2</th>
+                    <th>Llama2 7B</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>What career services does the university provide to its students?</td>
+                    <td>The university offers services to its student body.</td>
+                    <td>The university provides career services that include personalized counseling, career planning, and access to professional networks.</td>
+                    <td>The university provides career services to help students find employment after graduation. These services include resume building, interview preparation, job search strategies, and networking opportunities.</td>
+                    <td>Access to professional mentors and career coaches. Opportunities for internships, STEM OPT, and career opportunities through the Career Center.</td>
+                </tr>
+                <tr>
+                    <td>Can you share information on internship opportunities for students?</td>
+                    <td>Internships are primarily during the summer, but you can also consider internships in New York, the financial capital of the world, or on an individual basis.</td>
+                    <td>Yes, there are numerous internship opportunities available for students, both in the U.S. and in Israel, through the Yeshiva University Israel Center.</td>
+                    <td>Yes, KatzBot can provide information on internship opportunities for students. What department are you interested in?</td>
+                    <td>The program offers internship opportunities that give students industry experience and valuable career skills.</td>
+                </tr>
+                <tr>
+                    <td>What are the basic admission requirements for this university for Data Analytics?</td>
+                    <td>The basic admission rules for this college program include a minimum GPA of 3.2, an SAT score of 1460 or an ACT score of 32, and approval from their high school administration.</td>
+                    <td>The basic admission requirements for this university for Data Analytics include a bachelor's degree with a strong mathematical and programming background.</td>
+                    <td>The basic admission requirements include a bachelor's degree from an accredited college or university, a minimum GPA of 3.0, and a minimum grade of B+ in the prerequisite courses.</td>
+                    <td>Bachelor's degree, one year of related work experience, minimum grade point average of 3.0 on a 4.0 scale, or minimum grade of B in prerequisite courses.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>       
+    <div class="section">
+        <h2>Conclusion</h2>
+        <p>In conclusion, the development of KatzGPT and KatzBot underscores the transformative impact of specialized model training and the broad potential of custom LLMs. While GPT-2 sets a high benchmark, KatzGPT's progress points to a promising future for AI research and development. The potential for KatzGPT to further excel with more training and adjustments highlights its prospective influence in the field.</p>
+    </div>
+
+      
+</body>
+</html>
