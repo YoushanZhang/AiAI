@@ -1,7 +1,7 @@
 # Generating Diverse and Natural 3D Human Motions from Text (CVPR 2022)
 ## [[Project Page]](https://github.com/undisclosed-rav/3DHumanMotion/tree/main/T2M) [[Paper]](https://drive.google.com/file/d/1Lo57oAXEpIcrd-Ppgs5xCAcXOvwMr0sw/view?usp=drive_link)
 
-![teaser_image](https://github.com/EricGuo5513/text-to-motion/blob/main/docs/teaser_image.png)
+![teaser_image](https://github.com/YoushanZhang/AiAI/blob/main/3D%20Human%20Motion/T2M/teaser_image.png)
   
   Given a textual description for example, *"the figure rises from a lying position and walks in a counterclockwise circle, and then lays back down the ground"*, our approach generates a diverse set of 3d human motions that are faithful to the provided text.
   
