@@ -1,0 +1,25 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="UpiTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <!-- Primary branding color -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+
+        <!-- Customize the action bar theme -->
+        <item name="actionBarTheme">@style/MyActionBarTheme</item>
+
+        <!-- Enable the use of material design components -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- ActionBar styles -->
+    <style name="MyActionBarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <!-- Customize your action bar here -->
+        <item name="android:textColor">@color/actionbar_text</item>
+    </style>
+
+</resources>
