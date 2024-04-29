@@ -1,5 +1,5 @@
 # Generating Diverse and Natural 3D Human Motions from Text (CVPR 2022)
-## [[Project Page]](https://ericguo5513.github.io/text-to-motion) [[Paper]](https://openaccess.thecvf.com/content/CVPR2022/papers/Guo_Generating_Diverse_and_Natural_3D_Human_Motions_From_Text_CVPR_2022_paper.pdf)
+## [[Project Page]](https://github.com/undisclosed-rav/3DHumanMotion/tree/main/T2M) [[Paper]](https://drive.google.com/file/d/1Lo57oAXEpIcrd-Ppgs5xCAcXOvwMr0sw/view?usp=drive_link)
 
 ![teaser_image](https://github.com/EricGuo5513/text-to-motion/blob/main/docs/teaser_image.png)
   
@@ -135,5 +135,3 @@ python final_evaluation.py
 ```
 This will evaluate the model performance on HumanML3D dataset by default. You could also run on KIT-ML dataset by uncommenting certain lines in *./final_evaluation.py*. The statistical results will saved to *./t2m_evaluation.log*.
 
-### Misc
- Contact Chuan Guo at cguo2@ualberta.ca for any questions or comments.
