@@ -87,26 +87,90 @@ Face Recognition is a Python library that can be used to recognize and manipulat
   <figcaption>Face Recognition on group image</figcaption>
 </figure>
 
-## Results
+## Results:
 
-| Detection           | Recognition           | Image Size | Cropped Embeddings | Detection Accuracy (%) | Recognition Accuracy (%) | Group Image | Recognition Using |
-|---------------------|-----------------------|------------|--------------------|------------------------|-------------------------|-------------|-------------------|
-| Face Mesh           | Deep Neural Network  | -          | -                  | -                      | 94.2                    | No          | Image             |
-| **RetinaFace**          | **Face Recognition **    | **50x50**      | **Yes**                | **99.4**                   | **90.3**                    | **Yes**         | **Image**            |
-| RetinaFace          | Face Recognition     | 50x50      | No                 | 99.4                   | 88.26                   | No          | Image             |
-| RetinaFace          | Face Recognition     | 112x112    | No                 | 99.16                  | 85.3                    | No          | Image             |
-| RetinaFace          | Face Recognition     | 600x600    | No                 | 98.6                   | 85.1                    | No          | Image             |
-| Face Recognition    | Face Recognition    | 50x50      | No                 | 65.53                  | 72.3                    | No          | Image             |
-| Face Recognition    | Face Recognition    | 112x112    | No                 | 65.53                  | 70.53                   | No          | Image             |
-| Yolo9               | Face Recognition     | 112x112    | No                 | 51.68                  | 58.41                   | No          | Image             |
-| RetinaFace          | haarcascade_frontalface | 50x50  | No                 | 99.4                   | 45.2                    | No          | Image             |
-| Dlib                | Face Recognition     | 112x112    | No                 | 91                     | 86                      | Yes         | Image             |
-| InsightFace         | InsightFace          | 1200x1600  | No                 | 99                     | 88                      | Yes         | Image             |
-| MTCNN               | Facenet              | -          | -                  | -                      | 100                     | No          | Video             |
-| HOG                 | Dlib                 | -          | -                  | -                      | 94                      | No          | Video             |
-| Viola-Jones         | LBPH                 | -          | -                  | -                      | 91                      | No          | Video             |
-| Haar cascade + DoG filtering | LBPH         | -          | No                 | 98.36                  | 87                      | No          | Video             |
+## Overall Facial Detection and Recognition Results
 
+| Detection           | Recognition          | Image Size | Cropped Embeddings | Detection Accuracy (%) | Recognition Accuracy (%) | Group Image Recognition | Recognition Format - Images |
+|---------------------|----------------------|------------|--------------------|------------------------|--------------------------|-------------------------|-----------------------------|
+| RetinaFace          | Face Recognition    | 50x50      | :x:                | 99.4                   | 88.3                     | :heavy_check_mark:      | :heavy_check_mark:         |
+| RetinaFace          | Face Recognition    | 112x112    | :x:                | 99.2                   | 85.3                     | :heavy_check_mark:      | :heavy_check_mark:         |
+| RetinaFace          | Face Recognition    | 600x600    | :x:                | 98.6                   | 85.1                     | :heavy_check_mark:      | :heavy_check_mark:         |
+| Face Recognition   | Face Recognition    | 50x50      | :heavy_check_mark: | 65.5                   | 72.3                     | :heavy_check_mark:      | :heavy_check_mark:         |
+| Face Recognition   | Face Recognition    | 112x112    | :x:                | 65.5                   | 70.5                     | :heavy_check_mark:      | :heavy_check_mark:         |
+| Yolo9               | Face Recognition    | 112x112    | :x:                | 51.7                   | 58.4                     | :heavy_check_mark:      | :heavy_check_mark:         |
+| RetinaFace          | haarcascade_frontalface | 50x50 | :x:                | 99.4                   | 45.2                     | :heavy_check_mark:      | :heavy_check_mark:         |
+| InsightFace         | InsightFace         | 1200x1600  | :x:                | 99.0                   | 89.2                     | :heavy_check_mark:      | :heavy_check_mark:         |
+| haarcascade_frontalface | Face Recognition | 112x112 | :x:                | 91.0                   | 86.0                     | :heavy_check_mark:      | :heavy_check_mark:         |
+| InsightFace         | InsightFace         | 1200x1600  | :x:                | 99.0                   | 88.0                     | :heavy_check_mark:      | :heavy_check_mark:         |
+| Haar cascade + DoG filtering | LBPH       | -          | :x:                | 98.3                   | 87.0                     | :x:                     | :x:                         |
+| RetinaFace[**Ours**]| Face Recognition    | **50x50**  | **:heavy_check_mark:** | **99.4**               | **90.3**                 | **:heavy_check_mark:**  | **:heavy_check_mark:**    |
+
+## Individual Facial Detection and Recognition Results
+
+| Image Name | Total Faces | Detected Faces | Available in Training Dataset | Correctly Identified Faces | Individual Image Accuracy |
+|------------|-------------|----------------|-------------------------------|----------------------------|---------------------------|
+| 1          | 5           | 5              | 3                             | 2                          | 66.67%                    |
+| 2          | 8           | 8              | 6                             | 4                          | 66.67%                    |
+| 3          | 5           | 5              | 5                             | 4                          | 80.00%                    |
+| 4          | 4           | 4              | 3                             | 2                          | 66.67%                    |
+| 5          | 7           | 7              | 5                             | 3                          | 60.00%                    |
+| 6          | 5           | 5              | 2                             | 2                          | 100.00%                   |
+| 8          | 4           | 4              | 2                             | 2                          | 100.00%                   |
+| 10         | 12          | 11             | 8                             | 8                          | 100.00%                   |
+| 14         | 14          | 14             | 12                            | 10                         | 83.33%                    |
+| 15         | 9           | 9              | 9                             | 9                          | 100.00%                   |
+| 16         | 11          | 11             | 10                            | 9                          | 90.00%                    |
+| 17         | 9           | 9              | 8                             | 8                          | 100.00%                   |
+| 18         | 7           | 7              | 7                             | 6                          | 85.71%                    |
+| 19         | 5           | 5              | 4                             | 3                          | 75.00%                    |
+| 20         | 10          | 10             | 10                            | 8                          | 80.00%                    |
+| 21         | 5           | 5              | 5                             | 5                          | 100.00%                   |
+| 22         | 5           | 5              | 4                             | 4                          | 100.00%                   |
+| 23         | 4           | 4              | 4                             | 4                          | 100.00%                   |
+| 24         | 3           | 3              | 2                             | 2                          | 100.00%                   |
+| 26         | 2           | 2              | 2                             | 2                          | 100.00%                   |
+| 27         | 7           | 7              | 6                             | 5                          | 83.33%                    |
+| 28         | 4           | 4              | 4                             | 4                          | 100.00%                   |
+| 29         | 4           | 4              | 4                             | 3                          | 75.00%                    |
+| 30         | 12          | 12             | 9                             | 9                          | 100.00%                   |
+| 32         | 6           | 6              | 6                             | 5                          | 83.33%                    |
+| 33         | 3           | 3              | 2                             | 2                          | 100.00%                   |
+| 35         | 3           | 3              | 1                             | 1                          | 100.00%                   |
+| 36         | 5           | 5              | 2                             | 2                          | 100.00%                   |
+| 37         | 5           | 5              | 1                             | 1                          | 100.00%                   |
+| 38         | 11          | 11             | 5                             | 5                          | 100.00%                   |
+| 39         | 10          | 10             | 4                             | 3                          | 75.00%                    |
+| 40         | 9           | 9              | 5                             | 5                          | 100.00%                   |
+| 41         | 11          | 11             | 5                             | 5                          | 100.00%                   |
+| 42         | 12          | 12             | 6                             | 5                          | 83.33%                    |
+| 43         | 11          | 11             | 5                             | 5                          | 100.00%                   |
+| 44         | 11          | 11             | 5                             | 4                          | 80.00%                    |
+| 45         | 11          | 11             | 5                             | 4                          | 80.00%                    |
+| 46         | 11          | 11             | 5                             | 5                          | 100.00%                   |
+| 47         | 11          | 11             | 5                             | 5                          | 100.00%                   |
+| 48         | 11          | 11             | 5                             | 4                          | 80.00%                    |
+| 49         | 11          | 11             | 5                             | 4                          | 80.00%                    |
+| 50         | 11          | 11             | 6                             | 6                          | 100.00%                   |
+| 51         | 11          | 11             | 5                             | 5                          | 100.00%                   |
+| 52         | 11          | 11             | 5                             | 4                          | 80.00%                    |
+| 53         | 11          | 11             | 5                             | 5                          | 100.00%                   |
+| 54         | 13          | 13             | 6                             | 6                          | 100.00%                   |
+| 55         | 11          | 11             | 5                             | 5                          | 100.00%                   |
+| 56         | 10          | 10             | 5                             | 5                          | 100.00%                   |
+| 57         | 27          | 26             | 18                            | 16                         | 88.89%                    |
+| 58         | 13          | 12             | 9                             | 8                          | 88.89%                    |
+| 59         | 12          | 12             | 5                             | 4                          | 80.00%                    |
+| 60         | 14          | 14             | 5                             | 4                          | 80.00%                    |
+| 61         | 21          | 21             | 10                            | 8                          | 80.00%                    |
+| 62         | 26          | 25             | 12                            | 10                         | 83.33%                    |
+| 63         | 16          | 16             | 8                             | 7                          | 87.50%                    |
+| 64         | 18          | 18             | 8                             | 8                          | 100.00%                   |
+| 65         | 20          | 20             | 11                            | 10                         | 90.91%                    |
+| 66         | 5           | 5              | 4                             | 3                          | 75.00%                    |
+| 67         | 5           | 5              | 4                             | 4                          | 100.00%                   |
+| 68         | 5           | 5              | 4                             | 4                          | 100.00%                   |
+| 69         | 2           | 2              | 1                             | 1                          | 100.00%                   |
 
 
 ## Technical Information:
