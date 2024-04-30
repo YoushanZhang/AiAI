@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Course Attendance Robot</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="course-attendance-robot">Course Attendance Robot</h1>
+<div align="center">
+    <a><img width="720" src="images/face-recognition-attendance-system.jpg" alt="soft"></a>
+</div>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#course-attendance-robot">Course Attendance Robot</a>
+<ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#introduction">Introduction</a>
+<ul>
+<li><a href="#project-description">Project Description</a></li>
+<li><a href="#website-screenshots">Website Screenshots</a></li>
+</ul>
+</li>
+<li><a href="#datasets">Datasets:</a>
+<ul>
+<li><a href="#raw-images-data-collection">Raw Images Data Collection:</a></li>
+<li><a href="#raw-images">Raw Images:</a></li>
+<li><a href="#processed-images">Processed Images:</a></li>
+</ul>
+</li>
+<li><a href="#method">Method:</a>
+<ul>
+<li><a href="#retinaface">RetinaFace:</a></li>
+<li><a href="#retinaface-output-screenshots">Retinaface Output Screenshots:</a></li>
+<li><a href="#face-recognition">Face Recognition:</a></li>
+<li><a href="#recognized-faces">Recognized Faces:</a></li>
+</ul>
+</li>
+<li><a href="#results">Results:</a></li>
+<li><a href="#overall-facial-detection-and-recognition-results">Overall Facial Detection and Recognition Results</a></li>
+<li><a href="#individual-facial-detection-and-recognition-results">Individual Facial Detection and Recognition Results</a></li>
+<li><a href="#technical-information">Technical Information:</a></li>
+<li><a href="#benefits">Benefits:</a></li>
+<li><a href="#applications">Applications:</a></li>
+<li><a href="#citations">Citations:</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<h3 id="project-description">Project Description</h3>
+<p>This project introduces a comprehensive system for managing attendance, leveraging facial detection and recognition technologies to identify individual students and register their attendance. The system is developed using Python, RetinaFace, Face_Recognition, and OpenCV. It offers an efficient and automated solution for monitoring attendance across diverse settings such as educational institutions and workplaces.</p>
+<p>Users can also use a web-based graphical interface, to upload classroom images to perform automatic attendance and save the results directly into a CSV file.</p>
+<h3 id="website-screenshots">Website Screenshots</h3>
+<figure align="center"> 
+  <img src="images/AddCourse.png" alt="drawing" height="400"/>
+  <figcaption>Screen to Facilitate Course Addition</figcaption>
+</figure>
+<figure align="center"> 
+  <img src="images/CaptureAttendance.jpg" alt="drawing" height="400"/>
+  <figcaption>Screen to Capture Course Attendance</figcaption>
+</figure>
+<figure align="center"> 
+  <img src="images/RecordAttendance.jpg" alt="drawing" height="400"/>
+  <figcaption>Screen to Modify, Save or Download Attendance CSV.</figcaption>
+</figure>
+<h2 id="datasets">Datasets:</h2>
+<h3 id="raw-images-data-collection">Raw Images Data Collection:</h3>
+<p>To assess the efficacy of the proposed system, a dataset containing thirty-six students was compiled. Facial images of volunteer students are captured using a laptop web camera and saved in a folder. The dataset utilized in this investigation encompasses 100 images for a sample size of thirty-six (36) students totaling 3,600 images, exhibiting a variety of poses including front, left, and right facial features. The images were standardized to dimensions of 112 pixels in height and 112 pixels in width. Additionally, 69 class group photographs were captured to evaluate the individual recognition of students' faces within group settings.</p>
+<h3 id="raw-images">Raw Images:</h3>
+<figure align="center"> 
+  <img src="images/training112.png" alt="drawing" height="400"/>
+  <figcaption>Raw Images of Dimension 112x112</figcaption>
+</figure>
+<h3 id="processed-images">Processed Images:</h3>
+<figure align="center"> 
+  <img src="images/training50.png" alt="drawing" height="400"/>
+  <figcaption>Processed Images Ready for Embeddings 50x50</figcaption>
+</figure>
+<h2 id="method">Method:</h2>
+<h3 id="retinaface">RetinaFace:</h3>
+<p>RetinaFace is a robust single-stage face detector that performs pixel-wise face localization on various scales of faces by taking advantage of joint extra-supervised and self-supervised multi-task learning.</p>
+<h3 id="retinaface-output-screenshots">Retinaface Output Screenshots:</h3>
+<figure align="center"> 
+  <img src="images/15_Detection.jpg" alt="drawing" height="720"/>
+  <figcaption>RetinaFace detection output on Classroom Image</figcaption>
+</figure>
+<h3 id="face-recognition">Face Recognition:</h3>
+<p>Face Recognition is a Python library that can be used to recognize and manipulate faces. It is built on top of Dlib modern C++ toolkit that contains machine-learning algorithms and tools for creating complex software in C++ to solve real-world problems. As a part of facial recognition, after the facial images have been extracted, cropped, resized, and often converted to grayscale, the face recognition algorithm takes on the task of identifying features that most accurately represent the image.</p>
+<h3 id="recognized-faces">Recognized Faces:</h3>
+<figure align="center"> 
+  <img src="images/15_predicted.jpg" alt="drawing" height="720"/>
+  <figcaption>Face Recognition on group image</figcaption>
+</figure>
+<h2 id="results">Results:</h2>
+<h2 id="overall-facial-detection-and-recognition-results">Overall Facial Detection and Recognition Results</h2>
+<table>
+<thead>
+<tr>
+<th>Detection</th>
+<th>Recognition</th>
+<th>Image Size</th>
+<th>Cropped Embeddings</th>
+<th>Detection Accuracy (%)</th>
+<th>Recognition Accuracy (%)</th>
+<th>Group Image Recognition</th>
+<th>Recognition Format - Images</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RetinaFace</td>
+<td>Face Recognition</td>
+<td>50x50</td>
+<td>❌</td>
+<td>99.4</td>
+<td>88.3</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>RetinaFace</td>
+<td>Face Recognition</td>
+<td>112x112</td>
+<td>❌</td>
+<td>99.2</td>
+<td>85.3</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>RetinaFace</td>
+<td>Face Recognition</td>
+<td>600x600</td>
+<td>❌</td>
+<td>98.6</td>
+<td>85.1</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>Face Recognition</td>
+<td>Face Recognition</td>
+<td>50x50</td>
+<td>✔</td>
+<td>65.5</td>
+<td>72.3</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>Face Recognition</td>
+<td>Face Recognition</td>
+<td>112x112</td>
+<td>❌</td>
+<td>65.5</td>
+<td>70.5</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>Yolo9</td>
+<td>Face Recognition</td>
+<td>112x112</td>
+<td>❌</td>
+<td>51.7</td>
+<td>58.4</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>RetinaFace</td>
+<td>haarcascade_frontalface</td>
+<td>50x50</td>
+<td>❌</td>
+<td>99.4</td>
+<td>45.2</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>InsightFace</td>
+<td>InsightFace</td>
+<td>1200x1600</td>
+<td>❌</td>
+<td>99.0</td>
+<td>89.2</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>haarcascade_frontalface</td>
+<td>Face Recognition</td>
+<td>112x112</td>
+<td>❌</td>
+<td>91.0</td>
+<td>86.0</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>InsightFace</td>
+<td>InsightFace</td>
+<td>1200x1600</td>
+<td>❌</td>
+<td>99.0</td>
+<td>88.0</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>Haar cascade + DoG filtering</td>
+<td>LBPH</td>
+<td>-</td>
+<td>❌</td>
+<td>98.3</td>
+<td>87.0</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>RetinaFace[<strong>Ours</strong>]</td>
+<td>Face Recognition</td>
+<td><strong>50x50</strong></td>
+<td><strong>✔</strong></td>
+<td><strong>99.4</strong></td>
+<td><strong>90.3</strong></td>
+<td><strong>✔</strong></td>
+<td><strong>✔</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="individual-facial-detection-and-recognition-results">Individual Facial Detection and Recognition Results</h2>
+<table>
+<thead>
+<tr>
+<th>Image Name</th>
+<th>Total Faces</th>
+<th>Detected Faces</th>
+<th>Available in Training Dataset</th>
+<th>Correctly Identified Faces</th>
+<th>Individual Image Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>5</td>
+<td>5</td>
+<td>3</td>
+<td>2</td>
+<td>66.67%</td>
+</tr>
+<tr>
+<td>2</td>
+<td>8</td>
+<td>8</td>
+<td>6</td>
+<td>4</td>
+<td>66.67%</td>
+</tr>
+<tr>
+<td>3</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>4</td>
+<td>80.00%</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>66.67%</td>
+</tr>
+<tr>
+<td>5</td>
+<td>7</td>
+<td>7</td>
+<td>5</td>
+<td>3</td>
+<td>60.00%</td>
+</tr>
+<tr>
+<td>6</td>
+<td>5</td>
+<td>5</td>
+<td>2</td>
+<td>2</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>8</td>
+<td>4</td>
+<td>4</td>
+<td>2</td>
+<td>2</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>10</td>
+<td>12</td>
+<td>11</td>
+<td>8</td>
+<td>8</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>14</td>
+<td>14</td>
+<td>14</td>
+<td>12</td>
+<td>10</td>
+<td>83.33%</td>
+</tr>
+<tr>
+<td>15</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>16</td>
+<td>11</td>
+<td>11</td>
+<td>10</td>
+<td>9</td>
+<td>90.00%</td>
+</tr>
+<tr>
+<td>17</td>
+<td>9</td>
+<td>9</td>
+<td>8</td>
+<td>8</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>18</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>6</td>
+<td>85.71%</td>
+</tr>
+<tr>
+<td>19</td>
+<td>5</td>
+<td>5</td>
+<td>4</td>
+<td>3</td>
+<td>75.00%</td>
+</tr>
+<tr>
+<td>20</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>8</td>
+<td>80.00%</td>
+</tr>
+<tr>
+<td>21</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>22</td>
+<td>5</td>
+<td>5</td>
+<td>4</td>
+<td>4</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>23</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>24</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>26</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>27</td>
+<td>7</td>
+<td>7</td>
+<td>6</td>
+<td>5</td>
+<td>83.33%</td>
+</tr>
+<tr>
+<td>28</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>29</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>3</td>
+<td>75.00%</td>
+</tr>
+<tr>
+<td>30</td>
+<td>12</td>
+<td>12</td>
+<td>9</td>
+<td>9</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>32</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>5</td>
+<td>83.33%</td>
+</tr>
+<tr>
+<td>33</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>35</td>
+<td>3</td>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>36</td>
+<td>5</td>
+<td>5</td>
+<td>2</td>
+<td>2</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>37</td>
+<td>5</td>
+<td>5</td>
+<td>1</td>
+<td>1</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>38</td>
+<td>11</td>
+<td>11</td>
+<td>5</td>
+<td>5</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>39</td>
+<td>10</td>
+<td>10</td>
+<td>4</td>
+<td>3</td>
+<td>75.00%</td>
+</tr>
+<tr>
+<td>40</td>
+<td>9</td>
+<td>9</td>
+<td>5</td>
+<td>5</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>41</td>
+<td>11</td>
+<td>11</td>
+<td>5</td>
+<td>5</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>42</td>
+<td>12</td>
+<td>12</td>
+<td>6</td>
+<td>5</td>
+<td>83.33%</td>
+</tr>
+<tr>
+<td>43</td>
+<td>11</td>
+<td>11</td>
+<td>5</td>
+<td>5</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>44</td>
+<td>11</td>
+<td>11</td>
+<td>5</td>
+<td>4</td>
+<td>80.00%</td>
+</tr>
+<tr>
+<td>45</td>
+<td>11</td>
+<td>11</td>
+<td>5</td>
+<td>4</td>
+<td>80.00%</td>
+</tr>
+<tr>
+<td>46</td>
+<td>11</td>
+<td>11</td>
+<td>5</td>
+<td>5</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>47</td>
+<td>11</td>
+<td>11</td>
+<td>5</td>
+<td>5</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>48</td>
+<td>11</td>
+<td>11</td>
+<td>5</td>
+<td>4</td>
+<td>80.00%</td>
+</tr>
+<tr>
+<td>49</td>
+<td>11</td>
+<td>11</td>
+<td>5</td>
+<td>4</td>
+<td>80.00%</td>
+</tr>
+<tr>
+<td>50</td>
+<td>11</td>
+<td>11</td>
+<td>6</td>
+<td>6</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>51</td>
+<td>11</td>
+<td>11</td>
+<td>5</td>
+<td>5</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>52</td>
+<td>11</td>
+<td>11</td>
+<td>5</td>
+<td>4</td>
+<td>80.00%</td>
+</tr>
+<tr>
+<td>53</td>
+<td>11</td>
+<td>11</td>
+<td>5</td>
+<td>5</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>54</td>
+<td>13</td>
+<td>13</td>
+<td>6</td>
+<td>6</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>55</td>
+<td>11</td>
+<td>11</td>
+<td>5</td>
+<td>5</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>56</td>
+<td>10</td>
+<td>10</td>
+<td>5</td>
+<td>5</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>57</td>
+<td>27</td>
+<td>26</td>
+<td>18</td>
+<td>16</td>
+<td>88.89%</td>
+</tr>
+<tr>
+<td>58</td>
+<td>13</td>
+<td>12</td>
+<td>9</td>
+<td>8</td>
+<td>88.89%</td>
+</tr>
+<tr>
+<td>59</td>
+<td>12</td>
+<td>12</td>
+<td>5</td>
+<td>4</td>
+<td>80.00%</td>
+</tr>
+<tr>
+<td>60</td>
+<td>14</td>
+<td>14</td>
+<td>5</td>
+<td>4</td>
+<td>80.00%</td>
+</tr>
+<tr>
+<td>61</td>
+<td>21</td>
+<td>21</td>
+<td>10</td>
+<td>8</td>
+<td>80.00%</td>
+</tr>
+<tr>
+<td>62</td>
+<td>26</td>
+<td>25</td>
+<td>12</td>
+<td>10</td>
+<td>83.33%</td>
+</tr>
+<tr>
+<td>63</td>
+<td>16</td>
+<td>16</td>
+<td>8</td>
+<td>7</td>
+<td>87.50%</td>
+</tr>
+<tr>
+<td>64</td>
+<td>18</td>
+<td>18</td>
+<td>8</td>
+<td>8</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>65</td>
+<td>20</td>
+<td>20</td>
+<td>11</td>
+<td>10</td>
+<td>90.91%</td>
+</tr>
+<tr>
+<td>66</td>
+<td>5</td>
+<td>5</td>
+<td>4</td>
+<td>3</td>
+<td>75.00%</td>
+</tr>
+<tr>
+<td>67</td>
+<td>5</td>
+<td>5</td>
+<td>4</td>
+<td>4</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>68</td>
+<td>5</td>
+<td>5</td>
+<td>4</td>
+<td>4</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>69</td>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>100.00%</td>
+</tr>
+</tbody>
+</table>
+<h2 id="technical-information">Technical Information:</h2>
+<ul>
+<li><strong>Programming Language</strong>: Python</li>
+<li><strong>Face Detection</strong>: RetinaFace</li>
+<li><strong>Face Recognition</strong>: Face Recognition.</li>
+<li><strong>Computer Vision Library</strong>: OpenCV</li>
+</ul>
+<h2 id="benefits">Benefits:</h2>
+<ul>
+<li><strong>Effortless Efficiency</strong>: Automates attendance, saving time and resources.</li>
+<li><strong>Increased Accuracy</strong>: Reduces human error compared to manual roll calls.</li>
+<li><strong>Enhanced Convenience</strong>: Provides a faster and more user-friendly approach for everyone.</li>
+<li><strong>Flexible Scalability</strong>: Adapts to accommodate different group sizes.</li>
+</ul>
+<h2 id="applications">Applications:</h2>
+<ul>
+<li><strong>Educational Institutions</strong>: Streamlines attendance management and ensures accurate student records.</li>
+<li><strong>Workplaces</strong>: Simplifies employee attendance tracking and supports flexible work arrangements.</li>
+<li><strong>Access Control Systems</strong>: Offers an additional layer of security by integrating face recognition for entry.</li>
+</ul>
+<h2 id="citations">Citations:</h2>
+<ol>
+<li><a href="https://arxiv.org/abs/1905.00641">https://arxiv.org/abs/1905.00641</a></li>
+<li><a href="https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fwww.timedynamo.com%2Fblog%2Fface-recognition-attendance-system&amp;psig=AOvVaw2FkF7iZtn_xnR0WqiLOgx8&amp;ust=1713675455940000&amp;source=images&amp;cd=vfe&amp;opi=89978449&amp;ved=0CBIQjRxqFwoTCMjdmdmA0IUDFQAAAAAdAAAAABAS">https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fwww.timedynamo.com%2Fblog%2Fface-recognition-attendance-system&amp;psig=AOvVaw2FkF7iZtn_xnR0WqiLOgx8&amp;ust=1713675455940000&amp;source=images&amp;cd=vfe&amp;opi=89978449&amp;ved=0CBIQjRxqFwoTCMjdmdmA0IUDFQAAAAAdAAAAABAS</a></li>
+</ol>
+
+            
+            
+        </body>
+        </html>
