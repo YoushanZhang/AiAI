@@ -48,6 +48,11 @@ Post-training, the model is converted to TensorFlow Lite to optimize performance
 
 ## App Details
 
+### Direct Downloads
+
+- **APK Download**: For users who prefer manual installation, the APK is available for direct download. Please ensure that you enable installation from unknown sources on your device if you're installing an APK directly. [Download APK](https://drive.google.com/file/d/1wcSVM3q4HLUdGzgtLO_s6_3NqCvXbD7K/view?usp=sharing)
+
+
 ### Integration with Mobile App
 
 The TensorFlow Lite model is integrated into the Pink Guardian mobile app, providing users with real-time analysis of mammogram images. This integration allows for immediate preliminary diagnostics to be made accessible on user's devices.
