@@ -33,8 +33,7 @@ This project involves the creation of a comprehensive system that employs the BC
 
 ### Dataset Overview
 
-
-<img src="(https://private-user-images.githubusercontent.com/26533517/326626822-5d697a54-a483-4628-9a5e-29627029e4f9.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTQ0MzcyMDcsIm5iZiI6MTcxNDQzNjkwNywicGF0aCI6Ii8yNjUzMzUxNy8zMjY2MjY4MjItNWQ2OTdhNTQtYTQ4My00NjI4LTlhNWUtMjk2MjcwMjllNGY5LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA0MzAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNDMwVDAwMjgyN1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWQ0OWEyYzgyMTIzZjZmZjNiOGUwNTVmMTkzNWU2MzQyMTg2OTRhNTFkNjUyNjNjZWZhYmI1ZjY5YTEzMjEzM2MmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.hZ81Gh7twal57EtN17jELyF3YwcQjDTZamaxGzu8Mzg)" width="807" alt="dataset">
+<img src="https://github.com/YoushanZhang/AiAI/assets/135675595/8487f008-baa3-4d1f-8d5e-95b0b9b568b9" width="807" alt="dataset">
 
 The BC-InceptionV3 model is trained on high-quality mammographic images that provide a diverse basis for learning distinguishing features between benign and malignant tumors.
 
@@ -57,8 +56,7 @@ The TensorFlow Lite model is integrated into the Pink Guardian mobile app, provi
 
 Scan the QR code below to download the **Pink Guardian** app directly to your device:
 
-
-<img src="https://private-user-images.githubusercontent.com/26533517/326626110-fb8ed096-e201-4808-b57f-a4fac201e2c9.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTQ0MzY4NjksIm5iZiI6MTcxNDQzNjU2OSwicGF0aCI6Ii8yNjUzMzUxNy8zMjY2MjYxMTAtZmI4ZWQwOTYtZTIwMS00ODA4LWI1N2YtYTRmYWMyMDFlMmM5LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA0MzAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNDMwVDAwMjI0OVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTkwMTgwMzM0NzEwZDdmMTFlMTIwYWNkODkxZWQ0YzIyMGQ0YmMzMjEwZWM0OTJhY2JmN2ExMTkxZjRiYjg3NzYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.NlUV-e3o6lgR7renFWr5uiy6wWiAQPN_CnqY0cMxgBI" alt="QR Code for Pink Guardian App" width="200"/>
+<img src="https://github.com/YoushanZhang/AiAI/assets/135675595/6c72d6cb-6026-45d8-a308-b5617583e170" alt="QR Code for Pink Guardian App" width="200"/>
 
 
 ## Results
