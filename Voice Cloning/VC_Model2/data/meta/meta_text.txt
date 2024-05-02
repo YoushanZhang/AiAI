@@ -1,0 +1,25 @@
+meta_spec_00001.npy|meta_mel_00001.npy|258|HUNTERS OUT OF SPACE By JOSEPH E KELLEAM.
+meta_spec_00002.npy|meta_mel_00002.npy|233|Chapter 1.
+meta_spec_00003.npy|meta_mel_00003.npy|773|In Kansas, spring usually falls on the day before summer. It had been such a day, and now at midnight I was sitting at my desk.
+meta_spec_00004.npy|meta_mel_00004.npy|711|Both hands of the clock were pointing to the ceiling and to the limitless stars beyond. My wife and daughter had long been asleep.
+meta_spec_00005.npy|meta_mel_00005.npy|486|I had stayed up to write a few letters but it was not a night for working.
+meta_spec_00006.npy|meta_mel_00006.npy|1161|Although it was a bit chilly outside, the moon was bright and a bird was singing a glad and plaintive song about the summer that was coming and all the summers that had passed and all that would be.
+meta_spec_00007.npy|meta_mel_00007.npy|719|Adding, here and there, a bit of melody about all the good things that happen to birds and men without their knowing why.
+meta_spec_00008.npy|meta_mel_00008.npy|920|Both hands of the clock were pointing upward. And I was half-asleep, and half-dreaming. Remembering all the friends I had most of them scattered to the four winds by now.
+meta_spec_00009.npy|meta_mel_00009.npy|937|And that best friend of all, Doctor Jack Odin! I wondered where he was and how he had fared since he disappeared into that dark cave in Texas.
+meta_spec_00010.npy|meta_mel_00010.npy|792|Suddenly I became aware of a flickering light above me. I looked up. I had thought that the lights were winking, but they were not.
+meta_spec_00011.npy|meta_mel_00011.npy|1180|The room was lit by a reading lamp, and the ceiling was so shadowy that at first I could see nothing at all. Then I saw the light or the ghost of a light gleaming faintly upon or through the ceiling.
+meta_spec_00012.npy|meta_mel_00012.npy|1366|It was the faintest yellow, neither a bull's eye nor a splotch. Instead, it seemed to be a tiny whirlpool of movement the faintest nebula in miniature with spirals of light swiftly circling a central core.
+meta_spec_00013.npy|meta_mel_00013.npy|1031|For a second I thought I could see through the roof, and the stars swarmed before me. It was as though I was at the vortex of a high whirlwind of dancing, shining specks of light.
+meta_spec_00014.npy|meta_mel_00014.npy|778|Then that sensation was gone, and there were two faint coiling spirals of yellow light upon the ceiling.
+meta_spec_00015.npy|meta_mel_00015.npy|279|The lights began to whisper.
+meta_spec_00016.npy|meta_mel_00016.npy|390|We are Ato and Wolden, they said. Remember us.
+meta_spec_00017.npy|meta_mel_00017.npy|1002|I remembered them from the notes that I had pieced together to tell the story of my old friend, Doctor Jack Odin, and his adventure in the World of Opal.
+meta_spec_00018.npy|meta_mel_00018.npy|530|It seemed impolite to tell them that we had never met. So I listened.
+meta_spec_00019.npy|meta_mel_00019.npy|1324|Wolden's work has succeeded, the whispering continued. We have reduced time and space to nothing. You see us as lights, or as we once put it, 'as flame-winged butterflies,' but we are neither.
+meta_spec_00020.npy|meta_mel_00020.npy|706|We are Ato and Wolden. By adding ourselves to another dimension we are hardly recognizable to you.
+meta_spec_00021.npy|meta_mel_00021.npy|1261|Actually, we are at our starting point billions of miles away! We are traveling through space toward you at a speed which would make the speed of light look like a glow-worm crawling across the dark ground.
+meta_spec_00022.npy|meta_mel_00022.npy|514|and at the same time, we are there in your room. Do you understand.
+meta_spec_00023.npy|meta_mel_00023.npy|836|I didn't, but I have learned that a man can live quite comfortably by merely keeping his mouth shut. So I kept still.
+meta_spec_00024.npy|meta_mel_00024.npy|836|My little daughter had been playing in the room before she had unwillingly gone to bed. She had left a red rubber ball upon my desk.
+meta_spec_00025.npy|meta_mel_00025.npy|631|Look at the ball, the voices whispered. We will give you an idea of the time-space in which we live.
