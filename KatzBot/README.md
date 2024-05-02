@@ -1,2 +1,0 @@
-# Katzbot
-Yeshiva Chatbot
