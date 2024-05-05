@@ -8,7 +8,7 @@ The aim of this study is to utilize the diffusion model to augment the original 
 
 
 ## Image generation from Diffusion models 
-You can find the diffusion model weights through the [link](https://shorturl.at/pAY49)
+You can find the diffusion model weights through the [link](https://yuad-my.sharepoint.com/:f:/g/personal/syueh_mail_yu_edu/EtfXe9VM9rtIoYwemdFNoxoBma16sDeEfTBqY8VSZkXkiA?e=AdV3Jj)
 
 Also, you can find all the generated images [here](https://drive.google.com/drive/folders/1Y_rxgAFNPX2thpiiFbtdiF52q3OT3mbK?usp=drive_link) 
 
@@ -93,4 +93,4 @@ for seed in range(i):
         display(img)
 ```
 ## Norberg Angle prediction model:
-The `tool2.ipynb` provides the data preprocessing and model architectures. `Dog_hip_training_v15.ipynb` provides the whole training process and the prediction results. The best performance model v4 can be found in the `NA_prediction_model_weights` folder through the [link](https://shorturl.at/pAY49) 
+The `tool2.ipynb` provides the data preprocessing and model architectures. `Dog_hip_training_v15.ipynb` provides the whole training process and the prediction results. The best performance model v4 can be found in the `NA_prediction_model_weights` folder through the [link](https://yuad-my.sharepoint.com/:f:/g/personal/syueh_mail_yu_edu/EtfXe9VM9rtIoYwemdFNoxoBma16sDeEfTBqY8VSZkXkiA?e=AdV3Jj)
