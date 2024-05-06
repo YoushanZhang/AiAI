@@ -51,6 +51,12 @@ Post-training, the model is converted to TensorFlow Lite to optimize performance
 ### Direct Downloads
 
 - **APK Download**: For users who prefer manual installation, the APK is available for direct download. Please ensure that you enable installation from unknown sources on your device if you're installing an APK directly. [Download APK](https://drive.google.com/file/d/1wcSVM3q4HLUdGzgtLO_s6_3NqCvXbD7K/view?usp=sharing)
+  
+-  **IOS APP** :
+- [View APP Source Code -IOS/APPLE](https://drive.google.com/file/d/16oLxcK9kujgO7FwT5gdc1NlOZa1QZEcq/view?usp=drive_link)
+
+- **Android APP** :
+- [View APP Source Code -ANDROID](https://drive.google.com/file/d/10Bj_Ol0-mTPNvCBqLd8krcWPG_pr1ep9/view?usp=sharing)
 
 
 ### Integration with Mobile App
