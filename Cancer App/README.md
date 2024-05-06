@@ -33,6 +33,8 @@ This project involves the creation of a comprehensive system that employs the BC
 
 ### Dataset Overview
 
+- DATASET LINK : [KAGGLE  DATASET](https://www.kaggle.com/datasets/awsaf49/cbis-ddsm-breast-cancer-image-dataset)
+
 <img src="https://github.com/YoushanZhang/AiAI/assets/135675595/8487f008-baa3-4d1f-8d5e-95b0b9b568b9" width="807" alt="dataset">
 
 The BC-InceptionV3 model is trained on high-quality mammographic images that provide a diverse basis for learning distinguishing features between benign and malignant tumors.
