@@ -1,7 +1,7 @@
 # VetMedGPT
 VetMedGPT is a specialized tool developed to assist in the initial diagnosis and first aid for animals, aiming to bridge the gap in the field of artificial intelligence (AI) by providing tailored support for veterinary medicine healthcare.
 
-[Model](https://huggingface.co/azsxscdvfb/vetmedgpt-1B-V0.1)
+[Model](https://huggingface.co/azsxscdvfb/vetmedgpt-1B-V0.1)    
 [website](https://d19c-100-1-3-245.ngrok-free.app/)
 ## Project Overview
 In the realm of AI, significant advancements have been achieved in developing large language models (LLMs) catering to various domains, including human healthcare. However, the domain of veterinary science has often been overlooked, resulting in limitations in scope, efficacy, or availability of existing AI models for animal healthcare.
