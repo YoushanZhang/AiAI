@@ -32,7 +32,7 @@ array of visual contexts, fostering robust model learning and adaptation
 | Stable Diffusion 2 |     100 |
 
 ### Examples of generated images_1:
-<img src="https://github.com/YSH-314/AiAI/assets/74528993/236c09c6-2e4d-43b7-af1f-6313e279c3b5" width="750" height="400">
+<img src="https://github.com/YSH-314/AiAI/assets/74528993/236c09c6-2e4d-43b7-af1f-6313e279c3b5" width="750" height="350">
 
 ### Examples of generated images_2:
 <img src="https://github.com/YSH-314/AiAI/assets/74528993/1daddc41-df10-4945-ae24-269611550c6a" width="650" height="450">
