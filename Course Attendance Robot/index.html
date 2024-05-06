@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
         <html>
         <head>
@@ -153,28 +154,30 @@
 <li><a href="#website-screenshots">Website Screenshots</a></li>
 </ul>
 </li>
-<li><a href="#datasets">Datasets:</a>
+<li><a href="#datasets">Datasets</a>
 <ul>
-<li><a href="#raw-images-data-collection">Raw Images Data Collection:</a></li>
-<li><a href="#raw-images">Raw Images:</a></li>
-<li><a href="#processed-images">Processed Images:</a></li>
+<li><a href="#raw-images-data-collection">Raw Images Data Collection</a></li>
+<li><a href="#raw-images">Raw Images</a></li>
+<li><a href="#processed-images">Processed Images</a></li>
 </ul>
 </li>
-<li><a href="#method">Method:</a>
+<li><a href="#method">Method</a>
 <ul>
-<li><a href="#retinaface">RetinaFace:</a></li>
-<li><a href="#retinaface-output-screenshots">Retinaface Output Screenshots:</a></li>
-<li><a href="#face-recognition">Face Recognition:</a></li>
-<li><a href="#recognized-faces">Recognized Faces:</a></li>
+<li><a href="#retinaface">RetinaFace</a></li>
+<li><a href="#detected-faces">Detected Faces</a></li>
+<li><a href="#face-recognition">Face Recognition</a></li>
+<li><a href="#recognized-faces">Recognized Faces</a></li>
 </ul>
 </li>
-<li><a href="#results">Results:</a></li>
+<li><a href="#implementation">Implementation</a></li>
+<li><a href="#results">Results</a></li>
 <li><a href="#overall-facial-detection-and-recognition-results">Overall Facial Detection and Recognition Results</a></li>
 <li><a href="#individual-facial-detection-and-recognition-results">Individual Facial Detection and Recognition Results</a></li>
-<li><a href="#technical-information">Technical Information:</a></li>
-<li><a href="#benefits">Benefits:</a></li>
-<li><a href="#applications">Applications:</a></li>
-<li><a href="#citations">Citations:</a></li>
+<li><a href="#demo">Demo</a></li>
+<li><a href="#technical-information">Technical Information</a></li>
+<li><a href="#benefits">Benefits</a></li>
+<li><a href="#applications">Applications</a></li>
+<li><a href="#citations">Citations</a></li>
 </ul>
 </li>
 </ul>
@@ -211,7 +214,7 @@
 <h2 id="method">Method:</h2>
 <h3 id="retinaface">RetinaFace:</h3>
 <p>RetinaFace is a robust single-stage face detector that performs pixel-wise face localization on various scales of faces by taking advantage of joint extra-supervised and self-supervised multi-task learning.</p>
-<h3 id="retinaface-output-screenshots">Retinaface Output Screenshots:</h3>
+<h3 id="detected-faces">Detected Faces:</h3>
 <figure align="center"> 
   <img src="images/15_Detection.jpg" alt="drawing" height="720"/>
   <figcaption>RetinaFace detection output on Classroom Image</figcaption>
@@ -223,6 +226,33 @@
   <img src="images/15_predicted.jpg" alt="drawing" height="720"/>
   <figcaption>Face Recognition on group image</figcaption>
 </figure>
+<h2 id="implementation">Implementation:</h2>
+<p><strong>1. Train Image Data Collection:</strong></p>
+<ul>
+<li>Go to the folder 'Student Image Data Collection' and download the 'Dataset_Collecting Images.py</a>' and 'haarcascade_frontalface_default.xml'.</li>
+<li>Create a folder 'Face_Recognition_Images' on your desktop and copy/paste the Python script and haarcascade.xml into the folder.</li>
+<li>Run the code.<pre><code>Dataset_Collecting Images.py
+</code></pre>
+</li>
+</ul>
+<p><strong>2. Test Image Data Collection:</strong></p>
+<ul>
+<li>You can collect the Group test images from your mobile preferably Apple iPhone or from good-resolution smartphones.</li>
+</ul>
+<p><strong>3. Generate Embeddings:</strong></p>
+<ul>
+<li>Download the Generate Embeddings.py</a> file to generate the embedding of the known faces.</li>
+<li>It will create an embedding file that can be used as ground truth embedding for recognition.<pre><code>Generate Embeddings.py
+</code></pre>
+</li>
+</ul>
+<p><strong>4. Face Recognition:</strong></p>
+<ul>
+<li>Go to our website homepage and select/add the course as per your University courses and Upload the class_list.csv (Sample can be found in the Demo folder).</li>
+<li>Select the date for which attendance should be taken and press the button 'Take Attendance'.</li>
+<li>Now choose the Group Image for which the attendance is to be taken and upload the file and press the button 'Take Attendance'.</li>
+<li>After which you see the recognized faces on the image along with the attendance displayed which can be manually edited and downloaded into a CSV file.</li>
+</ul>
 <h2 id="results">Results:</h2>
 <h2 id="overall-facial-detection-and-recognition-results">Overall Facial Detection and Recognition Results</h2>
 <table>
@@ -862,8 +892,18 @@
 <td>1</td>
 <td>100.00%</td>
 </tr>
+<tr>
+<td></td>
+<td><strong>Mean Detection Accuracy</strong></td>
+<td><strong>99.4%</strong></td>
+<td></td>
+<td><strong>Mean Recognition Accuracy</strong></td>
+<td><strong>90.30%</strong></td>
+</tr>
 </tbody>
 </table>
+<h2 id="demo">Demo:</h2>
+<p><a href="Demo/Demo.mp4">Course-Attendance-Robot Application Demo</a></p>
 <h2 id="technical-information">Technical Information:</h2>
 <ul>
 <li><strong>Programming Language</strong>: Python</li>
@@ -886,8 +926,8 @@
 </ul>
 <h2 id="citations">Citations:</h2>
 <ol>
-<li><a href="https://arxiv.org/abs/1905.00641">https://arxiv.org/abs/1905.00641</a></li>
-<li><a href="https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fwww.timedynamo.com%2Fblog%2Fface-recognition-attendance-system&amp;psig=AOvVaw2FkF7iZtn_xnR0WqiLOgx8&amp;ust=1713675455940000&amp;source=images&amp;cd=vfe&amp;opi=89978449&amp;ved=0CBIQjRxqFwoTCMjdmdmA0IUDFQAAAAAdAAAAABAS">https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fwww.timedynamo.com%2Fblog%2Fface-recognition-attendance-system&amp;psig=AOvVaw2FkF7iZtn_xnR0WqiLOgx8&amp;ust=1713675455940000&amp;source=images&amp;cd=vfe&amp;opi=89978449&amp;ved=0CBIQjRxqFwoTCMjdmdmA0IUDFQAAAAAdAAAAABAS</a></li>
+<li><a href="https://arxiv.org/abs/1905.00641">RetinaFace</a></li>
+<li><a href="https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fwww.timedynamo.com%2Fblog%2Fface-recognition-attendance-system&amp;psig=AOvVaw2FkF7iZtn_xnR0WqiLOgx8&amp;ust=1713675455940000&amp;source=images&amp;cd=vfe&amp;opi=89978449&amp;ved=0CBIQjRxqFwoTCMjdmdmA0IUDFQAAAAAdAAAAABAS">Title Image</a></li>
 </ol>
 
             
