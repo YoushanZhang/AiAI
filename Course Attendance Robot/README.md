@@ -5,18 +5,25 @@
 
 ## Table of Contents
 
-- [Course Attendance System with Facial Recognition](#course-attendance-system-with-facial-recognition)
+- [Course Attendance Robot](#course-attendance-robot)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
-      - [Project Description](#project-description)
-      - [Website](#website-screenshots)
-  - [Datasets](#datasets)
-      - [Raw Images](#raw-images-data-collection)
-      - [Processed Images ](#processed-images)
-  - [Method](#method)
-      - [RetinaFace](#retinaface)
-      - [Face Recognition](#face-recognition)
+    - [Project Description](#project-description)
+    - [Website Screenshots](#website-screenshots)
+  - [Datasets:](#datasets)
+    - [Raw Images Data Collection](#raw-images-data-collection)
+    - [Raw Images](#raw-images)
+    - [Processed Images](#processed-images)
+  - [Method:](#method)
+    - [RetinaFace](#retinaface)
+    - [Detected Faces](#detected-faces)
+    - [Face Recognition](#face-recognition)
+    - [Recognized Faces](#recognized-faces)
+  - [Implementation](#implementation)
   - [Results](#results)
+  - [Overall Facial Detection and Recognition Results](#overall-facial-detection-and-recognition-results)
+  - [Individual Facial Detection and Recognition Results](#individual-facial-detection-and-recognition-results)
+  - [Demo](#demo)
   - [Technical Information](#technical-information)
   - [Benefits](#benefits)
   - [Applications](#applications)
@@ -71,7 +78,7 @@ To assess the efficacy of the proposed system, a dataset containing thirty-six s
 
 RetinaFace is a robust single-stage face detector that performs pixel-wise face localization on various scales of faces by taking advantage of joint extra-supervised and self-supervised multi-task learning.
 
-### Retinaface Output Screenshots:
+### Detected Faces:
 <figure align="center"> 
   <img src="images/15_Detection.jpg" alt="drawing" height="720"/>
   <figcaption>RetinaFace detection output on Classroom Image</figcaption>
@@ -87,24 +94,52 @@ Face Recognition is a Python library that can be used to recognize and manipulat
   <figcaption>Face Recognition on group image</figcaption>
 </figure>
 
+## Implementation:
+
+**1. Train Image Data Collection:**
+- Go to the folder 'Student Image Data Collection' and download the 'Dataset_Collecting Images.py' and 'haarcascade_frontalface_default.xml'.
+- Create a folder 'Face_Recognition_Images' on your desktop and copy/paste the Python script and haarcascade.xml into the folder. 
+- Run the code.
+   ```
+   Dataset_Collecting Images.py
+   ```
+python Dataset_Collecting Images.py 
+  
+**2. Test Image Data Collection:**
+- You can collect the Group test images from your mobile preferably Apple iPhone or from good-resolution smartphones.
+
+**3. Generate Embeddings:**
+- Download the Generate Embeddings.py file to generate the embedding of the known faces.
+- It will create an embedding file that can be used as ground truth embedding for recognition.
+   ```
+   Generate Embeddings.py
+   ```
+
+**4. Face Recognition:**
+- Go to our website homepage and select/add the course as per your University courses and Upload the class_list.csv (Sample can be found in the Demo folder).
+- Select the date for which attendance should be taken and press the button 'Take Attendance'.
+- Now choose the Group Image for which the attendance is to be taken and upload the file and press the button 'Take Attendance'. 
+- After which you see the recognized faces on the image along with the attendance displayed which can be manually edited and downloaded into a CSV file.
+
 ## Results:
 
 ## Overall Facial Detection and Recognition Results
 
 | Detection           | Recognition          | Image Size | Cropped Embeddings | Detection Accuracy (%) | Recognition Accuracy (%) | Group Image Recognition | Recognition Format - Images |
 |---------------------|----------------------|------------|--------------------|------------------------|--------------------------|-------------------------|-----------------------------|
-| RetinaFace          | Face Recognition    | 50x50      | :x:                | 99.4                   | 88.3                     | :heavy_check_mark:      | :heavy_check_mark:         |
-| RetinaFace          | Face Recognition    | 112x112    | :x:                | 99.2                   | 85.3                     | :heavy_check_mark:      | :heavy_check_mark:         |
-| RetinaFace          | Face Recognition    | 600x600    | :x:                | 98.6                   | 85.1                     | :heavy_check_mark:      | :heavy_check_mark:         |
-| Face Recognition   | Face Recognition    | 50x50      | :heavy_check_mark: | 65.5                   | 72.3                     | :heavy_check_mark:      | :heavy_check_mark:         |
-| Face Recognition   | Face Recognition    | 112x112    | :x:                | 65.5                   | 70.5                     | :heavy_check_mark:      | :heavy_check_mark:         |
-| Yolo9               | Face Recognition    | 112x112    | :x:                | 51.7                   | 58.4                     | :heavy_check_mark:      | :heavy_check_mark:         |
-| RetinaFace          | haarcascade_frontalface | 50x50 | :x:                | 99.4                   | 45.2                     | :heavy_check_mark:      | :heavy_check_mark:         |
-| InsightFace         | InsightFace         | 1200x1600  | :x:                | 99.0                   | 89.2                     | :heavy_check_mark:      | :heavy_check_mark:         |
-| haarcascade_frontalface | Face Recognition | 112x112 | :x:                | 91.0                   | 86.0                     | :heavy_check_mark:      | :heavy_check_mark:         |
-| InsightFace         | InsightFace         | 1200x1600  | :x:                | 99.0                   | 88.0                     | :heavy_check_mark:      | :heavy_check_mark:         |
-| Haar cascade + DoG filtering | LBPH       | -          | :x:                | 98.3                   | 87.0                     | :x:                     | :x:                         |
-| RetinaFace[**Ours**]| Face Recognition    | **50x50**  | **:heavy_check_mark:** | **99.4**               | **90.3**                 | **:heavy_check_mark:**  | **:heavy_check_mark:**    |
+| RetinaFace          | Face Recognition    | 50x50      | &#10060;           | 99.4                   | 88.3                     | &#10004;                | &#10004;                    |
+| RetinaFace          | Face Recognition    | 112x112    | &#10060;           | 99.2                   | 85.3                     | &#10004;                | &#10004;                    |
+| RetinaFace          | Face Recognition    | 600x600    | &#10060;           | 98.6                   | 85.1                     | &#10004;                | &#10004;                    |
+| Face Recognition   | Face Recognition    | 50x50      | &#10004;           | 65.5                   | 72.3                     | &#10004;                | &#10004;                    |
+| Face Recognition   | Face Recognition    | 112x112    | &#10060;           | 65.5                   | 70.5                     | &#10004;                | &#10004;                    |
+| Yolo9               | Face Recognition    | 112x112    | &#10060;           | 51.7                   | 58.4                     | &#10004;                | &#10004;                    |
+| RetinaFace          | haarcascade_frontalface | 50x50 | &#10060;           | 99.4                   | 45.2                     | &#10004;                | &#10004;                    |
+| InsightFace         | InsightFace         | 1200x1600  | &#10060;           | 99.0                   | 89.2                     | &#10004;                | &#10004;                    |
+| haarcascade_frontalface | Face Recognition | 112x112 | &#10060;           | 91.0                   | 86.0                     | &#10004;                | &#10004;                    |
+| InsightFace         | InsightFace         | 1200x1600  | &#10060;           | 99.0                   | 88.0                     | &#10004;                | &#10004;                    |
+| Haar cascade + DoG filtering | LBPH       | -          | &#10060;           | 98.3                   | 87.0                     | &#10060;                | &#10060;                    |
+| RetinaFace[**Ours**]| Face Recognition    | **50x50**  | **&#10004;**       | **99.4**               | **90.3**                 | **&#10004;**            | **&#10004;**                |
+
 
 ## Individual Facial Detection and Recognition Results
 
@@ -199,25 +234,6 @@ https://github.com/YoushanZhang/AiAI/assets/62828547/ca918506-9f5e-435f-9b19-e51
 - **Access Control Systems**: Offers an additional layer of security by integrating face recognition for entry.
 
 ## Citations:
-1. https://arxiv.org/abs/1905.00641
-2. https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.timedynamo.com%2Fblog%2Fface-recognition-attendance-system&psig=AOvVaw2FkF7iZtn_xnR0WqiLOgx8&ust=1713675455940000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCMjdmdmA0IUDFQAAAAAdAAAAABAS
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+1. [RetinaFace](https://arxiv.org/abs/1905.00641)
+2. [Title Image](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.timedynamo.com%2Fblog%2Fface-recognition-attendance-system&psig=AOvVaw2FkF7iZtn_xnR0WqiLOgx8&ust=1713675455940000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCMjdmdmA0IUDFQAAAAAdAAAAABAS)
 
