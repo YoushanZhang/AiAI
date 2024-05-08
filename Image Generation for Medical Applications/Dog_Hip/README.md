@@ -19,6 +19,7 @@ validation sets were both split from real-word image Set4. This selection
 rationale ensures that the training data encapsulates a diverse
 array of visual contexts, fostering robust model learning and adaptation
 
+
 | Source           | # Images |
 |------------------|---------:|
 | Set1             |      219 |
@@ -94,3 +95,11 @@ for seed in range(i):
 ```
 ## Norberg Angle prediction model:
 The `tool2.ipynb` provides the data preprocessing and model architectures. `Dog_hip_training_v15.ipynb` provides the whole training process and the prediction results. The best performance model v4 can be found in the `NA_prediction_model_weights` folder through the [link](https://yuad-my.sharepoint.com/:f:/g/personal/syueh_mail_yu_edu/EtfXe9VM9rtIoYwemdFNoxoBma16sDeEfTBqY8VSZkXkiA?e=AdV3Jj)
+
+| **Model** | **Model Architecture** | **# Trainable Parameters** |
+| --------- | ---------------------- | -------------------------- |
+| V0        | EfficientNet           | 20,488                     |
+| V1        | UNet                   | 50,270,796                 |
+| V2        | UNet                   | 51,977,812                 |
+| V3        | EfficientNet + Residual Block | 34,314,252           |
+| V4        | EfficientNet + ViT Gigantic Patch14 Clip 224 | 63,837,672 |
