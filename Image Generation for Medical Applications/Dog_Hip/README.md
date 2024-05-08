@@ -95,6 +95,8 @@ for seed in range(i):
 ```
 ## Norberg Angle prediction model:
 The `tool2.ipynb` provides the data preprocessing and model architectures. `Dog_hip_training_v15.ipynb` provides the whole training process and the prediction results. The best performance model v4 can be found in the `NA_prediction_model_weights` folder through the [link]
-<img src="https://github.com/YoushanZhang/AiAI/assets/74528993/9c97a166-8dd9-4e97-b086-69de2f1598e2" width="550" height="350">
-<img src="https://github.com/YoushanZhang/AiAI/assets/74528993/cc787234-52f5-4308-a889-4782e1085443" width="550" height="350">
+
+
+<img src="https://github.com/YoushanZhang/AiAI/assets/74528993/9c97a166-8dd9-4e97-b086-69de2f1598e2" width="750" height="350">
+<img src="https://github.com/YoushanZhang/AiAI/assets/74528993/cc787234-52f5-4308-a889-4782e1085443" width="750" height="350">
 
