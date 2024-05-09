@@ -1,6 +1,6 @@
 # Text Residual Motion Encoder for 3D Human Motion Generation
 
-![teaser_image](https://github.com/YoushanZhang/AiAI/blob/main/3D%20Human%20Motion/T2M/Screenshot%202024-04-29%20190517.png)
+![teaser_image](https://github.com/YoushanZhang/AiAI/blob/main/3D%20Human%20Motion/motions.png)
 
 ## Abstract
 In the domain of 3D human motion generation from textual descriptions, the TRME model significantly improves architectural flexibility and dataset diversity. By incorporating an additional layer of residual blocks into the Vector Quantized Variational Autoencoder (VQ-VAE) and utilizing the comprehensive "CHAD" dataset, our model captures finer motion details, improving both the diversity and quality of generated human motions. 
