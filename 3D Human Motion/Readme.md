@@ -37,8 +37,7 @@ Visualize motion predictions from textual descriptions
 
 ## Citations/References:
 
-If you are using HumanML3D dataset, please consider citing the following papers:
-
+```
 @InProceedings{Guo_2022_CVPR,
     author    = {Guo, Chuan and Zou, Shihao and Zuo, Xinxin and Wang, Sen and Ji, Wei and Li, Xingyu and Cheng, Li},
     title     = {Generating Diverse and Natural 3D Human Motions From Text},
@@ -47,12 +46,31 @@ If you are using HumanML3D dataset, please consider citing the following papers:
     year      = {2022},
     pages     = {5152-5161}
 }
+```
 
-<a href="https://github.com/MontrealCorpusTools/Montreal-Forced-Aligner" target="_blank">Montreal Forced Aligner</a> <br/>
-<a href="https://github.com/ming024/FastSpeech2" target="_blank">Fast Speech 2 </a> <br/>
-<a href="https://github.com/keonlee9420/WaveGrad2" target="_blank">keonlee9420's WaveGrad2</a> for GaussianUpsampling<br/>
-<a href="https://arxiv.org/abs/1709.07871" target="_blank">FiLM: Visual Reasoning with a General Conditioning Layer</a><br/>
-<a href="https://github.com/keonlee9420/Daft-Exprt" target="_blank"> Daft-Exprt: Robust Prosody Transfer Across Speakers for Expressive Speech Synthesis</a><br/>
+```
+@InProceedings{guo2020action2motion,
+  title={Action2motion: Conditioned generation of 3D human motions},
+  author={Guo, Chuan and Zuo, Xinxin and Wang, Sen and Zou, Shihao and Sun, Qingyao and Deng, Annan and Gong, Minglun and Cheng, Li},
+  booktitle={Proceedings of the 28th ACM International Conference on Multimedia},
+  pages={2021--2029},
+  year={2020}
+}
+```
+
+```
+@article{tevet2022human,
+  title={Human motion diffusion model},
+  author={Tevet, Guy and Raab, Sigal and Gordon, Brian and Shafir, Yonatan and Cohen-Or, Daniel and Bermano, Amit H},
+  journal={arXiv preprint arXiv:2209.14916},
+  year={2022}
+}
+}
+```
+<a href="https://github.com/EricGuo5513/HumanML3D" target="_blank">HumanML3D: 3D Human Motion-Language Dataset</a> <br/>
+<a href="https://github.com/GuyTevet/motion-diffusion-model" target="_blank">MDM: Human Motion Diffusion Model</a> <br/>
+<a href="https://github.com/Mael-zys/T2M-GPT" target="_blank">T2M-GPT: Generating Human Motion from Textual Descriptions with Discrete Representations</a> <br/>
+<a href="https://github.com/EricGuo5513/text-to-motion" target="_blank">Generating Diverse and Natural 3D Human Motions from Text</a> for GaussianUpsampling<br/>
 
 ## Acknowledgement
 
