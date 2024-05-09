@@ -1,0 +1,52 @@
+==================== Replication 0 ====================
+Time: 2024-04-22 22:45:04.678097
+---> [ground truth] Matching Score: 3.1144
+---> [ground truth] R_precision: (top 1): 0.5156 (top 2): 0.6250 (top 3): 0.7344 
+---> [test] Matching Score: 7.0278
+---> [test] R_precision: (top 1): 0.1406 (top 2): 0.2188 (top 3): 0.3125 
+Time: 2024-04-22 22:45:05.795194
+---> [ground truth] FID: 0.4948
+---> [test] FID: 9.1909
+Time: 2024-04-22 22:45:07.122876
+---> [ground truth] Diversity: 9.7871
+---> [test] Diversity: 9.2222
+!!! DONE !!!
+==================== Replication 1 ====================
+Time: 2024-04-22 22:46:30.807861
+---> [ground truth] Matching Score: 2.8908
+---> [ground truth] R_precision: (top 1): 0.5469 (top 2): 0.6719 (top 3): 0.8125 
+---> [test] Matching Score: 6.5165
+---> [test] R_precision: (top 1): 0.2031 (top 2): 0.2656 (top 3): 0.3594 
+Time: 2024-04-22 22:46:31.900414
+---> [ground truth] FID: 0.6609
+---> [test] FID: 6.1249
+Time: 2024-04-22 22:46:33.227036
+---> [ground truth] Diversity: 9.2028
+---> [test] Diversity: 10.1015
+!!! DONE !!!
+==================== Replication 2 ====================
+Time: 2024-04-22 22:47:56.085721
+---> [ground truth] Matching Score: 2.8071
+---> [ground truth] R_precision: (top 1): 0.4219 (top 2): 0.7031 (top 3): 0.7969 
+---> [test] Matching Score: 6.4297
+---> [test] R_precision: (top 1): 0.1562 (top 2): 0.2812 (top 3): 0.3594 
+Time: 2024-04-22 22:47:57.932667
+---> [ground truth] FID: 0.4245
+---> [test] FID: 8.0428
+Time: 2024-04-22 22:47:59.991664
+---> [ground truth] Diversity: 9.5058
+---> [test] Diversity: 9.3747
+!!! DONE !!!
+========== Matching Score Summary ==========
+---> [ground truth] Mean: 2.9374 CInterval: 0.1468
+---> [test] Mean: 6.6580 CInterval: 0.2986
+========== R_precision Summary ==========
+---> [ground truth](top 1) Mean: 0.4948 CInt: 0.0601;(top 2) Mean: 0.6667 CInt: 0.0363;(top 3) Mean: 0.7812 CInt: 0.0382;
+---> [test](top 1) Mean: 0.1667 CInt: 0.0301;(top 2) Mean: 0.2552 CInt: 0.0301;(top 3) Mean: 0.3438 CInt: 0.0250;
+========== FID Summary ==========
+---> [ground truth] Mean: 0.5267 CInterval: 0.1122
+---> [test] Mean: 7.7862 CInterval: 1.4312
+========== Diversity Summary ==========
+---> [ground truth] Mean: 9.4986 CInterval: 0.2700
+---> [test] Mean: 9.5662 CInterval: 0.4341
+========== MultiModality Summary ==========
