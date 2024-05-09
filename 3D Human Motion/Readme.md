@@ -5,32 +5,20 @@
 
 ## Table of Contents
 
-- [Text Residual Motion Encoder for 3D Human Motion Generatio](#Text-Residual-Motion-Encoder-for-3D-Human-Motion-Generation)
-  - [Table of Contents](#table-of-contents)
+- [Text Residual Motion Encoder for 3D Human Motion Generation](#Text-Residual-Motion-Encoder-for-3D-Human-Motion-Generation)
   - [Introduction](#introduction)
-    - [Project Description](#project-description)
-    - [Website Screenshots](#website-screenshots)
   - [Datasets](#datasets)
     - [Raw Images Data Collection](#raw-images-data-collection)
     - [Raw Images](#raw-images)
-    - [Processed Images](#processed-images)
   - [Method](#method)
     - [RetinaFace](#retinaface)
-    - [Detected Faces](#detected-faces)
-    - [Face Recognition](#face-recognition)
-    - [Recognized Faces](#recognized-faces)
   - [Implementation](#implementation)
   - [Results](#results)
-  - [Overall Facial Detection and Recognition Results](#overall-facial-detection-and-recognition-results)
-  - [Individual Facial Detection and Recognition Results](#individual-facial-detection-and-recognition-results)
-  - [Demo](#demo)
-  - [Technical Information](#technical-information)
-  - [Benefits](#benefits)
-  - [Applications](#applications)
-  - [Citations](#citations)
+  - [Citations/References](#citations-references)
+  - [Acknowledgement](#acknowledgement)
 
 
-## Abstract
+## Introduction
 In the domain of 3D human motion generation from textual descriptions, the TRME model significantly improves architectural flexibility and dataset diversity. By incorporating an additional layer of residual blocks into the Vector Quantized Variational Autoencoder (VQ-VAE) and utilizing the comprehensive "CHAD" dataset, our model captures finer motion details, improving both the diversity and quality of generated human motions. 
 
 ## Repository Contents
@@ -48,7 +36,9 @@ To set up the necessary environment:
 conda env create -f environment.yml
 ```
 
-## Data Preparation
+## Datasets
+
+### Data Preparation
 CHAD dataset is a combination of several datasets, providing diverse motion categories suitable for robust training:
 
 
