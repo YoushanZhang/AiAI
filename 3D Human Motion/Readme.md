@@ -70,13 +70,13 @@ Visualize motion predictions from textual descriptions
 <a href="https://github.com/EricGuo5513/HumanML3D" target="_blank">HumanML3D: 3D Human Motion-Language Dataset</a> <br/>
 <a href="https://github.com/GuyTevet/motion-diffusion-model" target="_blank">MDM: Human Motion Diffusion Model</a> <br/>
 <a href="https://github.com/Mael-zys/T2M-GPT" target="_blank">T2M-GPT: Generating Human Motion from Textual Descriptions with Discrete Representations</a> <br/>
-<a href="https://github.com/EricGuo5513/text-to-motion" target="_blank">Generating Diverse and Natural 3D Human Motions from Text</a> for GaussianUpsampling<br/>
+<a href="https://github.com/EricGuo5513/text-to-motion" target="_blank">Generating Diverse and Natural 3D Human Motions from Text</a><br/>
 
 ## Acknowledgement
 
 We appreciate prior contributions as a source of inspiration for Text to 3D Human Motion Generation from :  
 
-* public code like [text-to-motion](https://github.com/EricGuo5513/text-to-motion), [TM2T](https://github.com/EricGuo5513/TM2T), [MDM](https://github.com/GuyTevet/motion-diffusion-model).
+* Public code repositories like [text-to-motion](https://github.com/EricGuo5513/text-to-motion), [TM2T](https://github.com/EricGuo5513/TM2T), [MDM](https://github.com/GuyTevet/motion-diffusion-model).
 * <a href='https://github.com/YoushanZhang/'>Dr. Youshan Zhang</a> for guidance and valuable feedback.
 
 
