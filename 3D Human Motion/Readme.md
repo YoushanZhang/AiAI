@@ -65,7 +65,7 @@ Visualize motion predictions from textual descriptions
   journal={arXiv preprint arXiv:2209.14916},
   year={2022}
 }
-}
+
 ```
 <a href="https://github.com/EricGuo5513/HumanML3D" target="_blank">HumanML3D: 3D Human Motion-Language Dataset</a> <br/>
 <a href="https://github.com/GuyTevet/motion-diffusion-model" target="_blank">MDM: Human Motion Diffusion Model</a> <br/>
