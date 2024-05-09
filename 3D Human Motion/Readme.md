@@ -18,6 +18,7 @@ To set up the necessary environment:
 
 ```bash
 conda env create -f environment.yml
+```
 
 ## Data Preparation
 CHAD dataset is a combination of several datasets, providing diverse motion categories suitable for robust training:
@@ -47,7 +48,6 @@ If you are using HumanML3D dataset, please consider citing the following papers:
     pages     = {5152-5161}
 }
 
-
 <a href="https://github.com/MontrealCorpusTools/Montreal-Forced-Aligner" target="_blank">Montreal Forced Aligner</a> <br/>
 <a href="https://github.com/ming024/FastSpeech2" target="_blank">Fast Speech 2 </a> <br/>
 <a href="https://github.com/keonlee9420/WaveGrad2" target="_blank">keonlee9420's WaveGrad2</a> for GaussianUpsampling<br/>
@@ -59,8 +59,7 @@ If you are using HumanML3D dataset, please consider citing the following papers:
 We appreciate prior contributions as a source of inspiration for Text to 3D Human Motion Generation from :  
 
 * public code like [text-to-motion](https://github.com/EricGuo5513/text-to-motion), [TM2T](https://github.com/EricGuo5513/TM2T), [MDM](https://github.com/GuyTevet/motion-diffusion-model).
-
-
+* <a href='https://github.com/YoushanZhang/'>Dr. Youshan Zhang</a> for guidance and valuable feedback.
 
 
 
