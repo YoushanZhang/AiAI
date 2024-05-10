@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Machine Learning Chat Robot for Students</title>
+            <style>
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+}
+
+h1 {
+            text-align: center;
+    }   
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="MLCRfS">Machine Learning Chat Robot for Students</h1>
+<div align="center">
+    <a><img width="720" src="/images/logo.jpg" alt="logo"></a>
+</div>
+<h2 id="Introduction">Introduction</h2>
+<h3 id="project-overview">Project Overview</h3>
+<p>This research introduces a groundbreaking educational chatbot tailored for students studying machine learning, leveraging a newly created dataset of more than 27,000 machine learning-focused question-answer pairs. The chatbot leverages the latest large-scale language models and a custom Transformer-based architecture to deliver a personalized, interactive and engaging learning experience. These enhancements address the limitations of existing models in educational settings and significantly improve the efficiency of machine learning education. Our user interface is built in Flask and has text and speech systems. The voice system is enhanced with a voice wake-up feature called "Echo" that can be accessed via voice commands, providing a seamless and user-friendly experience. The front-end design features an intuitive web interface for interacting with the chatbot, viewing chat history, and interacting via voice, ensuring ease of use for all users regardless of their technical expertise.</p>
+
+<h3 id="user-interface">User-Interface</h3>
+<figure align="center"> 
+  <img src="/images/UI.png" alt="ui" height="400"/>
+  <figcaption>User Interface</figcaption>
+</figure>
+<p>The user interface for the MLGPT models and chatbots is designed to ensure seamless and accessible interaction between users and the machine learning-driven system. Built using Flask, it integrates the GPT-2 language model via the Transformers library to handle text input and dynamic user interactions, including voice commands. The system has been enhanced with a voice wake-up feature called "Echo," leveraging PyAudio, gTTS, and a custom implementation of the Whisper model for comprehensive speech-to-text and text-to-speech capabilities. This allows users to activate and interact with the system through simple voice commands, enhancing usability especially for those with limitations in using conventional text-based inputs. The frontend is crafted with HTML and JavaScript, providing an intuitive web interface where users can converse with the chatbot, view chat history, and receive voice responses. This interface also allows users to start and stop voice interactions, giving them control over how they engage with the system. This holistic approach to UI design prioritizes user-friendliness, ensuring that even those without deep technical knowledge can easily navigate and utilize the chatbot.</p>
+
+<h2 id="datasets">Datasets</h2>
+<h3 id="raw-images-data-collection">Data Collection</h3>
+<p>Our research addresses the scarcity of public question-answer datasets in the machine learning domain by assembling a comprehensive collection tailored specifically for this field. We utilized datasets like SQuAD 2.0, which includes over 50,000 unanswerable questions to test reading comprehension systems, and the MLQuestions dataset, which provides 35,000 unaligned questions and 3,000 aligned question-passage pairs from machine learning literature. Additionally, we incorporated the WikiQA and SearchQA datasets for open-domain questioning and realistic web search contexts, respectively, as well as the MS MARCO dataset to enhance our model's capability in understanding real-world, human-generated queries. We further enriched our training materials by leveraging techniques from the approach of using Wikipedia to answer open-domain questions. To specifically address the limited machine learning-focused content, we also created a large portion of our dataset through scraping, resulting in about 27,000 curated pairs. </p>
+<h3 id="data_processing">Data Processing</h3>
+<p>After extensive curation, including similarity checking using tf-idf to eliminate duplicates and irrelevant content, our final dataset contains 26,550 tightly curated rows. The data set is divided into training set, validation set and test set according to the ratio of 70%, 10% and 20% to facilitate comprehensive model training and performance evaluation and ensure the effectiveness of the data set training model to accurately respond to educational queries.</p>
+<figure align="center"> 
+  <img src="/images/tsne.png" alt="tsne" height="400"/>
+  <figcaption>t-SNE visualization of training, validation and test dataset</figcaption>
+</figure>
+
+<h2 id="QGS">Installation instructions</h2>
+<ul>
+    <li><a href="https://huggingface.co/settings/tokens">Hugging face Access Tokens</a></li>
+    <li>PyTorch: 3.9</li>
+    <li>Necessary dependencies:Flask, transformers, SpeechRecognition, torch, nltk, scikit-learn, datasets, gTTS, pandas</li>
+    <li>Modify the correct local path where the dataset and model are located in the <a href="https://github.com/YoushanZhang/AiAI/tree/main/Machine%20Learning%20Chat%20Robot%20for%20Students/app1.py">app1 file</a></li>
+</ul>
+
+<h2 id="result">Results:</h2>
+<p>In this study, we conducted a performance comparison of our custom-designed model against established pretrained models like Yi, GPT-2, Mistral, and LLaMA-2, utilizing a set of recognized NLP evaluation metrics: BLEU, BERT-Score, and various ROUGE measures. These metrics assess text quality from different angles—BLEU evaluates literal text matching, BERT-Score analyzes semantic similarity, and the ROUGE metrics (ROUGE-1, ROUGE-2, ROUGE-L, and ROUGE-Lsum) measure word and bigram overlaps and the longest common subsequences. To ensure a fair comparison, we standardized the experiment by limiting the maximum text generation length to 100 words for each model, aiming to provide a consistent basis for comparing their natural language generation capabilities.</p>
+
+<figure align="center"> 
+    <img src="/images/results.png" alt="results" height="400"/>
+    <figcaption>Comparison of Performance Metrics</figcaption>
+  </figure>
+ 
+<p>The performance evaluation in our study highlights the superior capabilities of the LLaMA-2 model, which scores highest across all metrics including BLEU, BERT-Score, and various ROUGE measures, outperforming other models in both literal and semantic text generation. Notably, LLaMA-2's BLEU score of 0.0782 and BERT score of 0.8442 significantly surpass those of the Mistral model, demonstrating its enhanced ability in capturing literal similarities and semantic nuances. Our custom models, especially the MLGPT2 1.19B, also show remarkable progress and performance improvements, with the MLGPT2 1.19B achieving a BERT score of 0.8489, which is higher than both the YI 6B and GPT-2 models. This indicates a strong development in semantic understanding over previous iterations and established models. These results showcase our models' effectiveness and their continuous improvement in generating high-quality natural language text.
+</p>
+            
+        </body>
+        </html>
