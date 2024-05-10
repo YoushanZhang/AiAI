@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Question Explanation</title>
+    <link href="/static/css/css2.css" rel="stylesheet">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap-icons.css" rel="stylesheet">
+    <link href="/static/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/icon/favicon.ico" />
+</head>
+
+<body>
+    <div id="defaultText" class="d-flex flex-column justify-content-center align-items-center h-100">
+        <div class="text-center">
+            <img src="/static/images/modern_digital_learning_environment.jpg" alt="Digital Learning Environment"
+                class="rounded-image">
+            <h1>Visual Question Explanation for Course Content Understanding</h1>
+            <p>This page allows you to navigate through lecture content. Use the "Lessons" and "Chat" buttons in the
+                bottom corners to interact.</p>
+            <p>In addition, you can navigate through the slides using the arrow buttons in the bottom center. You can
+                also play the narration for each slide by clicking the speaker button in the lower right corner.</p>
+        </div>
+
+        <!-- Login Section -->
+        <div id="loginSection" class="login-section">
+            <form id="loginForm" class="login-form">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit" id="loginButton">Login</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div id="menu" class="menu post-login">
+        <!-- Menu items will be populated here -->
+    </div>
+
+    <!-- Container for dynamically loading course images -->
+    <div id="courseMenu" class="menu post-login">
+        <!-- Course images will be populated here via JavaScript -->
+    </div>
+
+    <!-- Container for dynamically loading lecture images -->
+    <img id="lectureImage" src="" alt="Lecture Content" style="display: none;" />
+    <!-- Lecture images will be populated here via JavaScript -->
+
+
+    <!-- Lessons and Administration buttons -->
+    <div class="position-absolute post-login" style="bottom: 20px; left: 20px;">
+        <button id="lessonsButton" class="btn">Courses</button>
+        <button id="homeButton" class="btn"><i class="fas fa-home"></i></button>
+        <button class="btn" id="fullscreenButton"><i class="fas fa-expand"></i></button>
+        <!-- Fullscreen toggle button -->
+        <button id="adminButton" class="btn"><i class="fas fa-user-cog"></i> Admin</button>
+
+        <!-- <button id="homeButton" class="btn nav-btn"><i class="fas fa-home"></i></button> -->
+        <!-- <button class="btn nav-btn" id="fullscreenButton"><i class="fas fa-expand"></i></button> Fullscreen toggle button -->
+        <!-- <button id="adminButton" class="btn nav-btn"><i class="fas fa-user-cog"></i> Admin</button> -->
+    </div>
+
+    <!-- Audio control and Chat buttons -->
+    <div class="position-absolute post-login" style="bottom: 20px; right: 20px;">
+        <button id="playButton" class="btn"><i class="fas fa-play"></i></button> <!-- Play button -->
+        <button id="pauseButton" class="btn"><i class="fas fa-pause"></i></button> <!-- Pause button -->
+        <button id="stopButton" class="btn"><i class="fas fa-stop"></i></button> <!-- Stop button -->
+        <audio id="audioPlayer" src="" type="audio/mp3"></audio> <!-- Hidden audio element -->
+        <button id="chatButton" class="btn">Chat</button>
+    </div>
+
+    <div id="messageBox" class="message-box">
+        <img id="animationGif" src="/static/scripts/animation.gif" style="display: none; width: 100%; height: auto;">
+        Your message goes here.
+    </div>
+
+    <!-- Navigation buttons -->
+    <div class="nav-buttons position-absolute post-login" style="left: 50%; transform: translateX(-50%); bottom: 20px;">
+        <button class="btn nav-btn" id="firstButton"><i class="fas fa-angle-double-left"></i></button>
+        <!-- First image button -->
+        <button class="btn nav-btn left" id="prevButton"><i class="fas fa-angle-left"></i></button>
+
+        <!-- Automatic Teacher Button -->
+        <!-- <button class="btn nav-btn" id="autoTeacherButton">Automatic Teacher</button> -->
+        <button id="autoTeacherButton" class="btn nav-btn">Automatic Teacher</button>
+
+        <button class="btn nav-btn right" id="nextButton"><i class="fas fa-angle-right"></i></button>
+        <button class="btn nav-btn" id="lastButton"><i class="fas fa-angle-double-right"></i></button>
+        <!-- Last image button -->
+        <button class="btn nav-btn" id="micButton"><i class="fas fa-microphone-slash"></i></button> <!-- mic button-->
+    </div>
+
+    <div id="chatWindow" class="chat-window  post-login">
+        <div id="chatArea" class="chat-area">
+            <!-- Chat bubbles will be appended here -->
+        </div>
+        <div id="inputArea" class="input-area">
+            <textarea id="chatInput" class="chat-input" placeholder="Type your question here..."></textarea>
+            <div class="buttons-container">
+                <button id="micToggle" class="btn"><i class="fas fa-microphone-slash"></i></button>
+                <button id="speakerToggle" class="btn speaker-btn"><i class="fas fa-volume-mute"></i></button>
+                <button id="sendButton" class="btn send-btn"><i class="fas fa-arrow-up"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/scripts/script.js"></script>
+</body>
+
+</html>

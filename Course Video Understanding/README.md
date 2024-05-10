@@ -1,76 +1,29 @@
-# SparrowVQE
+# Visual Question Explanation for Enhanced Course Content Comprehension
 
+** Unlock a new dimension of learning with our innovative web application, designed to transform complex course content into clear and interactive visual question explanations. Engage with an intuitive interface where challenging concepts become accessible and learning becomes an adventure.
 
-<p align="center">
-  <img src="https://cdn-uploads.huggingface.co/production/uploads/650c7fbb8ffe1f53bdbe1aec/DTjDSq2yG-5Cqnk6giPFq.jpeg" width="40%" height="auto"/>
-</p>
+## Core Architecture
 
+Our application is built with a robust architecture that ensures a seamless and dynamic user experience. At the heart of this system is app.py, which functions as the critical nexus, orchestrating the flow between our sophisticated Python backend and the responsive web interface.
 
-<div class="center-div", align="center">
-    <table width="100%" height="auto">
-        <tr>
-            <td align="center">
-                <a href="https://colab.research.google.com/github/rrymn/SparrowVQE/blob/main/SparrowVQE_Demo.ipynb">[Google Colab Demo]</a>
-                <a href="https://huggingface.co/spaces/rrymn/SparrowVQE">[🤗 HuggingFace Demo]</a>
-            </td>
-        </tr>
-    </table>
-</div>
+### Flask Framework Integration
 
+The application leverages Flask, a lightweight and powerful web framework, serving both as the backbone of our server operations and the conduit for our web interactions:
 
+- Templates Directory: Central to our user interface, index.html and other HTML templates reside within the templates directory, facilitating Flask's streamlined rendering process.
+- Static Directory: Serving as the repository for our frontend assets, the static directory houses essential HTML, CSS, and JavaScript files, crafting the aesthetics and functionality that enhance the user experience.
 
+## Getting Started
 
-<p align='center', style='font-size: 16px;' >A Custom 3B parameter Model Enhanced for Educational Contexts: This specialized model integrates slide-text pairs from machine learning classes, leveraging a unique training approach. It connects a frozen pre-trained vision encoder (SigLip) with a frozen language model (Phi-2) through an innovative projector. The model employs attention mechanisms and language modeling loss to deeply understand and generate educational content, specifically tailored to the context of machine learning education. </p>
+Embark on customizing the application with your unique insights and features. Here's a quick guide to get you started:
 
-## How to use
+Model Integration: Begin by delving into app.py. This script serves as your platform for innovation—integrate and tweak your model here to bring your vision to life.
+Deployment and Execution: After integrating your model and making necessary adjustments, execute the application to see your enhancements in action. Watch as the application delivers visual explanations that revolutionize user engagement with educational content.
 
+## Explore and Expand
+Our platform is designed not just to meet but to exceed educational needs, providing a foundation upon which countless adaptations can be built. Whether you're looking to enhance user interaction, integrate additional educational tools, or expand the application's capabilities, the potential for modification is limitless.
 
-**Install dependencies**
-```bash
-pip install transformers 
-pip install -q pillow accelerate einops
-```
+- Customize: Adapt the source code, tweak the UI/UX, or expand the model’s capabilities to suit specific educational objectives or to cater to a wider audience.
+- Contribute: Join our community of developers and educators by contributing to the project. Your expertise can help enhance and evolve this platform, making advanced educational tools more accessible and effective.
 
-
-```Python
-import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
-from PIL import Image
-
-torch.set_default_device("cuda")
-
-#Create model
-model = AutoModelForCausalLM.from_pretrained(
-    "rrymn/SparrowVQE", 
-    torch_dtype=torch.float16, 
-    device_map="auto",
-    trust_remote_code=True)
-tokenizer = AutoTokenizer.from_pretrained("rrymn/SparrowVQE", trust_remote_code=True)
-
-#function to generate the answer
-def predict(question, image_path):
-    #Set inputs
-    text = f"A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the user's questions. USER: <image>\n{question}? ASSISTANT:"
-    image = Image.open(image_path)
-    
-    input_ids = tokenizer(text, return_tensors='pt').input_ids.to('cuda')
-    image_tensor = model.image_preprocess(image)
-    
-    #Generate the answer
-    output_ids = model.generate(
-        input_ids,
-        max_new_tokens=25,
-        images=image_tensor,
-        use_cache=True)[0]
-    
-    return tokenizer.decode(output_ids[input_ids.shape[1]:], skip_special_tokens=True).strip()
-
-```
-## Week 3-8 Slides Summary
-![example_01 drawio](https://github.com/YoushanZhang/AiAI/assets/126303071/45559c5d-e6e2-492c-bf93-97c8ff08852c)
-*This image provides a visual summary of key machine learning concepts covered between weeks 3 to 8. It includes topics such as avoiding overfitting, understanding logistic functions in the context of probabilities, exploring the 'face space' in image recognition, analyzing the curse of dimensionality, PCA as matrix factorization, and Gaussian Mixture Models.*
-
-## Week 10-15 Slides Summary
-![example_02 drawio](https://github.com/YoushanZhang/AiAI/assets/126303071/d4ca8c6f-9068-4b81-a5eb-7b147dbb9034)
-*This image provides a visual summary of key machine learning concepts covered between weeks 10 to 15. It illustrates topics such as the differences in model spaces between decision trees and nearest neighbors, understanding margins in SVMs, the role of Vision Transformers and MLP heads in neural networks, the effect of bagging on model variance, and an introduction to entropy in the context of decision trees.*
-
+Embark on this journey with us to reshape educational experiences. Dive into the code, unleash your creativity, and transform the way we learn and teach complex concepts.

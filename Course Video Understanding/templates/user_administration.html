@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard</title>
+<style>
+    body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px; color: #333; }
+    h1, h2 { color: #333; }
+    nav { background: #333; color: #fff; padding: 10px 20px; text-align: center; }
+    nav ul { list-style: none; padding: 0; }
+    nav ul li { display: inline; margin-right: 10px; }
+    nav ul li a { color: #fff; text-decoration: none; font-weight: bold; }
+    form { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    input[type="text"], input[type="password"], select { width: calc(100% - 22px); padding: 10px; margin-top: 5px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px; }
+    button { background-color: #5cb85c; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+    button:hover { background-color: #4cae4c; }
+    table { width: 100%; border-collapse: collapse; background: #fff; margin-top: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    th, td { padding: 12px; border-bottom: 1px solid #ddd; text-align: center;}
+    th { background-color: #f8f8f8; }
+</style>
+</head>
+<body>
+<h1>Admin Dashboard</h1>
+<div>
+    <h2>Manage User</h2>
+    <form id="userForm">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="text" id="password" placeholder="Password" required>
+        <select id="userType">
+            <option value="admin">Admin</option>
+            <option value="teacher">Teacher</option>
+            <option value="user">Regular User</option>
+        </select>
+        <input type="hidden" id="userId" value="">
+        <button type="submit" id="submitButton">Add User</button>
+    </form>
+</div>
+<div>
+    <h2>User List</h2>
+    <table id="userList">
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>User Type</th>
+            <th>Actions</th>
+        </tr>
+    </table>
+</div>
+<script>
+    document.getElementById('userForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const user_type = document.getElementById('userType').value;
+        const userId = document.getElementById('userId').value;
+        console.log(user_type)
+        let url = '/user';
+        let method = 'POST';
+        if (userId) {
+            url = `/user/${userId}`;
+            method = 'PUT';
+        }
+
+        fetch(url, {
+            method: method,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password, user_type })
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.status);
+            document.getElementById('userForm').reset();
+            document.getElementById('submitButton').innerText = 'Add User';
+            document.getElementById('userId').value = '';
+            loadUsers();
+        })
+        .catch(error => alert('Error: ' + error));
+    });
+
+    function loadUsers() {
+        fetch('/users/all')
+        .then(response => response.json())
+        .then(users => {
+            const userList = document.getElementById('userList');
+            const rows = users.map(user =>
+                `<tr>
+                    <td>${user.id}</td>
+                    <td>${user.username}</td>
+                    <td>${user.password}</td>
+                    <td>${user.user_type}</td>
+                    <td>
+                        <button onclick="editUser(${user.id}, '${user.username}', '${user.user_type}', '${user.password}')">Edit</button>
+                        <button onclick="deleteUser(${user.id})">Delete</button>
+                    </td>
+                </tr>`
+            ).join('');
+            userList.innerHTML = `<tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Password</th>
+
+                <th>User Type</th>
+                <th>Actions</th>
+            </tr>` + rows;
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    function editUser(userId, username, userType,password) {
+      
+        document.getElementById('username').value = username;
+        document.getElementById('userType').value = userType;
+        document.getElementById('password').value = password;
+        document.getElementById('userId').value = userId;
+        document.getElementById('submitButton').innerText = 'Update User';
+    }
+
+    function deleteUser(userId) {
+        fetch('/user/' + userId, { method: 'DELETE' })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.status);
+            loadUsers();
+        })
+        .catch(error => alert('Error: ' + error));
+    }
+
+    loadUsers();
+</script>
+</body>
+</html>
