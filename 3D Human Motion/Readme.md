@@ -39,8 +39,18 @@ conda env create -f environment.yml
 ## Datasets
 
 ### Data Preparation
-CHAD dataset is a combination of several datasets, providing diverse motion categories suitable for robust training:
 
+The CHAD dataset is an essential component of our project, combining several datasets to provide a diverse array of motion categories for robust model training. The dataset preparation involves several critical steps to ensure the data is ready for use with our Text Residual Motion Encoder (TRME) model.
+
+- Step 1: Download Required Datasets
+Download the additional datasets from the AMASS collection, which are integrated into the HumanML3D dataset to enrich it. The specific datasets to download are:
+
+-- Moyo
+-- CNRS
+-- DanceDB
+-- GRAB
+
+These datasets can be found on the AMASS dataset repository (https://amass.is.tue.mpg.de/) and should be downloaded and placed in the data directory within your project structure. For additional information, please refer to [HumanML3D](https://github.com/EricGuo5513/HumanML3D)
 
 ## Training
 To train the model:
