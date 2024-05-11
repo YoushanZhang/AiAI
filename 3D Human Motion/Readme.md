@@ -14,7 +14,7 @@
   - [Training](#training)
   - [Evaluation](#evaluation)
   - [Visualization](#visualization)
-  - [Citations/References](#citations-references)
+  - [Citations](#citations)
   - [Acknowledgement](#acknowledgement)
 
 
@@ -61,7 +61,7 @@ Evaluate the trained model
 ## Visualization
 Visualize motion predictions from textual descriptions
 
-## Citations/References:
+## Citations:
 
 ```
 @InProceedings{Guo_2022_CVPR,
