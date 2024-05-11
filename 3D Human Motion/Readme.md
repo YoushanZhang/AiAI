@@ -76,7 +76,9 @@ Once you run the sampling notebook, you can obtain the custom sampled dataset wi
 To evaluate the above trained model you can run the `Evaluation_TRME.ipynb` file to obtain the performance metrics like `FID` (Fréchet inception distance),`Diversity`,`R-Precision (Top-3)`,`MM-Dist` (Multimodal distance)
 
 ## Visualization with TRME
-Visualize motion predictions from textual descriptions
+Visualize motion predictions from textual descriptions:
+
+You can visualize the motions by running the `Visualization_&_Demo_TRME.ipynb` file by sequentially visualizing the demo of the motions. 
 
 ## Citations:
 
