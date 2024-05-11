@@ -130,3 +130,6 @@ We appreciate prior contributions as a source of inspiration for Text to 3D Huma
 * Public datasets - [AMASS](https://amass.is.tue.mpg.de/)
 
 <a href='https://github.com/YoushanZhang/'>Dr. Youshan Zhang</a> for guidance and valuable feedback.
+
+### Misc
+ Contact Reiyo at Reiyobaburaj@gmail.com or Avinash at aeroapj@gmail.com for any questions or comments.
