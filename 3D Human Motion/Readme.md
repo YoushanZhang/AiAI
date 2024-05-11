@@ -22,12 +22,9 @@
 In the domain of 3D human motion generation from textual descriptions, the TRME model significantly improves architectural flexibility and dataset diversity. By incorporating an additional layer of residual blocks into the Vector Quantized Variational Autoencoder (VQ-VAE) and utilizing the comprehensive "CHAD" dataset, our model captures finer motion details, improving both the diversity and quality of generated human motions. 
 
 ## Repository Contents
-- `src/` - All source code for the TRME model and dataset processing.
-- `data/` - Scripts to process and prepare the CHAD dataset.
-- `models/` - Pre-trained models and configuration files.
-- `notebooks/` - Jupyter notebooks for demonstration purposes.
-- `docs/` - Additional documentation and results.
-- `environment.yml` - Conda environment file to set up the Python environment.
+- `MDM/` - All source code for the TRME model and dataset processing.
+- `T2M/` - Scripts to process and prepare the CHAD dataset.
+- `TRME/` - Pre-trained models and configuration files.
 
 ## Installation
 To set up the necessary environment:
