@@ -131,5 +131,5 @@ We appreciate prior contributions as a source of inspiration for Text to 3D Huma
 
 <a href='https://github.com/YoushanZhang/'>Dr. Youshan Zhang</a> for guidance and valuable feedback.
 
-### Misc
+## Miscellaneous
  Contact Reiyo at Reiyobaburaj@gmail.com or Avinash at aeroapj@gmail.com for any questions or comments.
