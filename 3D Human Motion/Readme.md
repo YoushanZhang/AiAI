@@ -22,7 +22,7 @@
 In the domain of 3D human motion generation from textual descriptions, the TRME model significantly improves architectural flexibility and dataset diversity. By incorporating an additional layer of residual blocks into the Vector Quantized Variational Autoencoder (VQ-VAE) and utilizing the comprehensive "CHAD" dataset, our model captures finer motion details, improving both the diversity and quality of generated human motions. 
 
 ## Repository Contents
-- `MDM/` - All source code for the TRME model and dataset processing.
+- `MDM/` - Clone this directory to download and train the model. For more information, refer to the original github page 
 - `T2M/` - Scripts to process and prepare the CHAD dataset.
 - `TRME/` - Pre-trained models and configuration files.
 
