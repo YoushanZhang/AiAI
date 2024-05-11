@@ -112,8 +112,3 @@ We appreciate prior contributions as a source of inspiration for Text to 3D Huma
 * Public code repositories like [text-to-motion](https://github.com/EricGuo5513/text-to-motion), [TM2T](https://github.com/EricGuo5513/TM2T), [MDM](https://github.com/GuyTevet/motion-diffusion-model).
 
 <a href='https://github.com/YoushanZhang/'>Dr. Youshan Zhang</a> for guidance and valuable feedback.
-
-
-
-
-
