@@ -45,10 +45,10 @@ The CHAD dataset is an essential component of our project, combining several dat
 - Step 1: Download Required Datasets
 Download the additional datasets from the AMASS collection, which are integrated into the HumanML3D dataset to enrich it. The specific datasets to download are:
 
--- Moyo
--- CNRS
--- DanceDB
--- GRAB
+- `Moyo`
+- `CNRS`
+- `DanceDB`
+- `GRAB`
 
 These datasets can be found on the AMASS dataset repository (https://amass.is.tue.mpg.de/) and should be downloaded and placed in the data directory within your project structure. For additional information, please refer to [HumanML3D](https://github.com/EricGuo5513/HumanML3D)
 
