@@ -29,7 +29,7 @@ https://drive.google.com/drive/folders/1mry8U9Oo2OgHiJFQh0AUjFAAfuAhbGrz?usp=sha
 
 
 ## Predictions
-https://siddantak.github.io/High-Quality-Voice-Cloning/
+https://youshanzhang.github.io/AiAI/High-Quality-Voice-Cloning/
 
 ## Weights
 https://drive.google.com/drive/folders/1XAEC5EWQdiefKi0HrtHlr_WEbC-AQizc?usp=sharing
