@@ -1,0 +1,119 @@
+<!-- HTML part -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles_transcript.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Edit Transcript for {{ course }} - Week {{ week }} - Page {{ page }}</h1>
+        <div class="editor-container">
+            <textarea id="transcriptEditor" class="transcript-editor"></textarea>
+            <button id="saveButton" class="save-button">Save Changes</button>
+        </div>
+    </div>
+</body>
+
+<script>
+// Retrieve URL parameters and decode them
+// const urlParams = new URLSearchParams(window.location.search);
+// const transcript = decodeURIComponent(urlParams.get('transcript') || '');
+
+// const urlParams = new URLSearchParams(window.location.search);
+// let transcript = decodeURIComponent(urlParams.get('transcript') || '');
+
+// // Remove any unnecessary double quotes added during encoding/decoding
+// transcript = transcript.replace(/^"(.+)"$/, '$1');
+
+// const courseName = urlParams.get('courseName');
+// const week = urlParams.get('week');
+// const page = urlParams.get('page');
+
+// console.log('courseName', courseName);
+// console.log('week', week);
+// console.log('page', page);
+
+document.addEventListener('DOMContentLoaded', function() {
+    const headerText = document.querySelector('h1').textContent;
+    const matches = headerText.match(/Edit Transcript for (.+) - Week (\d+) - Page (\d+)/);
+
+    const urlParams = new URLSearchParams(window.location.search);
+    let transcript = decodeURIComponent(urlParams.get('transcript') || '');
+    transcript = transcript.replace(/^"(.+)"$/, '$1');  // Remove quotes if present
+    document.getElementById('transcriptEditor').value = transcript;  // Set initial content
+
+    if (matches) {
+        var courseName = matches[1];
+        var week = matches[2];
+        var page = matches[3];
+
+        console.log('Extracted Values:');
+        console.log('Course Name:', courseName);
+        console.log('Week:', week);
+        console.log('Page:', page);
+
+        document.getElementById('saveButton').addEventListener('click', function() {
+            const updatedTranscript = document.getElementById('transcriptEditor').value;
+            console.log(courseName, week, page, updatedTranscript);  // Log to check values
+
+            if (!courseName || !week || !page) {
+                console.error("Required parameters are missing!");
+                return;  // Don't proceed if any are undefined or null
+            }
+            saveTranscript(courseName, week, page, updatedTranscript);
+        });
+    } else {
+        console.error('Failed to extract course, week, or page from the header');
+    }
+});
+
+// Set the initial content of the textarea
+// document.getElementById('transcriptEditor').value = transcript;
+
+
+// document.getElementById('saveButton').addEventListener('click', function() {
+//     const updatedTranscript = document.getElementById('transcriptEditor').value;
+//     // Assuming these variables are globally available; if not, you need to define them appropriately.
+//     console.log(courseName, week, page, updatedTranscript);  // Log to check if these are null
+
+//     if (!courseName || !week || !page) {
+//         console.error("Required parameters are missing!");
+//         return; // Don't proceed if any are undefined or null
+//     }
+//     saveTranscript(courseName, week, page, updatedTranscript);
+// });
+
+function saveTranscript(courseName, week, page, transcript) {
+    console.log('Sending data to server:');
+    console.log(`Course Name: ${courseName}, Week: ${week}, Page: ${page}, Transcript: ${transcript}`);
+    console.log(`Week:` + week);
+    console.log(`Page:` + page);
+
+    fetch('/api/save-transcript', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            courseName: courseName,
+            week: week,
+            page: page,
+            transcript: transcript
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            console.error('Error saving transcript:', data.error);
+        } else {
+            console.log('Transcript saved successfully:', data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error saving transcript:', error);
+    });
+}
+
+
+</script>

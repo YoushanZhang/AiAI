@@ -108,7 +108,9 @@ function fetchImagesForWeek(weekName) {
 
 
 function populateMenu() {
-    const menu = document.getElementById('menu');
+    console.log('populateMenu()');
+
+    const menu = document.getElementById('menu'); // This should correctly point to the lecture menu
     menu.innerHTML = ''; // Clear the menu first
 
     // Check if the lectures array is empty and handle accordingly
@@ -124,27 +126,17 @@ function populateMenu() {
     const fragment = document.createDocumentFragment();
 
     lectures.forEach(lecture => {
+        console.log('lecture.week:', lecture.week); // This will log the name of each lecture
+        
         const lectureItem = document.createElement('div');
         lectureItem.classList.add('menu-item-container');
 
-        const img = document.createElement('img');
-        img.src = lecture.img;
-        img.alt = lecture.name;
-        img.classList.add('menu-item');
-
-        // Wrap the image in a button for better accessibility
         const button = document.createElement('button');
+        button.textContent = lecture.week; // Set the button text to the lecture name
         button.classList.add('menu-item-button');
-        button.appendChild(img); // The image becomes part of the button
-        button.addEventListener('click', () => handleLectureSelection(lecture.name));
+        button.addEventListener('click', () => loadLectureImages(courseName, lecture.week));
 
         lectureItem.appendChild(button);
-
-        const title = document.createElement('div');
-        title.textContent = lecture.name;
-        title.classList.add('menu-item-title');
-        lectureItem.appendChild(title);
-
         fragment.appendChild(lectureItem);
     });
 
@@ -211,13 +203,15 @@ function displayCourses(courses) {
 }
 
 function fetchLecturesForCourse(courseName) {
+    console.log('fetchLecturesForCourse()')
+
     const apiUrl = `/api/lectures/${encodeURIComponent(courseName)}`;
     console.log('Fetching lectures for:', courseName);
 
     fetch(apiUrl)
         .then(response => response.json())
         .then(lectures => {
-            // console.log('Lectures:', lectures);
+            console.log('Lectures:', lectures);
             displayLectures(lectures, courseName); // Call displayLectures to update the UI
             loadTranscriptData(courseName); // Load transcript data as lectures are being displayed
         })
@@ -227,7 +221,55 @@ function fetchLecturesForCourse(courseName) {
         });
 }
 
+// function displayLectures(lectures, courseName) {
+//     const menu = document.getElementById('menu');
+//     menu.innerHTML = ''; // Clear the menu to display lectures
+
+//     // Create return arrow container
+//     const returnArrowContainer = document.createElement('div');
+//     returnArrowContainer.className = 'return-arrow-container';
+//     returnArrowContainer.addEventListener('click', () => {
+//         displayCourses(cachedCourses);  // Function to return to the courses display
+//     });
+
+//     const returnArrowImg = document.createElement('img');
+//     returnArrowImg.src = '/static/images/return_arrow.webp';
+//     returnArrowImg.alt = 'Return';
+//     returnArrowImg.className = 'return-arrow-image';
+
+//     returnArrowContainer.appendChild(returnArrowImg);
+//     menu.appendChild(returnArrowContainer);
+
+//     // Proceed to add lectures
+//     lectures.forEach(lecture => {
+//         const lectureDiv = document.createElement('div');
+//         lectureDiv.classList.add('menu-item-container');
+
+//         const img = document.createElement('img');
+//         img.src = lecture.img;
+//         img.alt = lecture.week;
+//         img.classList.add('menu-item-image');
+
+//         const title = document.createElement('div');
+//         title.textContent = lecture.week;
+//         title.classList.add('menu-item-title');
+
+//         // Add click event to load images from the lecture
+//         lectureDiv.addEventListener('click', () => {
+//             // Ensure courseName is passed along with the week
+//             loadLectureImages(courseName, lecture.week);
+//         });
+
+//         lectureDiv.appendChild(img);
+//         lectureDiv.appendChild(title);
+//         menu.appendChild(lectureDiv);
+//     });
+// }
+
 function displayLectures(lectures, courseName) {
+    console.log('displayLectures()')
+    console.log('Lectures:', lectures);
+
     const menu = document.getElementById('menu');
     menu.innerHTML = ''; // Clear the menu to display lectures
 
@@ -246,34 +288,42 @@ function displayLectures(lectures, courseName) {
     returnArrowContainer.appendChild(returnArrowImg);
     menu.appendChild(returnArrowContainer);
 
+    // Create a DocumentFragment to improve performance by minimizing reflows and repaints
+    const fragment = document.createDocumentFragment();
+
     // Proceed to add lectures
     lectures.forEach(lecture => {
-        const lectureDiv = document.createElement('div');
-        lectureDiv.classList.add('menu-item-container');
+        // console.log('Lecture Week:', lecture.week); // Verify if names are correctly logged
 
-        const img = document.createElement('img');
-        img.src = lecture.img;
-        img.alt = lecture.week;
-        img.classList.add('menu-item-image');
+        
+        const lectureItem = document.createElement('div');
+        lectureItem.classList.add('menu-item-container');
+    
+        const button = document.createElement('button');
 
-        const title = document.createElement('div');
-        title.textContent = lecture.week;
-        title.classList.add('menu-item-title');
+        // Replace underscores with spaces and capitalize the first letter
+        const formattedWeek = lecture.week.replace(/_/g, ' ');
+        const capitalizedText = formattedWeek.charAt(0).toUpperCase() + formattedWeek.slice(1);
+        button.textContent = capitalizedText;  // Set the button text to the lecture name
 
-        // Add click event to load images from the lecture
-        lectureDiv.addEventListener('click', () => {
-            // Ensure courseName is passed along with the week
-            loadLectureImages(courseName, lecture.week);
-        });
-
-        lectureDiv.appendChild(img);
-        lectureDiv.appendChild(title);
-        menu.appendChild(lectureDiv);
+        //button.textContent = lecture.week.replace(/_/g, ' ');  // Set the button text to the lecture name
+        button.classList.add('menu-item-button');
+        // Add event listener to load images associated with the lecture
+        button.addEventListener('click', () => loadLectureImages(courseName, lecture.week));
+    
+        lectureItem.appendChild(button);
+        fragment.appendChild(lectureItem);  // Add each lecture item to the fragment
     });
+
+    // Finally, append the fragment to the menu
+    menu.appendChild(fragment);
 }
+
 
 // Function to fetch and display lecture images
 function loadLectureImages(courseName, week) {
+    console.log('Loading images for course:', courseName, 'Week:', week);
+
     const lectureImage = document.getElementById('lectureImage');
     const defaultText = document.getElementById('defaultText');
 
@@ -375,7 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
     else {
-        console.log("we are cool")
+        console.log("Speech recognition supported in this browser.")
     }
 
     let recognition = new SpeechRecognition();
@@ -689,6 +739,11 @@ document.getElementById('playButton').addEventListener('click', () => {
         const imagePath = currentWeekImages[currentIndex];
         // console.log("Current image path:", imagePath);  // Debugging: log the current image path
 
+        if (!imagePath) {
+            console.log('Select slide!');
+            return; // Exit the function if imagePath is undefined
+        }
+
         const match = imagePath.match(/week_(\d+)\/week_(\d+)_page_(\d+)/);
         if (!match) {
             console.error('Failed to extract week and page numbers from imagePath:', imagePath);
@@ -703,7 +758,7 @@ document.getElementById('playButton').addEventListener('click', () => {
 
         function searchByWeekAndPage(week, page) {
             const results = transcriptData.filter(item => item.week === week && item.page === page);
-            // console.log(`Search results for week ${week}, page ${page}:`, results);  // Debugging: log the search results
+            console.log(`Search results for week ${week}, page ${page}:`, results);  // Debugging: log the search results
             return results;
         }
 
@@ -775,6 +830,7 @@ document.getElementById('chatInput').addEventListener('keydown', (event) => {
         }
     }
 });
+
 // Function to speak text using SpeechSynthesis
 function speakText(text) {
     console.log("gonna speak");
@@ -1195,5 +1251,52 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('Checking for lectureImagesContainer:', document.getElementById('lecture-images-container'));
         loadLectureImages(defaultCourseName, defaultWeek);
         // loadLectureImages('AIM 5005 Machine Learning', 'week_01');
+    }
+});
+
+
+document.getElementById('editSaveButton').addEventListener('click', function() {
+    // console.log('currentWeekImages:', currentWeekImages);
+    // console.log('currentIndex:', currentIndex);
+
+    const imagePath = currentWeekImages[currentIndex];
+    // console.log('imagePath:', imagePath);
+
+    if (!imagePath) {
+        console.log('Select slide!');
+        return; // Exit the function if imagePath is undefined
+    }
+
+    // const match = imagePath.match(/week_(\d+)\/week_(\d+)_page_(\d+)/);
+    const match = imagePath.match(/\/courses\/([^\/]+)\/([^\/]+)\/week_(\d+)\/week_\d+_page_(\d+)\.png/);
+    if (!match) {
+        console.error('Failed to extract week and page numbers from imagePath:', imagePath);
+        return; // Exit the function if the match fails
+    }
+    // console.log('match:', match);
+
+    const course = match[1];
+    const week = parseInt(match[3]);
+    const page = parseInt(match[4]);
+    
+    // console.log('course:', course);
+    // console.log('week:', week);
+    // console.log('page:', page);
+    // console.log('transcriptData:', transcriptData);
+    // console.log(`Transcript Entry:`,  transcriptData.filter(item => item.week === week && item.page === page)[0]['transcript']);
+
+
+    const transcriptEntry = transcriptData.filter(item => item.week === week && item.page === page)[0]['transcript'];
+    // console.log(`transcriptEntry:`,  transcriptEntry);
+
+    if (transcriptEntry) {
+        // Serialize the transcript data into a query parameter
+        const cleanTranscript = typeof transcriptEntry === 'string' ? transcriptEntry.replace(/^"|"$/g, '') : transcriptEntry;
+        const serializedData = encodeURIComponent(JSON.stringify(cleanTranscript));
+        console.log(`serializedData:`,  serializedData);
+        const editorUrl = `/edit_transcript/${course}/${week}/${page}?transcript=${serializedData}`;
+        window.open(editorUrl, '_blank');
+    } else {
+        console.error('Transcript data not found for the given week and page');
     }
 });

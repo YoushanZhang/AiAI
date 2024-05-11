@@ -468,5 +468,83 @@ def get_regular_users():
 def user_administration():
     return render_template('user_administration.html')
 
+@app.route('/api/get-transcript', methods=['GET'])
+def get_transcript_data():
+    course_name = request.args.get('courseName')
+    week = request.args.get('week')
+    page = request.args.get('page')
+    try:
+        # Build the path based on the course name and week
+        path = f'static/courses/{course_name}/transcript.json'
+        if not os.path.exists(path):
+            return jsonify({'error': 'Transcript file not found'}), 404
+
+        with open(path, 'r') as file:
+            data = json.load(file)
+            # Find the specific transcript entry by week and page
+            transcript_entry = next((item for item in data if item['week'] == week and item['page'] == page), None)
+            if transcript_entry is not None:
+                return jsonify(transcript_entry)
+            return jsonify({'error': 'Transcript not found for the specified week and page'}), 404
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+    
+@app.route('/api/save-transcript', methods=['POST'])
+def save_transcript():
+    data = request.get_json()
+    print("Received data:", data)  # Log the incoming JSON data
+
+    course_name = data.get('courseName')
+    week =int(data.get('week'))
+    page = int(data.get('page'))
+    updated_transcript = data.get('transcript')
+
+    print(f"Course: {course_name}, Week: {week}, Page: {page}, Transcript: {updated_transcript[:30]}...")  # Show first 30 chars of transcript
+
+    path = dir_path + f'/static/courses/{course_name}/transcript.json'
+    print(f"Attempting to read from {path}")
+
+    # Check if the file exists
+    if not os.path.exists(path):
+        print(f"File not found at {path}")
+        return jsonify({'error': 'File not found'}), 404
+    
+    
+    try:
+        # Read the current transcript data
+        with open(path, 'r', encoding='utf-8') as file:
+            transcripts = json.load(file)
+        
+        # Find the correct transcript entry and update it
+        updated = False
+        for transcript in transcripts:
+            if transcript.get('week') == week and transcript.get('page') == page:
+                transcript['transcript'] = updated_transcript
+                updated = True
+                break
+
+        if not updated:
+            return jsonify({'error': 'Week or page not found'}), 404
+        
+        # Write the updated data back to the file
+        with open(path, 'w', encoding='utf-8') as file:
+            json.dump(transcripts, file, ensure_ascii=False, indent=4)
+        
+        return jsonify({'message': 'Transcript updated successfully'}), 200
+    except FileNotFoundError:
+        return jsonify({'error': 'File not found'}), 404
+    except json.JSONDecodeError:
+        return jsonify({'error': 'Error decoding JSON'}), 500
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+ 
+@app.route('/edit_transcript/<course>/<week>/<page>')
+def edit_transcript(course, week, page):
+    # Logic to retrieve transcript data
+    # Return the rendered template
+    return render_template('edit_transcript.html', course=course, week=week, page=page)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
