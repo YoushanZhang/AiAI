@@ -7,13 +7,13 @@
 
 - [Text Residual Motion Encoder for 3D Human Motion Generation](#Text-Residual-Motion-Encoder-for-3D-Human-Motion-Generation)
   - [Introduction](#introduction)
+  - [Repository Contents](#repository-contents)
+  - [Installation](#installation)
   - [Datasets](#datasets)
-    - [Raw Images Data Collection](#raw-images-data-collection)
-    - [Raw Images](#raw-images)
-  - [Method](#method)
-    - [RetinaFace](#retinaface)
-  - [Implementation](#implementation)
-  - [Results](#results)
+    - [Data Preparation](#data-preparation)
+  - [Training](#training)
+  - [Evaluation](#evaluation)
+  - [Visualization](#visualization)
   - [Citations/References](#citations-references)
   - [Acknowledgement](#acknowledgement)
 
@@ -22,9 +22,9 @@
 In the domain of 3D human motion generation from textual descriptions, the TRME model significantly improves architectural flexibility and dataset diversity. By incorporating an additional layer of residual blocks into the Vector Quantized Variational Autoencoder (VQ-VAE) and utilizing the comprehensive "CHAD" dataset, our model captures finer motion details, improving both the diversity and quality of generated human motions. 
 
 ## Repository Contents
-- `MDM/` - Clone this directory to download and train the model. For more information, refer to the original github page 
-- `T2M/` - Scripts to process and prepare the CHAD dataset.
-- `TRME/` - Pre-trained models and configuration files.
+- `MDM/` - Clone this directory to download and train the Motion Diffusion Model. For more information, refer to the original github page [MDM](https://github.com/GuyTevet/motion-diffusion-model)
+- `T2M/` - Clone this directory to download and train the text to motion model. For more information, refer to the original github page [T2M](https://github.com/EricGuo5513/text-to-motion)
+- `TRME/` - Clone this directory to download and train the TRME (Ours) model. For more information on the original VQVAE & GPT architecture, refer to the original github page [T2M-GPT](https://github.com/Mael-zys/T2M-GPT)
 
 ## Installation
 To set up the necessary environment:
@@ -39,10 +39,11 @@ conda env create -f environment.yml
 
 The CHAD dataset is an essential component of our project, combining several datasets to provide a diverse array of motion categories for robust model training. The dataset preparation involves several critical steps to ensure the data is ready for use with our Text Residual Motion Encoder (TRME) model.
 
-- Step 1: Download Required Datasets
+- Download Required Datasets
 Download the additional datasets from the AMASS collection, which are integrated into the HumanML3D dataset to enrich it. The specific datasets to download are:
 
-- `Moyo`
+- `MOYO`
+- `MM-FIT`
 - `CNRS`
 - `DanceDB`
 - `GRAB`
