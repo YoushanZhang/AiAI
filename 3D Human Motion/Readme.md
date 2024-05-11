@@ -39,13 +39,12 @@ conda env create -f environment.yml
 
 The CHAD dataset is an essential component of our project, combining several datasets to provide a diverse array of motion categories for robust model training. The dataset preparation involves several critical steps to ensure the data is ready for use with our Text Residual Motion Encoder (TRME) model.
 
-- Download Required Datasets
-Download the additional datasets from the AMASS collection, which are integrated into the HumanML3D dataset to enrich it. The specific datasets to download are:
+Download the additional datasets from the AMASS collection, which are integrated into the HumanML3D dataset to improve the motion representation. The specific datasets to download apart from the generic HumanML3D are:
 
+- `DanceDB`
 - `MOYO`
 - `MM-FIT`
 - `CNRS`
-- `DanceDB`
 - `GRAB`
 
 We are using two 3D human motion-language dataset: HumanML3D. For the dataset, you could find the details as well as download link [[here]](https://github.com/EricGuo5513/HumanML3D).   
