@@ -1,0 +1,745 @@
+2024-05-10 17:12:47,738 INFO {
+    "batch_size": 256,
+    "beta": 1.0,
+    "code_dim": 512,
+    "commit": 0.02,
+    "dataname": "t2m",
+    "depth": 3,
+    "dilation_growth_rate": 3,
+    "down_t": 2,
+    "eval_iter": 1000,
+    "exp_name": "VQVAE_imp_resnet_100k",
+    "gamma": 0.05,
+    "loss_vel": 0.5,
+    "lr": 0.0002,
+    "lr_scheduler": [
+        200000
+    ],
+    "mu": 0.99,
+    "nb_code": 512,
+    "nb_vis": 20,
+    "out_dir": "output/VQVAE_imp_resnet_100k",
+    "output_emb_width": 512,
+    "print_iter": 200,
+    "quantizer": "ema_reset",
+    "recons_loss": "l1_smooth",
+    "results_dir": "visual_results/",
+    "resume_gpt": null,
+    "resume_pth": null,
+    "seed": 123,
+    "stride_t": 2,
+    "total_iter": 100000,
+    "vis_gt": false,
+    "visual_name": "baseline",
+    "vq_act": "relu",
+    "vq_norm": null,
+    "warm_up_iter": 1000,
+    "weight_decay": 0.0,
+    "width": 512,
+    "window_size": 64
+}
+2024-05-10 17:13:37,893 INFO Warmup. Iter 200 :  lr 0.00004 	 Commit. 0.23697 	 PPL. 24.96 	 Recons. 0.72568
+2024-05-10 17:14:02,742 INFO Warmup. Iter 400 :  lr 0.00008 	 Commit. 0.43774 	 PPL. 106.63 	 Recons. 0.55303
+2024-05-10 17:14:28,035 INFO Warmup. Iter 600 :  lr 0.00012 	 Commit. 0.71917 	 PPL. 200.42 	 Recons. 0.46996
+2024-05-10 17:14:53,125 INFO Warmup. Iter 800 :  lr 0.00016 	 Commit. 1.01650 	 PPL. 267.09 	 Recons. 0.41706
+2024-05-10 17:15:18,662 INFO Warmup. Iter 1000 :  lr 0.00020 	 Commit. 1.15137 	 PPL. 311.51 	 Recons. 0.38535
+2024-05-10 17:15:32,057 INFO --> 	 Eva. Iter 0 :, FID. 6.2479, Diversity Real. 9.2844, Diversity. 8.2130, R_precision_real. [0.60044643 0.78236607 0.86495536], R_precision. [0.31473214 0.50111607 0.61495536], matching_score_real. 2.3584770475115096, matching_score_pred. 4.323260026318686
+2024-05-10 17:15:32,059 INFO --> --> 	 FID Improved from 1000.00000 to 6.24787 !!!
+2024-05-10 17:15:32,374 INFO --> --> 	 Diversity Improved from 100.00000 to 8.21299 !!!
+2024-05-10 17:15:32,639 INFO --> --> 	 Top1 Improved from 0.0000 to 0.3147 !!!
+2024-05-10 17:15:32,934 INFO --> --> 	 Top2 Improved from 0.0000 to 0.5011 !!!
+2024-05-10 17:15:32,935 INFO --> --> 	 Top3 Improved from 0.0000 to 0.6150 !!!
+2024-05-10 17:15:32,935 INFO --> --> 	 matching_score Improved from 100.00000 to 4.32326 !!!
+2024-05-10 17:15:59,015 INFO Train. Iter 200 : 	 Commit. 1.30521 	 PPL. 333.06 	 Recons. 0.36316
+2024-05-10 17:16:24,656 INFO Train. Iter 400 : 	 Commit. 1.44225 	 PPL. 348.94 	 Recons. 0.33477
+2024-05-10 17:16:50,753 INFO Train. Iter 600 : 	 Commit. 1.68992 	 PPL. 361.49 	 Recons. 0.29691
+2024-05-10 17:17:16,458 INFO Train. Iter 800 : 	 Commit. 1.86240 	 PPL. 367.12 	 Recons. 0.27183
+2024-05-10 17:17:42,446 INFO Train. Iter 1000 : 	 Commit. 1.97588 	 PPL. 373.61 	 Recons. 0.25670
+2024-05-10 17:17:54,151 INFO --> 	 Eva. Iter 1000 :, FID. 1.4029, Diversity Real. 9.4513, Diversity. 9.4035, R_precision_real. [0.59151786 0.79352679 0.87611607], R_precision. [0.45535714 0.64508929 0.73883929], matching_score_real. 2.3489198429243907, matching_score_pred. 3.293002562863486
+2024-05-10 17:17:54,152 INFO --> --> 	 FID Improved from 6.24787 to 1.40293 !!!
+2024-05-10 17:17:54,515 INFO --> --> 	 Diversity Improved from 8.21299 to 9.40353 !!!
+2024-05-10 17:17:54,893 INFO --> --> 	 Top1 Improved from 0.3147 to 0.4554 !!!
+2024-05-10 17:17:55,256 INFO --> --> 	 Top2 Improved from 0.5011 to 0.6451 !!!
+2024-05-10 17:17:55,257 INFO --> --> 	 Top3 Improved from 0.6150 to 0.7388 !!!
+2024-05-10 17:17:55,257 INFO --> --> 	 matching_score Improved from 4.32326 to 3.29300 !!!
+2024-05-10 17:18:21,761 INFO Train. Iter 1200 : 	 Commit. 2.09980 	 PPL. 375.95 	 Recons. 0.24479
+2024-05-10 17:18:47,613 INFO Train. Iter 1400 : 	 Commit. 2.13434 	 PPL. 377.70 	 Recons. 0.23473
+2024-05-10 17:19:13,658 INFO Train. Iter 1600 : 	 Commit. 2.16847 	 PPL. 377.33 	 Recons. 0.22762
+2024-05-10 17:19:39,314 INFO Train. Iter 1800 : 	 Commit. 2.19174 	 PPL. 376.14 	 Recons. 0.22396
+2024-05-10 17:20:05,406 INFO Train. Iter 2000 : 	 Commit. 2.19819 	 PPL. 375.26 	 Recons. 0.21765
+2024-05-10 17:20:17,331 INFO --> 	 Eva. Iter 2000 :, FID. 1.0994, Diversity Real. 9.4866, Diversity. 9.3225, R_precision_real. [0.60714286 0.75892857 0.84933036], R_precision. [0.47991071 0.65959821 0.75111607], matching_score_real. 2.3951453736850192, matching_score_pred. 3.156732363360269
+2024-05-10 17:20:17,334 INFO --> --> 	 FID Improved from 1.40293 to 1.09938 !!!
+2024-05-10 17:20:17,698 INFO --> --> 	 Top1 Improved from 0.4554 to 0.4799 !!!
+2024-05-10 17:20:18,043 INFO --> --> 	 Top2 Improved from 0.6451 to 0.6596 !!!
+2024-05-10 17:20:18,043 INFO --> --> 	 Top3 Improved from 0.7388 to 0.7511 !!!
+2024-05-10 17:20:18,043 INFO --> --> 	 matching_score Improved from 3.29300 to 3.15673 !!!
+2024-05-10 17:20:44,740 INFO Train. Iter 2200 : 	 Commit. 2.18913 	 PPL. 371.48 	 Recons. 0.21594
+2024-05-10 17:21:10,536 INFO Train. Iter 2400 : 	 Commit. 2.18939 	 PPL. 370.52 	 Recons. 0.21110
+2024-05-10 17:21:36,647 INFO Train. Iter 2600 : 	 Commit. 2.19438 	 PPL. 370.82 	 Recons. 0.20823
+2024-05-10 17:22:02,388 INFO Train. Iter 2800 : 	 Commit. 2.17599 	 PPL. 369.74 	 Recons. 0.20307
+2024-05-10 17:22:28,460 INFO Train. Iter 3000 : 	 Commit. 2.17330 	 PPL. 368.25 	 Recons. 0.20131
+2024-05-10 17:22:40,010 INFO --> 	 Eva. Iter 3000 :, FID. 1.5150, Diversity Real. 9.4169, Diversity. 9.7155, R_precision_real. [0.5859375  0.77790179 0.85825893], R_precision. [0.47098214 0.65848214 0.75      ], matching_score_real. 2.3663681660379683, matching_score_pred. 3.1123602049691335
+2024-05-10 17:22:40,015 INFO --> --> 	 matching_score Improved from 3.15673 to 3.11236 !!!
+2024-05-10 17:23:06,543 INFO Train. Iter 3200 : 	 Commit. 2.17393 	 PPL. 367.13 	 Recons. 0.19815
+2024-05-10 17:23:32,368 INFO Train. Iter 3400 : 	 Commit. 2.15584 	 PPL. 368.98 	 Recons. 0.19532
+2024-05-10 17:23:58,395 INFO Train. Iter 3600 : 	 Commit. 2.15624 	 PPL. 368.73 	 Recons. 0.19152
+2024-05-10 17:24:24,119 INFO Train. Iter 3800 : 	 Commit. 2.14795 	 PPL. 368.45 	 Recons. 0.19059
+2024-05-10 17:24:50,198 INFO Train. Iter 4000 : 	 Commit. 2.13782 	 PPL. 366.75 	 Recons. 0.18818
+2024-05-10 17:25:01,903 INFO --> 	 Eva. Iter 4000 :, FID. 0.8850, Diversity Real. 9.8147, Diversity. 9.4647, R_precision_real. [0.56473214 0.77120536 0.86160714], R_precision. [0.46316964 0.66183036 0.73995536], matching_score_real. 2.3885429246085033, matching_score_pred. 3.042220643588475
+2024-05-10 17:25:01,910 INFO --> --> 	 FID Improved from 1.09938 to 0.88503 !!!
+2024-05-10 17:25:02,289 INFO --> --> 	 Diversity Improved from 9.40353 to 9.46475 !!!
+2024-05-10 17:25:02,645 INFO --> --> 	 Top2 Improved from 0.6596 to 0.6618 !!!
+2024-05-10 17:25:02,645 INFO --> --> 	 matching_score Improved from 3.11236 to 3.04222 !!!
+2024-05-10 17:25:29,150 INFO Train. Iter 4200 : 	 Commit. 2.13559 	 PPL. 367.45 	 Recons. 0.18600
+2024-05-10 17:25:54,937 INFO Train. Iter 4400 : 	 Commit. 2.12696 	 PPL. 365.67 	 Recons. 0.18371
+2024-05-10 17:26:21,079 INFO Train. Iter 4600 : 	 Commit. 2.11679 	 PPL. 365.18 	 Recons. 0.18282
+2024-05-10 17:26:46,821 INFO Train. Iter 4800 : 	 Commit. 2.10702 	 PPL. 364.88 	 Recons. 0.18047
+2024-05-10 17:27:12,934 INFO Train. Iter 5000 : 	 Commit. 2.08191 	 PPL. 364.65 	 Recons. 0.17799
+2024-05-10 17:27:24,827 INFO --> 	 Eva. Iter 5000 :, FID. 0.7041, Diversity Real. 9.4382, Diversity. 9.3044, R_precision_real. [0.60825893 0.78125    0.86383929], R_precision. [0.49665179 0.67633929 0.75892857], matching_score_real. 2.349991168294634, matching_score_pred. 2.964761665889195
+2024-05-10 17:27:24,828 INFO --> --> 	 FID Improved from 0.88503 to 0.70410 !!!
+2024-05-10 17:27:25,172 INFO --> --> 	 Top1 Improved from 0.4799 to 0.4967 !!!
+2024-05-10 17:27:25,547 INFO --> --> 	 Top2 Improved from 0.6618 to 0.6763 !!!
+2024-05-10 17:27:25,547 INFO --> --> 	 Top3 Improved from 0.7511 to 0.7589 !!!
+2024-05-10 17:27:25,547 INFO --> --> 	 matching_score Improved from 3.04222 to 2.96476 !!!
+2024-05-10 17:27:52,062 INFO Train. Iter 5200 : 	 Commit. 2.06819 	 PPL. 365.12 	 Recons. 0.17747
+2024-05-10 17:28:18,214 INFO Train. Iter 5400 : 	 Commit. 2.04310 	 PPL. 365.19 	 Recons. 0.17465
+2024-05-10 17:28:44,009 INFO Train. Iter 5600 : 	 Commit. 2.04474 	 PPL. 365.22 	 Recons. 0.17401
+2024-05-10 17:29:09,759 INFO Train. Iter 5800 : 	 Commit. 2.02039 	 PPL. 364.04 	 Recons. 0.17239
+2024-05-10 17:29:35,899 INFO Train. Iter 6000 : 	 Commit. 2.02190 	 PPL. 364.50 	 Recons. 0.17058
+2024-05-10 17:29:47,734 INFO --> 	 Eva. Iter 6000 :, FID. 0.5847, Diversity Real. 9.2993, Diversity. 9.5006, R_precision_real. [0.58482143 0.78794643 0.86383929], R_precision. [0.48883929 0.68415179 0.77232143], matching_score_real. 2.3941161036491394, matching_score_pred. 2.9462927324431285
+2024-05-10 17:29:47,735 INFO --> --> 	 FID Improved from 0.70410 to 0.58470 !!!
+2024-05-10 17:29:48,069 INFO --> --> 	 Top2 Improved from 0.6763 to 0.6842 !!!
+2024-05-10 17:29:48,069 INFO --> --> 	 Top3 Improved from 0.7589 to 0.7723 !!!
+2024-05-10 17:29:48,069 INFO --> --> 	 matching_score Improved from 2.96476 to 2.94629 !!!
+2024-05-10 17:30:14,588 INFO Train. Iter 6200 : 	 Commit. 2.01477 	 PPL. 364.49 	 Recons. 0.16945
+2024-05-10 17:30:40,743 INFO Train. Iter 6400 : 	 Commit. 1.99015 	 PPL. 364.89 	 Recons. 0.16851
+2024-05-10 17:31:06,462 INFO Train. Iter 6600 : 	 Commit. 1.96882 	 PPL. 364.17 	 Recons. 0.16773
+2024-05-10 17:31:32,199 INFO Train. Iter 6800 : 	 Commit. 1.94837 	 PPL. 365.07 	 Recons. 0.16580
+2024-05-10 17:31:58,317 INFO Train. Iter 7000 : 	 Commit. 1.95909 	 PPL. 365.82 	 Recons. 0.16529
+2024-05-10 17:32:10,128 INFO --> 	 Eva. Iter 7000 :, FID. 0.7676, Diversity Real. 9.3735, Diversity. 9.6557, R_precision_real. [0.57924107 0.7734375  0.86160714], R_precision. [0.48549107 0.67857143 0.77232143], matching_score_real. 2.3922134595257893, matching_score_pred. 3.0174359934670583
+2024-05-10 17:32:36,207 INFO Train. Iter 7200 : 	 Commit. 1.93455 	 PPL. 365.33 	 Recons. 0.16390
+2024-05-10 17:33:02,373 INFO Train. Iter 7400 : 	 Commit. 1.93235 	 PPL. 365.87 	 Recons. 0.16283
+2024-05-10 17:33:28,076 INFO Train. Iter 7600 : 	 Commit. 1.91307 	 PPL. 366.04 	 Recons. 0.16124
+2024-05-10 17:33:53,799 INFO Train. Iter 7800 : 	 Commit. 1.89722 	 PPL. 366.44 	 Recons. 0.16028
+2024-05-10 17:34:19,940 INFO Train. Iter 8000 : 	 Commit. 1.88538 	 PPL. 367.36 	 Recons. 0.15987
+2024-05-10 17:34:31,955 INFO --> 	 Eva. Iter 8000 :, FID. 0.6471, Diversity Real. 9.7911, Diversity. 9.7471, R_precision_real. [0.60379464 0.77232143 0.85491071], R_precision. [0.48660714 0.69308036 0.77790179], matching_score_real. 2.3610251460756575, matching_score_pred. 2.9183481335639954
+2024-05-10 17:34:31,958 INFO --> --> 	 Diversity Improved from 9.46475 to 9.74713 !!!
+2024-05-10 17:34:32,318 INFO --> --> 	 Top2 Improved from 0.6842 to 0.6931 !!!
+2024-05-10 17:34:32,319 INFO --> --> 	 Top3 Improved from 0.7723 to 0.7779 !!!
+2024-05-10 17:34:32,319 INFO --> --> 	 matching_score Improved from 2.94629 to 2.91835 !!!
+2024-05-10 17:34:58,782 INFO Train. Iter 8200 : 	 Commit. 1.87007 	 PPL. 366.47 	 Recons. 0.15849
+2024-05-10 17:35:24,811 INFO Train. Iter 8400 : 	 Commit. 1.85201 	 PPL. 367.77 	 Recons. 0.15699
+2024-05-10 17:35:50,473 INFO Train. Iter 8600 : 	 Commit. 1.85268 	 PPL. 367.42 	 Recons. 0.15598
+2024-05-10 17:36:16,152 INFO Train. Iter 8800 : 	 Commit. 1.84268 	 PPL. 367.25 	 Recons. 0.15594
+2024-05-10 17:36:42,161 INFO Train. Iter 9000 : 	 Commit. 1.80555 	 PPL. 367.84 	 Recons. 0.15472
+2024-05-10 17:36:54,506 INFO --> 	 Eva. Iter 9000 :, FID. 0.6127, Diversity Real. 9.3764, Diversity. 9.1883, R_precision_real. [0.59263393 0.77790179 0.86383929], R_precision. [0.48883929 0.69084821 0.796875  ], matching_score_real. 2.3702725172042847, matching_score_pred. 2.883518270083836
+2024-05-10 17:36:54,511 INFO --> --> 	 Diversity Improved from 9.74713 to 9.18830 !!!
+2024-05-10 17:36:54,873 INFO --> --> 	 Top3 Improved from 0.7779 to 0.7969 !!!
+2024-05-10 17:36:54,874 INFO --> --> 	 matching_score Improved from 2.91835 to 2.88352 !!!
+2024-05-10 17:37:21,423 INFO Train. Iter 9200 : 	 Commit. 1.81120 	 PPL. 368.32 	 Recons. 0.15363
+2024-05-10 17:37:47,526 INFO Train. Iter 9400 : 	 Commit. 1.79175 	 PPL. 367.78 	 Recons. 0.15344
+2024-05-10 17:38:13,203 INFO Train. Iter 9600 : 	 Commit. 1.80025 	 PPL. 368.25 	 Recons. 0.15476
+2024-05-10 17:38:38,805 INFO Train. Iter 9800 : 	 Commit. 1.77117 	 PPL. 368.88 	 Recons. 0.15101
+2024-05-10 17:39:04,842 INFO Train. Iter 10000 : 	 Commit. 1.76109 	 PPL. 369.75 	 Recons. 0.15045
+2024-05-10 17:39:16,689 INFO --> 	 Eva. Iter 10000 :, FID. 0.4462, Diversity Real. 9.2764, Diversity. 9.6171, R_precision_real. [0.57924107 0.76227679 0.86383929], R_precision. [0.48995536 0.67745536 0.77455357], matching_score_real. 2.383242645433971, matching_score_pred. 2.8416823744773865
+2024-05-10 17:39:16,692 INFO --> --> 	 FID Improved from 0.58470 to 0.44622 !!!
+2024-05-10 17:39:17,048 INFO --> --> 	 matching_score Improved from 2.88352 to 2.84168 !!!
+2024-05-10 17:39:43,511 INFO Train. Iter 10200 : 	 Commit. 1.75448 	 PPL. 368.86 	 Recons. 0.15026
+2024-05-10 17:40:09,556 INFO Train. Iter 10400 : 	 Commit. 1.74238 	 PPL. 369.43 	 Recons. 0.14933
+2024-05-10 17:40:35,149 INFO Train. Iter 10600 : 	 Commit. 1.71608 	 PPL. 368.82 	 Recons. 0.14823
+2024-05-10 17:41:01,085 INFO Train. Iter 10800 : 	 Commit. 1.72698 	 PPL. 370.35 	 Recons. 0.14771
+2024-05-10 17:41:26,828 INFO Train. Iter 11000 : 	 Commit. 1.71369 	 PPL. 368.86 	 Recons. 0.14692
+2024-05-10 17:41:38,851 INFO --> 	 Eva. Iter 11000 :, FID. 0.5729, Diversity Real. 9.2473, Diversity. 9.7488, R_precision_real. [0.58482143 0.77901786 0.86495536], R_precision. [0.50558036 0.68638393 0.78125   ], matching_score_real. 2.364039966038295, matching_score_pred. 2.8806653959410533
+2024-05-10 17:41:38,855 INFO --> --> 	 Top1 Improved from 0.4967 to 0.5056 !!!
+2024-05-10 17:42:05,370 INFO Train. Iter 11200 : 	 Commit. 1.69015 	 PPL. 371.35 	 Recons. 0.14551
+2024-05-10 17:42:31,422 INFO Train. Iter 11400 : 	 Commit. 1.68473 	 PPL. 370.44 	 Recons. 0.14552
+2024-05-10 17:42:57,040 INFO Train. Iter 11600 : 	 Commit. 1.68710 	 PPL. 369.90 	 Recons. 0.14426
+2024-05-10 17:43:23,007 INFO Train. Iter 11800 : 	 Commit. 1.66846 	 PPL. 369.63 	 Recons. 0.14370
+2024-05-10 17:43:48,701 INFO Train. Iter 12000 : 	 Commit. 1.67312 	 PPL. 371.73 	 Recons. 0.14271
+2024-05-10 17:44:00,678 INFO --> 	 Eva. Iter 12000 :, FID. 0.4651, Diversity Real. 9.6288, Diversity. 9.4308, R_precision_real. [0.60379464 0.78125    0.8671875 ], R_precision. [0.51674107 0.70647321 0.79241071], matching_score_real. 2.3309405616351535, matching_score_pred. 2.842193169253213
+2024-05-10 17:44:00,682 INFO --> --> 	 Diversity Improved from 9.18830 to 9.43080 !!!
+2024-05-10 17:44:01,049 INFO --> --> 	 Top1 Improved from 0.5056 to 0.5167 !!!
+2024-05-10 17:44:01,403 INFO --> --> 	 Top2 Improved from 0.6931 to 0.7065 !!!
+2024-05-10 17:44:27,558 INFO Train. Iter 12200 : 	 Commit. 1.65504 	 PPL. 371.84 	 Recons. 0.14254
+2024-05-10 17:44:53,707 INFO Train. Iter 12400 : 	 Commit. 1.63205 	 PPL. 371.69 	 Recons. 0.14222
+2024-05-10 17:45:19,385 INFO Train. Iter 12600 : 	 Commit. 1.63325 	 PPL. 372.01 	 Recons. 0.14175
+2024-05-10 17:45:45,328 INFO Train. Iter 12800 : 	 Commit. 1.62002 	 PPL. 371.39 	 Recons. 0.14103
+2024-05-10 17:46:11,045 INFO Train. Iter 13000 : 	 Commit. 1.61340 	 PPL. 372.12 	 Recons. 0.14033
+2024-05-10 17:46:23,016 INFO --> 	 Eva. Iter 13000 :, FID. 0.5218, Diversity Real. 9.4434, Diversity. 9.2448, R_precision_real. [0.58482143 0.76004464 0.83258929], R_precision. [0.49441964 0.67522321 0.75446429], matching_score_real. 2.4139257073402405, matching_score_pred. 2.9356733901160106
+2024-05-10 17:46:49,197 INFO Train. Iter 13200 : 	 Commit. 1.59687 	 PPL. 371.94 	 Recons. 0.13980
+2024-05-10 17:47:15,306 INFO Train. Iter 13400 : 	 Commit. 1.59308 	 PPL. 372.70 	 Recons. 0.13830
+2024-05-10 17:47:40,976 INFO Train. Iter 13600 : 	 Commit. 1.58379 	 PPL. 373.26 	 Recons. 0.13804
+2024-05-10 17:48:07,082 INFO Train. Iter 13800 : 	 Commit. 1.57316 	 PPL. 373.56 	 Recons. 0.13716
+2024-05-10 17:48:32,858 INFO Train. Iter 14000 : 	 Commit. 1.57627 	 PPL. 374.02 	 Recons. 0.13775
+2024-05-10 17:48:44,825 INFO --> 	 Eva. Iter 14000 :, FID. 0.4790, Diversity Real. 9.2244, Diversity. 9.1846, R_precision_real. [0.5703125  0.77008929 0.86941964], R_precision. [0.48883929 0.67857143 0.77008929], matching_score_real. 2.4282298513821194, matching_score_pred. 2.911518931388855
+2024-05-10 17:48:44,828 INFO --> --> 	 Diversity Improved from 9.43080 to 9.18461 !!!
+2024-05-10 17:49:11,354 INFO Train. Iter 14200 : 	 Commit. 1.54422 	 PPL. 374.40 	 Recons. 0.13637
+2024-05-10 17:49:37,520 INFO Train. Iter 14400 : 	 Commit. 1.54803 	 PPL. 374.34 	 Recons. 0.13643
+2024-05-10 17:50:03,257 INFO Train. Iter 14600 : 	 Commit. 1.53565 	 PPL. 373.97 	 Recons. 0.13563
+2024-05-10 17:50:29,285 INFO Train. Iter 14800 : 	 Commit. 1.53265 	 PPL. 374.16 	 Recons. 0.13549
+2024-05-10 17:50:55,054 INFO Train. Iter 15000 : 	 Commit. 1.51737 	 PPL. 373.98 	 Recons. 0.13472
+2024-05-10 17:51:07,183 INFO --> 	 Eva. Iter 15000 :, FID. 0.4190, Diversity Real. 9.4071, Diversity. 9.5457, R_precision_real. [0.59821429 0.78571429 0.86160714], R_precision. [0.5078125  0.68861607 0.77678571], matching_score_real. 2.394551647560937, matching_score_pred. 2.9063077994755337
+2024-05-10 17:51:07,186 INFO --> --> 	 FID Improved from 0.44622 to 0.41897 !!!
+2024-05-10 17:51:07,541 INFO --> --> 	 Diversity Improved from 9.18461 to 9.54567 !!!
+2024-05-10 17:51:34,007 INFO Train. Iter 15200 : 	 Commit. 1.51767 	 PPL. 374.36 	 Recons. 0.13350
+2024-05-10 17:52:00,047 INFO Train. Iter 15400 : 	 Commit. 1.50015 	 PPL. 375.18 	 Recons. 0.13326
+2024-05-10 17:52:25,640 INFO Train. Iter 15600 : 	 Commit. 1.50544 	 PPL. 374.17 	 Recons. 0.13258
+2024-05-10 17:52:51,608 INFO Train. Iter 15800 : 	 Commit. 1.48233 	 PPL. 374.21 	 Recons. 0.13314
+2024-05-10 17:53:17,313 INFO Train. Iter 16000 : 	 Commit. 1.49935 	 PPL. 374.46 	 Recons. 0.13338
+2024-05-10 17:53:29,109 INFO --> 	 Eva. Iter 16000 :, FID. 0.6601, Diversity Real. 9.8380, Diversity. 9.8895, R_precision_real. [0.59821429 0.77790179 0.85267857], R_precision. [0.48325893 0.6875     0.77678571], matching_score_real. 2.39491982119424, matching_score_pred. 2.945990834917341
+2024-05-10 17:53:29,110 INFO --> --> 	 Diversity Improved from 9.54567 to 9.88946 !!!
+2024-05-10 17:53:55,905 INFO Train. Iter 16200 : 	 Commit. 1.47228 	 PPL. 374.34 	 Recons. 0.13137
+2024-05-10 17:54:21,606 INFO Train. Iter 16400 : 	 Commit. 1.46542 	 PPL. 375.06 	 Recons. 0.13175
+2024-05-10 17:54:47,220 INFO Train. Iter 16600 : 	 Commit. 1.47504 	 PPL. 374.59 	 Recons. 0.13135
+2024-05-10 17:55:13,260 INFO Train. Iter 16800 : 	 Commit. 1.44940 	 PPL. 375.17 	 Recons. 0.13061
+2024-05-10 17:55:38,904 INFO Train. Iter 17000 : 	 Commit. 1.43880 	 PPL. 374.75 	 Recons. 0.12935
+2024-05-10 17:55:50,707 INFO --> 	 Eva. Iter 17000 :, FID. 0.4913, Diversity Real. 9.0859, Diversity. 9.8812, R_precision_real. [0.56584821 0.765625   0.84933036], R_precision. [0.49553571 0.67857143 0.7734375 ], matching_score_real. 2.413169664996011, matching_score_pred. 2.9367512805121287
+2024-05-10 17:55:50,710 INFO --> --> 	 Diversity Improved from 9.88946 to 9.88124 !!!
+2024-05-10 17:56:17,658 INFO Train. Iter 17200 : 	 Commit. 1.43933 	 PPL. 375.87 	 Recons. 0.12877
+2024-05-10 17:56:43,436 INFO Train. Iter 17400 : 	 Commit. 1.44388 	 PPL. 375.46 	 Recons. 0.12877
+2024-05-10 17:57:09,147 INFO Train. Iter 17600 : 	 Commit. 1.42275 	 PPL. 375.24 	 Recons. 0.12951
+2024-05-10 17:57:35,192 INFO Train. Iter 17800 : 	 Commit. 1.40101 	 PPL. 375.13 	 Recons. 0.12765
+2024-05-10 17:58:00,942 INFO Train. Iter 18000 : 	 Commit. 1.41556 	 PPL. 375.52 	 Recons. 0.12770
+2024-05-10 17:58:13,047 INFO --> 	 Eva. Iter 18000 :, FID. 0.7510, Diversity Real. 9.1603, Diversity. 9.9370, R_precision_real. [0.58035714 0.78013393 0.87165179], R_precision. [0.50223214 0.69977679 0.78459821], matching_score_real. 2.3528840286391124, matching_score_pred. 2.8750507661274503
+2024-05-10 17:58:39,483 INFO Train. Iter 18200 : 	 Commit. 1.39157 	 PPL. 376.30 	 Recons. 0.12697
+2024-05-10 17:59:05,230 INFO Train. Iter 18400 : 	 Commit. 1.40695 	 PPL. 376.73 	 Recons. 0.12734
+2024-05-10 17:59:30,856 INFO Train. Iter 18600 : 	 Commit. 1.40376 	 PPL. 376.20 	 Recons. 0.12702
+2024-05-10 17:59:56,829 INFO Train. Iter 18800 : 	 Commit. 1.39865 	 PPL. 376.70 	 Recons. 0.12618
+2024-05-10 18:00:22,542 INFO Train. Iter 19000 : 	 Commit. 1.38342 	 PPL. 376.79 	 Recons. 0.12625
+2024-05-10 18:00:34,569 INFO --> 	 Eva. Iter 19000 :, FID. 0.4485, Diversity Real. 9.1692, Diversity. 9.6526, R_precision_real. [0.59598214 0.77790179 0.87053571], R_precision. [0.50892857 0.703125   0.80133929], matching_score_real. 2.3201897782938823, matching_score_pred. 2.8082224896975925
+2024-05-10 18:00:34,572 INFO --> --> 	 Diversity Improved from 9.88124 to 9.65262 !!!
+2024-05-10 18:00:34,941 INFO --> --> 	 Top3 Improved from 0.7969 to 0.8013 !!!
+2024-05-10 18:00:34,941 INFO --> --> 	 matching_score Improved from 2.84168 to 2.80822 !!!
+2024-05-10 18:01:01,747 INFO Train. Iter 19200 : 	 Commit. 1.36484 	 PPL. 376.31 	 Recons. 0.12463
+2024-05-10 18:01:27,410 INFO Train. Iter 19400 : 	 Commit. 1.37286 	 PPL. 376.63 	 Recons. 0.12530
+2024-05-10 18:01:52,980 INFO Train. Iter 19600 : 	 Commit. 1.34295 	 PPL. 376.27 	 Recons. 0.12470
+2024-05-10 18:02:18,914 INFO Train. Iter 19800 : 	 Commit. 1.34689 	 PPL. 376.24 	 Recons. 0.12456
+2024-05-10 18:02:44,615 INFO Train. Iter 20000 : 	 Commit. 1.33718 	 PPL. 376.92 	 Recons. 0.12369
+2024-05-10 18:02:56,479 INFO --> 	 Eva. Iter 20000 :, FID. 0.3734, Diversity Real. 9.5147, Diversity. 9.3464, R_precision_real. [0.59709821 0.78794643 0.8515625 ], R_precision. [0.51450893 0.69084821 0.77790179], matching_score_real. 2.424480697938374, matching_score_pred. 2.8803790381976535
+2024-05-10 18:02:56,480 INFO --> --> 	 FID Improved from 0.41897 to 0.37342 !!!
+2024-05-10 18:03:23,255 INFO Train. Iter 20200 : 	 Commit. 1.33283 	 PPL. 376.69 	 Recons. 0.12347
+2024-05-10 18:03:48,854 INFO Train. Iter 20400 : 	 Commit. 1.34061 	 PPL. 376.84 	 Recons. 0.12356
+2024-05-10 18:04:14,451 INFO Train. Iter 20600 : 	 Commit. 1.32749 	 PPL. 378.24 	 Recons. 0.12286
+2024-05-10 18:04:40,359 INFO Train. Iter 20800 : 	 Commit. 1.31191 	 PPL. 377.31 	 Recons. 0.12218
+2024-05-10 18:05:06,039 INFO Train. Iter 21000 : 	 Commit. 1.32223 	 PPL. 377.38 	 Recons. 0.12235
+2024-05-10 18:05:18,111 INFO --> 	 Eva. Iter 21000 :, FID. 0.3170, Diversity Real. 9.4111, Diversity. 9.4246, R_precision_real. [0.57924107 0.76339286 0.84486607], R_precision. [0.48660714 0.67522321 0.77566964], matching_score_real. 2.3829888020242964, matching_score_pred. 2.845842489174434
+2024-05-10 18:05:18,115 INFO --> --> 	 FID Improved from 0.37342 to 0.31699 !!!
+2024-05-10 18:05:18,488 INFO --> --> 	 Diversity Improved from 9.65262 to 9.42456 !!!
+2024-05-10 18:05:45,372 INFO Train. Iter 21200 : 	 Commit. 1.32088 	 PPL. 377.71 	 Recons. 0.12202
+2024-05-10 18:06:11,102 INFO Train. Iter 21400 : 	 Commit. 1.30224 	 PPL. 378.54 	 Recons. 0.12088
+2024-05-10 18:06:37,156 INFO Train. Iter 21600 : 	 Commit. 1.30447 	 PPL. 377.76 	 Recons. 0.12141
+2024-05-10 18:07:02,781 INFO Train. Iter 21800 : 	 Commit. 1.28893 	 PPL. 378.84 	 Recons. 0.12047
+2024-05-10 18:07:28,478 INFO Train. Iter 22000 : 	 Commit. 1.29403 	 PPL. 377.96 	 Recons. 0.12023
+2024-05-10 18:07:40,360 INFO --> 	 Eva. Iter 22000 :, FID. 0.5715, Diversity Real. 9.0425, Diversity. 9.6441, R_precision_real. [0.58482143 0.78459821 0.86160714], R_precision. [0.50669643 0.68973214 0.78236607], matching_score_real. 2.4041685376848494, matching_score_pred. 2.8978220650127957
+2024-05-10 18:08:06,769 INFO Train. Iter 22200 : 	 Commit. 1.29391 	 PPL. 378.25 	 Recons. 0.12050
+2024-05-10 18:08:32,471 INFO Train. Iter 22400 : 	 Commit. 1.28565 	 PPL. 377.86 	 Recons. 0.11990
+2024-05-10 18:08:58,340 INFO Train. Iter 22600 : 	 Commit. 1.27592 	 PPL. 379.80 	 Recons. 0.12010
+2024-05-10 18:09:23,948 INFO Train. Iter 22800 : 	 Commit. 1.26595 	 PPL. 377.95 	 Recons. 0.11896
+2024-05-10 18:09:49,580 INFO Train. Iter 23000 : 	 Commit. 1.26360 	 PPL. 378.88 	 Recons. 0.11872
+2024-05-10 18:10:01,330 INFO --> 	 Eva. Iter 23000 :, FID. 0.4847, Diversity Real. 9.4763, Diversity. 9.2145, R_precision_real. [0.58147321 0.77678571 0.85825893], R_precision. [0.48772321 0.68415179 0.78683036], matching_score_real. 2.370841784136636, matching_score_pred. 2.8748844947133745
+2024-05-10 18:10:27,786 INFO Train. Iter 23200 : 	 Commit. 1.25861 	 PPL. 378.99 	 Recons. 0.11829
+2024-05-10 18:10:53,556 INFO Train. Iter 23400 : 	 Commit. 1.24634 	 PPL. 379.50 	 Recons. 0.11785
+2024-05-10 18:11:19,600 INFO Train. Iter 23600 : 	 Commit. 1.25596 	 PPL. 379.24 	 Recons. 0.11834
+2024-05-10 18:11:45,243 INFO Train. Iter 23800 : 	 Commit. 1.24642 	 PPL. 379.24 	 Recons. 0.11810
+2024-05-10 18:12:10,971 INFO Train. Iter 24000 : 	 Commit. 1.25425 	 PPL. 378.45 	 Recons. 0.11773
+2024-05-10 18:12:22,783 INFO --> 	 Eva. Iter 24000 :, FID. 0.3341, Diversity Real. 9.5202, Diversity. 9.3194, R_precision_real. [0.57700893 0.78348214 0.86049107], R_precision. [0.52232143 0.69419643 0.79352679], matching_score_real. 2.3876544620309557, matching_score_pred. 2.835838939462389
+2024-05-10 18:12:22,784 INFO --> --> 	 Top1 Improved from 0.5167 to 0.5223 !!!
+2024-05-10 18:12:49,585 INFO Train. Iter 24200 : 	 Commit. 1.23630 	 PPL. 379.07 	 Recons. 0.11725
+2024-05-10 18:13:15,291 INFO Train. Iter 24400 : 	 Commit. 1.26068 	 PPL. 378.96 	 Recons. 0.11812
+2024-05-10 18:13:41,257 INFO Train. Iter 24600 : 	 Commit. 1.23524 	 PPL. 379.01 	 Recons. 0.11656
+2024-05-10 18:14:06,919 INFO Train. Iter 24800 : 	 Commit. 1.23571 	 PPL. 379.09 	 Recons. 0.11640
+2024-05-10 18:14:32,623 INFO Train. Iter 25000 : 	 Commit. 1.22112 	 PPL. 378.71 	 Recons. 0.11590
+2024-05-10 18:14:44,423 INFO --> 	 Eva. Iter 25000 :, FID. 0.3467, Diversity Real. 9.4674, Diversity. 9.5242, R_precision_real. [0.60379464 0.78236607 0.87611607], R_precision. [0.50446429 0.70089286 0.79464286], matching_score_real. 2.414555779525212, matching_score_pred. 2.8271646755082265
+2024-05-10 18:15:10,851 INFO Train. Iter 25200 : 	 Commit. 1.20347 	 PPL. 378.64 	 Recons. 0.11564
+2024-05-10 18:15:36,544 INFO Train. Iter 25400 : 	 Commit. 1.20422 	 PPL. 379.78 	 Recons. 0.11552
+2024-05-10 18:16:02,533 INFO Train. Iter 25600 : 	 Commit. 1.21676 	 PPL. 379.05 	 Recons. 0.11562
+2024-05-10 18:16:28,163 INFO Train. Iter 25800 : 	 Commit. 1.19498 	 PPL. 379.00 	 Recons. 0.11475
+2024-05-10 18:16:53,881 INFO Train. Iter 26000 : 	 Commit. 1.18847 	 PPL. 379.75 	 Recons. 0.11436
+2024-05-10 18:17:05,843 INFO --> 	 Eva. Iter 26000 :, FID. 0.4377, Diversity Real. 9.2974, Diversity. 9.5019, R_precision_real. [0.56696429 0.76897321 0.86049107], R_precision. [0.46986607 0.67299107 0.77232143], matching_score_real. 2.406846727643694, matching_score_pred. 2.930882683822087
+2024-05-10 18:17:32,203 INFO Train. Iter 26200 : 	 Commit. 1.18398 	 PPL. 380.48 	 Recons. 0.11400
+2024-05-10 18:17:57,844 INFO Train. Iter 26400 : 	 Commit. 1.17391 	 PPL. 380.77 	 Recons. 0.11386
+2024-05-10 18:18:23,807 INFO Train. Iter 26600 : 	 Commit. 1.17605 	 PPL. 381.00 	 Recons. 0.11360
+2024-05-10 18:18:49,410 INFO Train. Iter 26800 : 	 Commit. 1.18718 	 PPL. 380.53 	 Recons. 0.11414
+2024-05-10 18:19:15,335 INFO Train. Iter 27000 : 	 Commit. 1.19188 	 PPL. 379.78 	 Recons. 0.11382
+2024-05-10 18:19:27,200 INFO --> 	 Eva. Iter 27000 :, FID. 0.4162, Diversity Real. 9.2701, Diversity. 9.3416, R_precision_real. [0.59263393 0.77790179 0.84933036], R_precision. [0.52566964 0.70535714 0.78125   ], matching_score_real. 2.3666046602385387, matching_score_pred. 2.7883878307683125
+2024-05-10 18:19:27,204 INFO --> --> 	 Diversity Improved from 9.42456 to 9.34162 !!!
+2024-05-10 18:19:27,581 INFO --> --> 	 Top1 Improved from 0.5223 to 0.5257 !!!
+2024-05-10 18:19:27,944 INFO --> --> 	 matching_score Improved from 2.80822 to 2.78839 !!!
+2024-05-10 18:19:54,713 INFO Train. Iter 27200 : 	 Commit. 1.15882 	 PPL. 378.97 	 Recons. 0.11337
+2024-05-10 18:20:20,456 INFO Train. Iter 27400 : 	 Commit. 1.15900 	 PPL. 379.82 	 Recons. 0.11268
+2024-05-10 18:20:46,374 INFO Train. Iter 27600 : 	 Commit. 1.15636 	 PPL. 381.13 	 Recons. 0.11232
+2024-05-10 18:21:11,981 INFO Train. Iter 27800 : 	 Commit. 1.15691 	 PPL. 381.12 	 Recons. 0.11221
+2024-05-10 18:21:37,894 INFO Train. Iter 28000 : 	 Commit. 1.15884 	 PPL. 379.95 	 Recons. 0.11200
+2024-05-10 18:21:49,718 INFO --> 	 Eva. Iter 28000 :, FID. 0.4179, Diversity Real. 9.0679, Diversity. 9.7123, R_precision_real. [0.5703125  0.78571429 0.86830357], R_precision. [0.50558036 0.70647321 0.79241071], matching_score_real. 2.379746505192348, matching_score_pred. 2.8312515190669467
+2024-05-10 18:22:15,831 INFO Train. Iter 28200 : 	 Commit. 1.14901 	 PPL. 380.56 	 Recons. 0.11199
+2024-05-10 18:22:41,566 INFO Train. Iter 28400 : 	 Commit. 1.13355 	 PPL. 381.70 	 Recons. 0.11129
+2024-05-10 18:23:07,583 INFO Train. Iter 28600 : 	 Commit. 1.14230 	 PPL. 380.66 	 Recons. 0.11126
+2024-05-10 18:23:33,285 INFO Train. Iter 28800 : 	 Commit. 1.13031 	 PPL. 380.75 	 Recons. 0.11110
+2024-05-10 18:23:59,377 INFO Train. Iter 29000 : 	 Commit. 1.13698 	 PPL. 381.17 	 Recons. 0.11131
+2024-05-10 18:24:11,145 INFO --> 	 Eva. Iter 29000 :, FID. 0.3114, Diversity Real. 9.4772, Diversity. 9.3741, R_precision_real. [0.59933036 0.78236607 0.86607143], R_precision. [0.50669643 0.69977679 0.78683036], matching_score_real. 2.3668935894966125, matching_score_pred. 2.813760910715376
+2024-05-10 18:24:11,151 INFO --> --> 	 FID Improved from 0.31699 to 0.31143 !!!
+2024-05-10 18:24:11,533 INFO --> --> 	 Diversity Improved from 9.34162 to 9.37415 !!!
+2024-05-10 18:24:37,990 INFO Train. Iter 29200 : 	 Commit. 1.16139 	 PPL. 380.74 	 Recons. 0.11145
+2024-05-10 18:25:03,624 INFO Train. Iter 29400 : 	 Commit. 1.14776 	 PPL. 379.91 	 Recons. 0.11046
+2024-05-10 18:25:29,543 INFO Train. Iter 29600 : 	 Commit. 1.12224 	 PPL. 379.77 	 Recons. 0.11001
+2024-05-10 18:25:55,093 INFO Train. Iter 29800 : 	 Commit. 1.11813 	 PPL. 380.84 	 Recons. 0.10949
+2024-05-10 18:26:21,071 INFO Train. Iter 30000 : 	 Commit. 1.11621 	 PPL. 381.53 	 Recons. 0.11020
+2024-05-10 18:26:32,746 INFO --> 	 Eva. Iter 30000 :, FID. 0.5400, Diversity Real. 9.3217, Diversity. 9.6002, R_precision_real. [0.59933036 0.78013393 0.86830357], R_precision. [0.50223214 0.67745536 0.77008929], matching_score_real. 2.3470195829868317, matching_score_pred. 2.898124669279371
+2024-05-10 18:26:59,091 INFO Train. Iter 30200 : 	 Commit. 1.11008 	 PPL. 380.07 	 Recons. 0.10970
+2024-05-10 18:27:24,810 INFO Train. Iter 30400 : 	 Commit. 1.11417 	 PPL. 381.48 	 Recons. 0.10927
+2024-05-10 18:27:50,824 INFO Train. Iter 30600 : 	 Commit. 1.10323 	 PPL. 381.46 	 Recons. 0.10910
+2024-05-10 18:28:16,479 INFO Train. Iter 30800 : 	 Commit. 1.09050 	 PPL. 381.12 	 Recons. 0.10866
+2024-05-10 18:28:42,524 INFO Train. Iter 31000 : 	 Commit. 1.08310 	 PPL. 382.00 	 Recons. 0.10882
+2024-05-10 18:28:54,399 INFO --> 	 Eva. Iter 31000 :, FID. 0.5145, Diversity Real. 9.3994, Diversity. 9.5527, R_precision_real. [0.57254464 0.78013393 0.86160714], R_precision. [0.49665179 0.6796875  0.78459821], matching_score_real. 2.373533832175391, matching_score_pred. 2.88708164862224
+2024-05-10 18:29:20,523 INFO Train. Iter 31200 : 	 Commit. 1.09716 	 PPL. 381.87 	 Recons. 0.10821
+2024-05-10 18:29:46,235 INFO Train. Iter 31400 : 	 Commit. 1.06835 	 PPL. 381.91 	 Recons. 0.10795
+2024-05-10 18:30:12,237 INFO Train. Iter 31600 : 	 Commit. 1.08490 	 PPL. 382.65 	 Recons. 0.10858
+2024-05-10 18:30:37,939 INFO Train. Iter 31800 : 	 Commit. 1.09150 	 PPL. 381.78 	 Recons. 0.10790
+2024-05-10 18:31:04,001 INFO Train. Iter 32000 : 	 Commit. 1.09880 	 PPL. 381.87 	 Recons. 0.10891
+2024-05-10 18:31:15,951 INFO --> 	 Eva. Iter 32000 :, FID. 0.4268, Diversity Real. 9.3465, Diversity. 9.7828, R_precision_real. [0.59151786 0.77678571 0.86941964], R_precision. [0.50558036 0.68080357 0.79129464], matching_score_real. 2.3897118270397186, matching_score_pred. 2.869994120938437
+2024-05-10 18:31:41,980 INFO Train. Iter 32200 : 	 Commit. 1.06762 	 PPL. 381.26 	 Recons. 0.10697
+2024-05-10 18:32:07,945 INFO Train. Iter 32400 : 	 Commit. 1.06893 	 PPL. 381.40 	 Recons. 0.10770
+2024-05-10 18:32:33,537 INFO Train. Iter 32600 : 	 Commit. 1.06768 	 PPL. 383.15 	 Recons. 0.10691
+2024-05-10 18:32:59,150 INFO Train. Iter 32800 : 	 Commit. 1.05469 	 PPL. 382.24 	 Recons. 0.10666
+2024-05-10 18:33:25,100 INFO Train. Iter 33000 : 	 Commit. 1.04916 	 PPL. 382.20 	 Recons. 0.10646
+2024-05-10 18:33:36,948 INFO --> 	 Eva. Iter 33000 :, FID. 0.4453, Diversity Real. 9.6678, Diversity. 9.5588, R_precision_real. [0.60267857 0.77232143 0.85491071], R_precision. [0.48325893 0.67522321 0.77790179], matching_score_real. 2.3586739003658295, matching_score_pred. 2.8982164519173756
+2024-05-10 18:33:36,952 INFO --> --> 	 Diversity Improved from 9.37415 to 9.55881 !!!
+2024-05-10 18:34:03,463 INFO Train. Iter 33200 : 	 Commit. 1.05123 	 PPL. 382.94 	 Recons. 0.10639
+2024-05-10 18:34:29,501 INFO Train. Iter 33400 : 	 Commit. 1.05050 	 PPL. 382.57 	 Recons. 0.10671
+2024-05-10 18:34:55,187 INFO Train. Iter 33600 : 	 Commit. 1.04615 	 PPL. 382.47 	 Recons. 0.10593
+2024-05-10 18:35:20,848 INFO Train. Iter 33800 : 	 Commit. 1.04695 	 PPL. 383.27 	 Recons. 0.10604
+2024-05-10 18:35:46,893 INFO Train. Iter 34000 : 	 Commit. 1.03475 	 PPL. 382.18 	 Recons. 0.10496
+2024-05-10 18:35:58,654 INFO --> 	 Eva. Iter 34000 :, FID. 0.4033, Diversity Real. 9.0934, Diversity. 9.7367, R_precision_real. [0.58816964 0.77901786 0.87053571], R_precision. [0.51227679 0.70870536 0.80245536], matching_score_real. 2.377346213374819, matching_score_pred. 2.8471815841538564
+2024-05-10 18:35:58,658 INFO --> --> 	 Top2 Improved from 0.7065 to 0.7087 !!!
+2024-05-10 18:35:58,659 INFO --> --> 	 Top3 Improved from 0.8013 to 0.8025 !!!
+2024-05-10 18:36:24,794 INFO Train. Iter 34200 : 	 Commit. 1.03963 	 PPL. 383.30 	 Recons. 0.10590
+2024-05-10 18:36:50,855 INFO Train. Iter 34400 : 	 Commit. 1.04253 	 PPL. 383.12 	 Recons. 0.10569
+2024-05-10 18:37:16,520 INFO Train. Iter 34600 : 	 Commit. 1.05773 	 PPL. 382.07 	 Recons. 0.10578
+2024-05-10 18:37:42,184 INFO Train. Iter 34800 : 	 Commit. 1.03168 	 PPL. 383.80 	 Recons. 0.10526
+2024-05-10 18:38:08,243 INFO Train. Iter 35000 : 	 Commit. 1.02882 	 PPL. 382.65 	 Recons. 0.10477
+2024-05-10 18:38:20,293 INFO --> 	 Eva. Iter 35000 :, FID. 0.4568, Diversity Real. 9.5986, Diversity. 9.3927, R_precision_real. [0.6015625  0.77232143 0.8515625 ], R_precision. [0.49107143 0.671875   0.75111607], matching_score_real. 2.4210933787482127, matching_score_pred. 2.9177393402372087
+2024-05-10 18:38:46,395 INFO Train. Iter 35200 : 	 Commit. 1.04510 	 PPL. 382.79 	 Recons. 0.10531
+2024-05-10 18:39:12,527 INFO Train. Iter 35400 : 	 Commit. 1.02597 	 PPL. 382.68 	 Recons. 0.10482
+2024-05-10 18:39:38,191 INFO Train. Iter 35600 : 	 Commit. 1.02309 	 PPL. 383.21 	 Recons. 0.10415
+2024-05-10 18:40:03,850 INFO Train. Iter 35800 : 	 Commit. 1.02174 	 PPL. 383.87 	 Recons. 0.10419
+2024-05-10 18:40:29,883 INFO Train. Iter 36000 : 	 Commit. 1.00494 	 PPL. 382.29 	 Recons. 0.10380
+2024-05-10 18:40:41,775 INFO --> 	 Eva. Iter 36000 :, FID. 0.3872, Diversity Real. 9.1892, Diversity. 9.8497, R_precision_real. [0.58147321 0.77678571 0.86830357], R_precision. [0.51785714 0.69196429 0.78683036], matching_score_real. 2.374401228768485, matching_score_pred. 2.8270779507500783
+2024-05-10 18:41:07,851 INFO Train. Iter 36200 : 	 Commit. 1.10822 	 PPL. 381.57 	 Recons. 0.10673
+2024-05-10 18:41:33,856 INFO Train. Iter 36400 : 	 Commit. 1.03584 	 PPL. 381.85 	 Recons. 0.10422
+2024-05-10 18:41:59,422 INFO Train. Iter 36600 : 	 Commit. 1.01852 	 PPL. 382.45 	 Recons. 0.10350
+2024-05-10 18:42:25,047 INFO Train. Iter 36800 : 	 Commit. 0.99373 	 PPL. 381.46 	 Recons. 0.10322
+2024-05-10 18:42:51,031 INFO Train. Iter 37000 : 	 Commit. 0.99828 	 PPL. 383.06 	 Recons. 0.10328
+2024-05-10 18:43:02,816 INFO --> 	 Eva. Iter 37000 :, FID. 0.2385, Diversity Real. 9.3126, Diversity. 9.7221, R_precision_real. [0.59375    0.77008929 0.84486607], R_precision. [0.50446429 0.68526786 0.78125   ], matching_score_real. 2.393600727830614, matching_score_pred. 2.8505488634109497
+2024-05-10 18:43:02,818 INFO --> --> 	 FID Improved from 0.31143 to 0.23852 !!!
+2024-05-10 18:43:29,954 INFO Train. Iter 37200 : 	 Commit. 1.00835 	 PPL. 382.27 	 Recons. 0.10361
+2024-05-10 18:43:56,103 INFO Train. Iter 37400 : 	 Commit. 0.99611 	 PPL. 382.63 	 Recons. 0.10256
+2024-05-10 18:44:21,796 INFO Train. Iter 37600 : 	 Commit. 0.99329 	 PPL. 383.62 	 Recons. 0.10281
+2024-05-10 18:44:47,822 INFO Train. Iter 37800 : 	 Commit. 0.98842 	 PPL. 383.16 	 Recons. 0.10298
+2024-05-10 18:45:13,566 INFO Train. Iter 38000 : 	 Commit. 0.99266 	 PPL. 383.61 	 Recons. 0.10241
+2024-05-10 18:45:25,330 INFO --> 	 Eva. Iter 38000 :, FID. 0.4140, Diversity Real. 9.4240, Diversity. 9.2896, R_precision_real. [0.59375    0.77008929 0.8671875 ], R_precision. [0.51674107 0.71763393 0.79352679], matching_score_real. 2.354759003434862, matching_score_pred. 2.847220923219408
+2024-05-10 18:45:25,331 INFO --> --> 	 Diversity Improved from 9.55881 to 9.28960 !!!
+2024-05-10 18:45:25,691 INFO --> --> 	 Top2 Improved from 0.7087 to 0.7176 !!!
+2024-05-10 18:45:51,842 INFO Train. Iter 38200 : 	 Commit. 0.98230 	 PPL. 383.21 	 Recons. 0.10236
+2024-05-10 18:46:17,919 INFO Train. Iter 38400 : 	 Commit. 0.97482 	 PPL. 383.23 	 Recons. 0.10204
+2024-05-10 18:46:43,591 INFO Train. Iter 38600 : 	 Commit. 0.98745 	 PPL. 383.68 	 Recons. 0.10183
+2024-05-10 18:47:09,688 INFO Train. Iter 38800 : 	 Commit. 0.96730 	 PPL. 383.78 	 Recons. 0.10150
+2024-05-10 18:47:35,396 INFO Train. Iter 39000 : 	 Commit. 0.96385 	 PPL. 383.88 	 Recons. 0.10119
+2024-05-10 18:47:47,217 INFO --> 	 Eva. Iter 39000 :, FID. 0.3158, Diversity Real. 9.1967, Diversity. 9.5790, R_precision_real. [0.60379464 0.78683036 0.87053571], R_precision. [0.51450893 0.69754464 0.7734375 ], matching_score_real. 2.3448067562920705, matching_score_pred. 2.784791248185294
+2024-05-10 18:47:47,220 INFO --> --> 	 matching_score Improved from 2.78839 to 2.78479 !!!
+2024-05-10 18:48:13,662 INFO Train. Iter 39200 : 	 Commit. 0.96804 	 PPL. 384.70 	 Recons. 0.10200
+2024-05-10 18:48:39,664 INFO Train. Iter 39400 : 	 Commit. 0.95784 	 PPL. 383.65 	 Recons. 0.10080
+2024-05-10 18:49:05,168 INFO Train. Iter 39600 : 	 Commit. 0.95755 	 PPL. 383.93 	 Recons. 0.10133
+2024-05-10 18:49:31,061 INFO Train. Iter 39800 : 	 Commit. 0.95618 	 PPL. 383.57 	 Recons. 0.10088
+2024-05-10 18:49:56,679 INFO Train. Iter 40000 : 	 Commit. 0.96136 	 PPL. 383.87 	 Recons. 0.10092
+2024-05-10 18:50:08,487 INFO --> 	 Eva. Iter 40000 :, FID. 0.4387, Diversity Real. 9.1739, Diversity. 9.5439, R_precision_real. [0.56808036 0.76227679 0.85825893], R_precision. [0.48325893 0.68638393 0.7890625 ], matching_score_real. 2.3917175957134793, matching_score_pred. 2.8348419155393327
+2024-05-10 18:50:34,532 INFO Train. Iter 40200 : 	 Commit. 0.94895 	 PPL. 384.38 	 Recons. 0.10057
+2024-05-10 18:51:00,504 INFO Train. Iter 40400 : 	 Commit. 0.94532 	 PPL. 383.92 	 Recons. 0.10000
+2024-05-10 18:51:26,143 INFO Train. Iter 40600 : 	 Commit. 0.98352 	 PPL. 385.76 	 Recons. 0.10113
+2024-05-10 18:51:52,078 INFO Train. Iter 40800 : 	 Commit. 0.96727 	 PPL. 384.28 	 Recons. 0.10046
+2024-05-10 18:52:17,734 INFO Train. Iter 41000 : 	 Commit. 0.95431 	 PPL. 383.84 	 Recons. 0.09958
+2024-05-10 18:52:29,661 INFO --> 	 Eva. Iter 41000 :, FID. 0.5201, Diversity Real. 9.4464, Diversity. 9.4327, R_precision_real. [0.578125   0.77455357 0.86272321], R_precision. [0.50334821 0.67745536 0.76674107], matching_score_real. 2.4431967564991544, matching_score_pred. 2.959506332874298
+2024-05-10 18:52:29,664 INFO --> --> 	 Diversity Improved from 9.28960 to 9.43273 !!!
+2024-05-10 18:52:56,106 INFO Train. Iter 41200 : 	 Commit. 0.96891 	 PPL. 384.67 	 Recons. 0.10041
+2024-05-10 18:53:22,188 INFO Train. Iter 41400 : 	 Commit. 0.95006 	 PPL. 383.53 	 Recons. 0.09924
+2024-05-10 18:53:47,918 INFO Train. Iter 41600 : 	 Commit. 0.93592 	 PPL. 384.30 	 Recons. 0.09919
+2024-05-10 18:54:14,033 INFO Train. Iter 41800 : 	 Commit. 0.93577 	 PPL. 384.86 	 Recons. 0.09949
+2024-05-10 18:54:39,712 INFO Train. Iter 42000 : 	 Commit. 0.93772 	 PPL. 384.30 	 Recons. 0.09924
+2024-05-10 18:54:51,596 INFO --> 	 Eva. Iter 42000 :, FID. 0.3707, Diversity Real. 9.3886, Diversity. 9.4409, R_precision_real. [0.58482143 0.78459821 0.85267857], R_precision. [0.49553571 0.70758929 0.796875  ], matching_score_real. 2.410827534539359, matching_score_pred. 2.8835041182381764
+2024-05-10 18:55:17,710 INFO Train. Iter 42200 : 	 Commit. 0.92686 	 PPL. 383.78 	 Recons. 0.09928
+2024-05-10 18:55:43,796 INFO Train. Iter 42400 : 	 Commit. 0.93064 	 PPL. 384.92 	 Recons. 0.09872
+2024-05-10 18:56:09,466 INFO Train. Iter 42600 : 	 Commit. 0.94236 	 PPL. 384.07 	 Recons. 0.09902
+2024-05-10 18:56:35,486 INFO Train. Iter 42800 : 	 Commit. 0.92363 	 PPL. 383.95 	 Recons. 0.09885
+2024-05-10 18:57:01,233 INFO Train. Iter 43000 : 	 Commit. 0.92841 	 PPL. 384.64 	 Recons. 0.09885
+2024-05-10 18:57:13,046 INFO --> 	 Eva. Iter 43000 :, FID. 0.2655, Diversity Real. 9.1280, Diversity. 9.4210, R_precision_real. [0.58035714 0.77232143 0.86160714], R_precision. [0.5        0.70535714 0.80022321], matching_score_real. 2.3997961282730103, matching_score_pred. 2.784729378564017
+2024-05-10 18:57:13,049 INFO --> --> 	 Diversity Improved from 9.43273 to 9.42099 !!!
+2024-05-10 18:57:13,402 INFO --> --> 	 matching_score Improved from 2.78479 to 2.78473 !!!
+2024-05-10 18:57:40,174 INFO Train. Iter 43200 : 	 Commit. 0.91674 	 PPL. 384.17 	 Recons. 0.09789
+2024-05-10 18:58:05,950 INFO Train. Iter 43400 : 	 Commit. 0.95272 	 PPL. 385.54 	 Recons. 0.09895
+2024-05-10 18:58:31,617 INFO Train. Iter 43600 : 	 Commit. 0.92247 	 PPL. 383.65 	 Recons. 0.09787
+2024-05-10 18:58:57,680 INFO Train. Iter 43800 : 	 Commit. 0.92290 	 PPL. 383.43 	 Recons. 0.09796
+2024-05-10 18:59:23,383 INFO Train. Iter 44000 : 	 Commit. 0.91401 	 PPL. 384.03 	 Recons. 0.09788
+2024-05-10 18:59:35,204 INFO --> 	 Eva. Iter 44000 :, FID. 0.3489, Diversity Real. 9.6711, Diversity. 9.5411, R_precision_real. [0.57700893 0.77120536 0.85267857], R_precision. [0.49888393 0.67857143 0.77008929], matching_score_real. 2.410373487642833, matching_score_pred. 2.89483049086162
+2024-05-10 18:59:35,207 INFO --> --> 	 Diversity Improved from 9.42099 to 9.54107 !!!
+2024-05-10 19:00:02,015 INFO Train. Iter 44200 : 	 Commit. 0.91927 	 PPL. 384.28 	 Recons. 0.09865
+2024-05-10 19:00:27,768 INFO Train. Iter 44400 : 	 Commit. 0.91968 	 PPL. 384.46 	 Recons. 0.09777
+2024-05-10 19:00:53,406 INFO Train. Iter 44600 : 	 Commit. 0.90361 	 PPL. 384.55 	 Recons. 0.09748
+2024-05-10 19:01:19,403 INFO Train. Iter 44800 : 	 Commit. 0.89808 	 PPL. 385.31 	 Recons. 0.09671
+2024-05-10 19:01:45,122 INFO Train. Iter 45000 : 	 Commit. 0.90236 	 PPL. 385.12 	 Recons. 0.09731
+2024-05-10 19:01:56,957 INFO --> 	 Eva. Iter 45000 :, FID. 0.3906, Diversity Real. 9.5138, Diversity. 9.7536, R_precision_real. [0.58705357 0.79352679 0.87053571], R_precision. [0.50223214 0.71651786 0.79799107], matching_score_real. 2.3553650123732432, matching_score_pred. 2.8521974682807922
+2024-05-10 19:02:23,427 INFO Train. Iter 45200 : 	 Commit. 0.92375 	 PPL. 385.14 	 Recons. 0.09790
+2024-05-10 19:02:49,257 INFO Train. Iter 45400 : 	 Commit. 0.93026 	 PPL. 384.52 	 Recons. 0.09703
+2024-05-10 19:03:14,954 INFO Train. Iter 45600 : 	 Commit. 0.91118 	 PPL. 384.29 	 Recons. 0.09753
+2024-05-10 19:03:40,959 INFO Train. Iter 45800 : 	 Commit. 0.91932 	 PPL. 384.86 	 Recons. 0.09734
+2024-05-10 19:04:06,662 INFO Train. Iter 46000 : 	 Commit. 0.92138 	 PPL. 385.52 	 Recons. 0.09711
+2024-05-10 19:04:18,396 INFO --> 	 Eva. Iter 46000 :, FID. 0.5001, Diversity Real. 9.5226, Diversity. 9.4659, R_precision_real. [0.58928571 0.77790179 0.86049107], R_precision. [0.50669643 0.69308036 0.77455357], matching_score_real. 2.40021984066282, matching_score_pred. 2.880343019962311
+2024-05-10 19:04:44,863 INFO Train. Iter 46200 : 	 Commit. 0.91821 	 PPL. 384.05 	 Recons. 0.09712
+2024-05-10 19:05:10,517 INFO Train. Iter 46400 : 	 Commit. 0.89580 	 PPL. 384.15 	 Recons. 0.09614
+2024-05-10 19:05:36,132 INFO Train. Iter 46600 : 	 Commit. 0.88229 	 PPL. 384.55 	 Recons. 0.09606
+2024-05-10 19:06:02,130 INFO Train. Iter 46800 : 	 Commit. 0.89294 	 PPL. 385.70 	 Recons. 0.09633
+2024-05-10 19:06:27,797 INFO Train. Iter 47000 : 	 Commit. 0.89514 	 PPL. 385.45 	 Recons. 0.09620
+2024-05-10 19:06:39,595 INFO --> 	 Eva. Iter 47000 :, FID. 0.4706, Diversity Real. 9.1975, Diversity. 9.1863, R_precision_real. [0.60267857 0.79017857 0.8828125 ], R_precision. [0.53013393 0.70647321 0.79241071], matching_score_real. 2.2861751871449605, matching_score_pred. 2.7897283605166843
+2024-05-10 19:06:39,600 INFO --> --> 	 Diversity Improved from 9.54107 to 9.18630 !!!
+2024-05-10 19:06:39,969 INFO --> --> 	 Top1 Improved from 0.5257 to 0.5301 !!!
+2024-05-10 19:07:06,683 INFO Train. Iter 47200 : 	 Commit. 0.89615 	 PPL. 385.42 	 Recons. 0.09611
+2024-05-10 19:07:32,292 INFO Train. Iter 47400 : 	 Commit. 0.90294 	 PPL. 384.40 	 Recons. 0.09642
+2024-05-10 19:07:57,873 INFO Train. Iter 47600 : 	 Commit. 0.89045 	 PPL. 385.36 	 Recons. 0.09568
+2024-05-10 19:08:23,767 INFO Train. Iter 47800 : 	 Commit. 0.89698 	 PPL. 384.77 	 Recons. 0.09558
+2024-05-10 19:08:49,383 INFO Train. Iter 48000 : 	 Commit. 0.89872 	 PPL. 384.98 	 Recons. 0.09599
+2024-05-10 19:09:01,178 INFO --> 	 Eva. Iter 48000 :, FID. 0.3681, Diversity Real. 9.3241, Diversity. 9.8823, R_precision_real. [0.60267857 0.78348214 0.88392857], R_precision. [0.5234375  0.71205357 0.79241071], matching_score_real. 2.3742011530058726, matching_score_pred. 2.840953665120261
+2024-05-10 19:09:27,660 INFO Train. Iter 48200 : 	 Commit. 0.89155 	 PPL. 384.84 	 Recons. 0.09566
+2024-05-10 19:09:53,364 INFO Train. Iter 48400 : 	 Commit. 0.87564 	 PPL. 384.82 	 Recons. 0.09538
+2024-05-10 19:10:19,343 INFO Train. Iter 48600 : 	 Commit. 0.88882 	 PPL. 385.28 	 Recons. 0.09547
+2024-05-10 19:10:44,946 INFO Train. Iter 48800 : 	 Commit. 0.89854 	 PPL. 385.35 	 Recons. 0.09564
+2024-05-10 19:11:10,610 INFO Train. Iter 49000 : 	 Commit. 0.86849 	 PPL. 385.12 	 Recons. 0.09446
+2024-05-10 19:11:22,335 INFO --> 	 Eva. Iter 49000 :, FID. 0.4071, Diversity Real. 9.1595, Diversity. 9.3452, R_precision_real. [0.59709821 0.79129464 0.86830357], R_precision. [0.49107143 0.68861607 0.77120536], matching_score_real. 2.3836795730250224, matching_score_pred. 2.849999802453177
+2024-05-10 19:11:48,760 INFO Train. Iter 49200 : 	 Commit. 0.87495 	 PPL. 385.72 	 Recons. 0.09514
+2024-05-10 19:12:14,449 INFO Train. Iter 49400 : 	 Commit. 0.87982 	 PPL. 385.74 	 Recons. 0.09442
+2024-05-10 19:12:40,374 INFO Train. Iter 49600 : 	 Commit. 0.86315 	 PPL. 385.35 	 Recons. 0.09453
+2024-05-10 19:13:06,062 INFO Train. Iter 49800 : 	 Commit. 0.85871 	 PPL. 385.10 	 Recons. 0.09455
+2024-05-10 19:13:31,746 INFO Train. Iter 50000 : 	 Commit. 0.85458 	 PPL. 384.80 	 Recons. 0.09437
+2024-05-10 19:13:43,596 INFO --> 	 Eva. Iter 50000 :, FID. 0.3882, Diversity Real. 9.2812, Diversity. 9.6045, R_precision_real. [0.59709821 0.77455357 0.86495536], R_precision. [0.54129464 0.703125   0.79464286], matching_score_real. 2.344091466494969, matching_score_pred. 2.7892849275044034
+2024-05-10 19:13:43,598 INFO --> --> 	 Top1 Improved from 0.5301 to 0.5413 !!!
+2024-05-10 19:14:10,421 INFO Train. Iter 50200 : 	 Commit. 0.86611 	 PPL. 386.08 	 Recons. 0.09457
+2024-05-10 19:14:36,062 INFO Train. Iter 50400 : 	 Commit. 0.86108 	 PPL. 385.04 	 Recons. 0.09412
+2024-05-10 19:15:01,970 INFO Train. Iter 50600 : 	 Commit. 0.85689 	 PPL. 385.26 	 Recons. 0.09416
+2024-05-10 19:15:27,521 INFO Train. Iter 50800 : 	 Commit. 0.86236 	 PPL. 386.41 	 Recons. 0.09380
+2024-05-10 19:15:53,103 INFO Train. Iter 51000 : 	 Commit. 0.85905 	 PPL. 386.13 	 Recons. 0.09345
+2024-05-10 19:16:04,863 INFO --> 	 Eva. Iter 51000 :, FID. 0.3842, Diversity Real. 9.5029, Diversity. 9.7079, R_precision_real. [0.59709821 0.77901786 0.86049107], R_precision. [0.52120536 0.70647321 0.77901786], matching_score_real. 2.353283498968397, matching_score_pred. 2.8075358867645264
+2024-05-10 19:16:04,865 INFO --> --> 	 Diversity Improved from 9.18630 to 9.70789 !!!
+2024-05-10 19:16:31,663 INFO Train. Iter 51200 : 	 Commit. 0.86004 	 PPL. 385.87 	 Recons. 0.09411
+2024-05-10 19:16:57,333 INFO Train. Iter 51400 : 	 Commit. 0.83707 	 PPL. 385.91 	 Recons. 0.09338
+2024-05-10 19:17:23,243 INFO Train. Iter 51600 : 	 Commit. 0.84675 	 PPL. 385.26 	 Recons. 0.09330
+2024-05-10 19:17:48,846 INFO Train. Iter 51800 : 	 Commit. 0.86113 	 PPL. 385.04 	 Recons. 0.09375
+2024-05-10 19:18:14,482 INFO Train. Iter 52000 : 	 Commit. 0.88201 	 PPL. 385.56 	 Recons. 0.09339
+2024-05-10 19:18:26,345 INFO --> 	 Eva. Iter 52000 :, FID. 0.3254, Diversity Real. 9.1774, Diversity. 9.7939, R_precision_real. [0.58928571 0.77455357 0.86495536], R_precision. [0.50446429 0.69084821 0.78348214], matching_score_real. 2.3896508727754866, matching_score_pred. 2.8524696912084306
+2024-05-10 19:18:52,813 INFO Train. Iter 52200 : 	 Commit. 0.87000 	 PPL. 385.38 	 Recons. 0.09331
+2024-05-10 19:19:18,615 INFO Train. Iter 52400 : 	 Commit. 0.84396 	 PPL. 386.13 	 Recons. 0.09301
+2024-05-10 19:19:44,579 INFO Train. Iter 52600 : 	 Commit. 0.84778 	 PPL. 385.00 	 Recons. 0.09291
+2024-05-10 19:20:10,270 INFO Train. Iter 52800 : 	 Commit. 0.86289 	 PPL. 386.22 	 Recons. 0.09324
+2024-05-10 19:20:35,974 INFO Train. Iter 53000 : 	 Commit. 0.84954 	 PPL. 385.01 	 Recons. 0.09297
+2024-05-10 19:20:47,805 INFO --> 	 Eva. Iter 53000 :, FID. 0.3320, Diversity Real. 9.4178, Diversity. 9.6995, R_precision_real. [0.56808036 0.74665179 0.84375   ], R_precision. [0.484375   0.6640625  0.77678571], matching_score_real. 2.44755357503891, matching_score_pred. 2.9161025370870317
+2024-05-10 19:20:47,806 INFO --> --> 	 Diversity Improved from 9.70789 to 9.69952 !!!
+2024-05-10 19:21:14,649 INFO Train. Iter 53200 : 	 Commit. 0.83570 	 PPL. 384.81 	 Recons. 0.09249
+2024-05-10 19:21:40,423 INFO Train. Iter 53400 : 	 Commit. 0.83647 	 PPL. 385.92 	 Recons. 0.09298
+2024-05-10 19:22:06,394 INFO Train. Iter 53600 : 	 Commit. 0.83625 	 PPL. 386.09 	 Recons. 0.09235
+2024-05-10 19:22:32,029 INFO Train. Iter 53800 : 	 Commit. 0.82872 	 PPL. 385.95 	 Recons. 0.09224
+2024-05-10 19:22:58,088 INFO Train. Iter 54000 : 	 Commit. 0.83697 	 PPL. 386.73 	 Recons. 0.09243
+2024-05-10 19:23:09,903 INFO --> 	 Eva. Iter 54000 :, FID. 0.4037, Diversity Real. 9.4212, Diversity. 9.5750, R_precision_real. [0.56696429 0.77790179 0.84933036], R_precision. [0.484375   0.6953125  0.78571429], matching_score_real. 2.409799345902034, matching_score_pred. 2.845897444656917
+2024-05-10 19:23:09,908 INFO --> --> 	 Diversity Improved from 9.69952 to 9.57497 !!!
+2024-05-10 19:23:36,298 INFO Train. Iter 54200 : 	 Commit. 0.84448 	 PPL. 385.75 	 Recons. 0.09240
+2024-05-10 19:24:01,943 INFO Train. Iter 54400 : 	 Commit. 0.84379 	 PPL. 385.29 	 Recons. 0.09199
+2024-05-10 19:24:27,904 INFO Train. Iter 54600 : 	 Commit. 0.85371 	 PPL. 385.41 	 Recons. 0.09249
+2024-05-10 19:24:53,530 INFO Train. Iter 54800 : 	 Commit. 0.84667 	 PPL. 385.83 	 Recons. 0.09159
+2024-05-10 19:25:19,554 INFO Train. Iter 55000 : 	 Commit. 0.84313 	 PPL. 386.31 	 Recons. 0.09194
+2024-05-10 19:25:31,322 INFO --> 	 Eva. Iter 55000 :, FID. 0.4161, Diversity Real. 9.3015, Diversity. 9.4230, R_precision_real. [0.58928571 0.78236607 0.86830357], R_precision. [0.51339286 0.6953125  0.77120536], matching_score_real. 2.409105667046138, matching_score_pred. 2.888567694595882
+2024-05-10 19:25:31,324 INFO --> --> 	 Diversity Improved from 9.57497 to 9.42296 !!!
+2024-05-10 19:25:57,830 INFO Train. Iter 55200 : 	 Commit. 0.83147 	 PPL. 385.28 	 Recons. 0.09163
+2024-05-10 19:26:23,523 INFO Train. Iter 55400 : 	 Commit. 0.84256 	 PPL. 385.88 	 Recons. 0.09210
+2024-05-10 19:26:49,439 INFO Train. Iter 55600 : 	 Commit. 0.86188 	 PPL. 386.57 	 Recons. 0.09204
+2024-05-10 19:27:15,126 INFO Train. Iter 55800 : 	 Commit. 0.83004 	 PPL. 385.63 	 Recons. 0.09117
+2024-05-10 19:27:41,109 INFO Train. Iter 56000 : 	 Commit. 0.83290 	 PPL. 385.17 	 Recons. 0.09160
+2024-05-10 19:27:53,086 INFO --> 	 Eva. Iter 56000 :, FID. 0.3955, Diversity Real. 9.6912, Diversity. 9.6980, R_precision_real. [0.60267857 0.7734375  0.86607143], R_precision. [0.49107143 0.67410714 0.78013393], matching_score_real. 2.370507836341858, matching_score_pred. 2.8947418417249406
+2024-05-10 19:27:53,090 INFO --> --> 	 Diversity Improved from 9.42296 to 9.69805 !!!
+2024-05-10 19:28:19,543 INFO Train. Iter 56200 : 	 Commit. 0.82287 	 PPL. 385.14 	 Recons. 0.09095
+2024-05-10 19:28:45,257 INFO Train. Iter 56400 : 	 Commit. 0.83129 	 PPL. 385.55 	 Recons. 0.09156
+2024-05-10 19:29:11,227 INFO Train. Iter 56600 : 	 Commit. 0.81772 	 PPL. 385.81 	 Recons. 0.09129
+2024-05-10 19:29:36,875 INFO Train. Iter 56800 : 	 Commit. 0.82650 	 PPL. 386.02 	 Recons. 0.09059
+2024-05-10 19:30:02,874 INFO Train. Iter 57000 : 	 Commit. 0.80445 	 PPL. 385.62 	 Recons. 0.09025
+2024-05-10 19:30:14,605 INFO --> 	 Eva. Iter 57000 :, FID. 0.3356, Diversity Real. 9.2884, Diversity. 9.6310, R_precision_real. [0.59821429 0.78571429 0.86607143], R_precision. [0.48995536 0.69196429 0.79799107], matching_score_real. 2.393543149743761, matching_score_pred. 2.869170614651271
+2024-05-10 19:30:14,608 INFO --> --> 	 Diversity Improved from 9.69805 to 9.63103 !!!
+2024-05-10 19:30:41,059 INFO Train. Iter 57200 : 	 Commit. 0.80970 	 PPL. 386.18 	 Recons. 0.09087
+2024-05-10 19:31:06,739 INFO Train. Iter 57400 : 	 Commit. 0.81047 	 PPL. 385.91 	 Recons. 0.09043
+2024-05-10 19:31:32,610 INFO Train. Iter 57600 : 	 Commit. 0.81675 	 PPL. 386.56 	 Recons. 0.09112
+2024-05-10 19:31:58,199 INFO Train. Iter 57800 : 	 Commit. 0.81737 	 PPL. 386.12 	 Recons. 0.09052
+2024-05-10 19:32:24,211 INFO Train. Iter 58000 : 	 Commit. 0.80116 	 PPL. 385.69 	 Recons. 0.09046
+2024-05-10 19:32:36,130 INFO --> 	 Eva. Iter 58000 :, FID. 0.4827, Diversity Real. 9.2805, Diversity. 9.5516, R_precision_real. [0.61049107 0.79352679 0.87165179], R_precision. [0.50223214 0.69642857 0.78013393], matching_score_real. 2.3405656899724687, matching_score_pred. 2.8728575195584978
+2024-05-10 19:32:36,133 INFO --> --> 	 Diversity Improved from 9.63103 to 9.55164 !!!
+2024-05-10 19:33:02,632 INFO Train. Iter 58200 : 	 Commit. 0.80467 	 PPL. 386.97 	 Recons. 0.09008
+2024-05-10 19:33:28,366 INFO Train. Iter 58400 : 	 Commit. 0.79669 	 PPL. 386.31 	 Recons. 0.09013
+2024-05-10 19:33:54,380 INFO Train. Iter 58600 : 	 Commit. 0.82176 	 PPL. 386.14 	 Recons. 0.09042
+2024-05-10 19:34:20,102 INFO Train. Iter 58800 : 	 Commit. 0.80031 	 PPL. 385.23 	 Recons. 0.08978
+2024-05-10 19:34:46,139 INFO Train. Iter 59000 : 	 Commit. 0.80655 	 PPL. 385.79 	 Recons. 0.08976
+2024-05-10 19:34:57,990 INFO --> 	 Eva. Iter 59000 :, FID. 0.3983, Diversity Real. 9.2879, Diversity. 10.0091, R_precision_real. [0.59486607 0.79575893 0.86272321], R_precision. [0.5        0.6953125  0.77455357], matching_score_real. 2.3685440123081207, matching_score_pred. 2.8641186356544495
+2024-05-10 19:35:24,027 INFO Train. Iter 59200 : 	 Commit. 0.78746 	 PPL. 385.87 	 Recons. 0.08936
+2024-05-10 19:35:50,015 INFO Train. Iter 59400 : 	 Commit. 0.80162 	 PPL. 386.38 	 Recons. 0.09007
+2024-05-10 19:36:15,666 INFO Train. Iter 59600 : 	 Commit. 0.79856 	 PPL. 385.99 	 Recons. 0.08950
+2024-05-10 19:36:41,233 INFO Train. Iter 59800 : 	 Commit. 0.78636 	 PPL. 386.04 	 Recons. 0.08976
+2024-05-10 19:37:07,165 INFO Train. Iter 60000 : 	 Commit. 0.78522 	 PPL. 386.92 	 Recons. 0.08945
+2024-05-10 19:37:18,850 INFO --> 	 Eva. Iter 60000 :, FID. 0.4121, Diversity Real. 9.6347, Diversity. 9.5287, R_precision_real. [0.58482143 0.78125    0.86607143], R_precision. [0.49665179 0.70424107 0.79352679], matching_score_real. 2.4092754891940524, matching_score_pred. 2.8972064512116567
+2024-05-10 19:37:44,856 INFO Train. Iter 60200 : 	 Commit. 0.78951 	 PPL. 386.32 	 Recons. 0.08969
+2024-05-10 19:38:10,839 INFO Train. Iter 60400 : 	 Commit. 0.78449 	 PPL. 387.24 	 Recons. 0.08914
+2024-05-10 19:38:36,404 INFO Train. Iter 60600 : 	 Commit. 0.78504 	 PPL. 387.53 	 Recons. 0.08927
+2024-05-10 19:39:01,973 INFO Train. Iter 60800 : 	 Commit. 0.77919 	 PPL. 386.52 	 Recons. 0.08879
+2024-05-10 19:39:27,947 INFO Train. Iter 61000 : 	 Commit. 0.83298 	 PPL. 387.93 	 Recons. 0.09000
+2024-05-10 19:39:39,714 INFO --> 	 Eva. Iter 61000 :, FID. 0.3812, Diversity Real. 9.0589, Diversity. 9.2425, R_precision_real. [0.57924107 0.78571429 0.8671875 ], R_precision. [0.49665179 0.69196429 0.79575893], matching_score_real. 2.396339544228145, matching_score_pred. 2.873744010925293
+2024-05-10 19:39:39,718 INFO --> --> 	 Diversity Improved from 9.55164 to 9.24247 !!!
+2024-05-10 19:40:06,227 INFO Train. Iter 61200 : 	 Commit. 0.82599 	 PPL. 386.36 	 Recons. 0.08902
+2024-05-10 19:40:32,339 INFO Train. Iter 61400 : 	 Commit. 0.79162 	 PPL. 385.53 	 Recons. 0.08909
+2024-05-10 19:40:58,047 INFO Train. Iter 61600 : 	 Commit. 0.82301 	 PPL. 386.40 	 Recons. 0.08864
+2024-05-10 19:41:23,764 INFO Train. Iter 61800 : 	 Commit. 0.79431 	 PPL. 385.36 	 Recons. 0.08861
+2024-05-10 19:41:49,878 INFO Train. Iter 62000 : 	 Commit. 0.79607 	 PPL. 387.29 	 Recons. 0.08884
+2024-05-10 19:42:01,666 INFO --> 	 Eva. Iter 62000 :, FID. 0.3652, Diversity Real. 9.5061, Diversity. 9.6959, R_precision_real. [0.55915179 0.77678571 0.85267857], R_precision. [0.48883929 0.69642857 0.79017857], matching_score_real. 2.4349704640252248, matching_score_pred. 2.903760186263493
+2024-05-10 19:42:01,669 INFO --> --> 	 Diversity Improved from 9.24247 to 9.69592 !!!
+2024-05-10 19:42:28,106 INFO Train. Iter 62200 : 	 Commit. 0.77297 	 PPL. 385.60 	 Recons. 0.08867
+2024-05-10 19:42:54,150 INFO Train. Iter 62400 : 	 Commit. 0.78427 	 PPL. 386.60 	 Recons. 0.08882
+2024-05-10 19:43:19,768 INFO Train. Iter 62600 : 	 Commit. 0.78557 	 PPL. 386.38 	 Recons. 0.08842
+2024-05-10 19:43:45,431 INFO Train. Iter 62800 : 	 Commit. 0.82228 	 PPL. 386.10 	 Recons. 0.08870
+2024-05-10 19:44:11,471 INFO Train. Iter 63000 : 	 Commit. 0.79993 	 PPL. 386.35 	 Recons. 0.08879
+2024-05-10 19:44:23,266 INFO --> 	 Eva. Iter 63000 :, FID. 0.3378, Diversity Real. 9.2309, Diversity. 9.8085, R_precision_real. [0.60267857 0.78794643 0.86830357], R_precision. [0.53571429 0.71540179 0.796875  ], matching_score_real. 2.355780299220766, matching_score_pred. 2.7780434914997647
+2024-05-10 19:44:23,271 INFO --> --> 	 matching_score Improved from 2.78473 to 2.77804 !!!
+2024-05-10 19:44:49,677 INFO Train. Iter 63200 : 	 Commit. 0.79134 	 PPL. 385.49 	 Recons. 0.08804
+2024-05-10 19:45:15,689 INFO Train. Iter 63400 : 	 Commit. 0.77239 	 PPL. 385.34 	 Recons. 0.08790
+2024-05-10 19:45:41,264 INFO Train. Iter 63600 : 	 Commit. 0.78420 	 PPL. 385.83 	 Recons. 0.08811
+2024-05-10 19:46:06,878 INFO Train. Iter 63800 : 	 Commit. 0.78792 	 PPL. 386.98 	 Recons. 0.08831
+2024-05-10 19:46:32,888 INFO Train. Iter 64000 : 	 Commit. 0.78369 	 PPL. 386.38 	 Recons. 0.08789
+2024-05-10 19:46:44,612 INFO --> 	 Eva. Iter 64000 :, FID. 0.4726, Diversity Real. 9.2574, Diversity. 9.8053, R_precision_real. [0.57477679 0.76450893 0.85602679], R_precision. [0.49441964 0.67075893 0.76674107], matching_score_real. 2.391502171754837, matching_score_pred. 2.8710091028894698
+2024-05-10 19:47:10,677 INFO Train. Iter 64200 : 	 Commit. 0.77259 	 PPL. 385.80 	 Recons. 0.08773
+2024-05-10 19:47:36,672 INFO Train. Iter 64400 : 	 Commit. 0.77489 	 PPL. 386.26 	 Recons. 0.08743
+2024-05-10 19:48:02,267 INFO Train. Iter 64600 : 	 Commit. 0.78314 	 PPL. 385.59 	 Recons. 0.08772
+2024-05-10 19:48:28,214 INFO Train. Iter 64800 : 	 Commit. 0.77606 	 PPL. 386.67 	 Recons. 0.08761
+2024-05-10 19:48:53,895 INFO Train. Iter 65000 : 	 Commit. 0.76432 	 PPL. 385.29 	 Recons. 0.08735
+2024-05-10 19:49:05,845 INFO --> 	 Eva. Iter 65000 :, FID. 0.4081, Diversity Real. 9.4049, Diversity. 9.6581, R_precision_real. [0.59151786 0.76116071 0.86495536], R_precision. [0.51785714 0.70424107 0.7890625 ], matching_score_real. 2.3861881494522095, matching_score_pred. 2.819643701825823
+2024-05-10 19:49:05,848 INFO --> --> 	 Diversity Improved from 9.69592 to 9.65806 !!!
+2024-05-10 19:49:32,218 INFO Train. Iter 65200 : 	 Commit. 0.76083 	 PPL. 386.54 	 Recons. 0.08718
+2024-05-10 19:49:58,263 INFO Train. Iter 65400 : 	 Commit. 0.76495 	 PPL. 387.48 	 Recons. 0.08725
+2024-05-10 19:50:23,861 INFO Train. Iter 65600 : 	 Commit. 0.76250 	 PPL. 387.04 	 Recons. 0.08739
+2024-05-10 19:50:49,810 INFO Train. Iter 65800 : 	 Commit. 0.77966 	 PPL. 386.61 	 Recons. 0.08731
+2024-05-10 19:51:15,435 INFO Train. Iter 66000 : 	 Commit. 0.75225 	 PPL. 386.11 	 Recons. 0.08703
+2024-05-10 19:51:27,506 INFO --> 	 Eva. Iter 66000 :, FID. 0.3646, Diversity Real. 9.3927, Diversity. 9.4605, R_precision_real. [0.59375    0.77790179 0.86383929], R_precision. [0.51674107 0.69977679 0.79129464], matching_score_real. 2.3849370649882724, matching_score_pred. 2.8653702395302907
+2024-05-10 19:51:27,509 INFO --> --> 	 Diversity Improved from 9.65806 to 9.46052 !!!
+2024-05-10 19:51:54,003 INFO Train. Iter 66200 : 	 Commit. 0.77587 	 PPL. 387.07 	 Recons. 0.08727
+2024-05-10 19:52:20,049 INFO Train. Iter 66400 : 	 Commit. 0.77894 	 PPL. 387.18 	 Recons. 0.08743
+2024-05-10 19:52:45,698 INFO Train. Iter 66600 : 	 Commit. 0.79471 	 PPL. 387.11 	 Recons. 0.08756
+2024-05-10 19:53:11,793 INFO Train. Iter 66800 : 	 Commit. 0.78278 	 PPL. 386.65 	 Recons. 0.08666
+2024-05-10 19:53:37,607 INFO Train. Iter 67000 : 	 Commit. 0.75841 	 PPL. 385.83 	 Recons. 0.08632
+2024-05-10 19:53:49,435 INFO --> 	 Eva. Iter 67000 :, FID. 0.3622, Diversity Real. 9.0930, Diversity. 9.4717, R_precision_real. [0.58705357 0.77232143 0.85602679], R_precision. [0.50223214 0.69866071 0.77678571], matching_score_real. 2.4060971651758467, matching_score_pred. 2.8082230942589894
+2024-05-10 19:54:15,539 INFO Train. Iter 67200 : 	 Commit. 0.76309 	 PPL. 386.46 	 Recons. 0.08675
+2024-05-10 19:54:41,608 INFO Train. Iter 67400 : 	 Commit. 0.77344 	 PPL. 386.53 	 Recons. 0.08678
+2024-05-10 19:55:07,308 INFO Train. Iter 67600 : 	 Commit. 0.77241 	 PPL. 386.73 	 Recons. 0.08678
+2024-05-10 19:55:33,346 INFO Train. Iter 67800 : 	 Commit. 0.82147 	 PPL. 385.47 	 Recons. 0.08635
+2024-05-10 19:55:59,059 INFO Train. Iter 68000 : 	 Commit. 0.79461 	 PPL. 386.02 	 Recons. 0.08669
+2024-05-10 19:56:10,745 INFO --> 	 Eva. Iter 68000 :, FID. 0.2940, Diversity Real. 9.0129, Diversity. 9.5492, R_precision_real. [0.57700893 0.77232143 0.859375  ], R_precision. [0.4921875  0.68973214 0.78348214], matching_score_real. 2.391378249440874, matching_score_pred. 2.846710741519928
+2024-05-10 19:56:36,903 INFO Train. Iter 68200 : 	 Commit. 0.77740 	 PPL. 385.19 	 Recons. 0.08629
+2024-05-10 19:57:02,959 INFO Train. Iter 68400 : 	 Commit. 0.76731 	 PPL. 386.82 	 Recons. 0.08574
+2024-05-10 19:57:28,626 INFO Train. Iter 68600 : 	 Commit. 0.78938 	 PPL. 387.15 	 Recons. 0.08674
+2024-05-10 19:57:54,659 INFO Train. Iter 68800 : 	 Commit. 0.76939 	 PPL. 386.17 	 Recons. 0.08629
+2024-05-10 19:58:20,345 INFO Train. Iter 69000 : 	 Commit. 0.77984 	 PPL. 387.04 	 Recons. 0.08593
+2024-05-10 19:58:32,048 INFO --> 	 Eva. Iter 69000 :, FID. 0.4274, Diversity Real. 9.3390, Diversity. 9.7168, R_precision_real. [0.59263393 0.77455357 0.85379464], R_precision. [0.48549107 0.68638393 0.77232143], matching_score_real. 2.3520695567131042, matching_score_pred. 2.8796391231673106
+2024-05-10 19:58:58,154 INFO Train. Iter 69200 : 	 Commit. 0.75726 	 PPL. 388.26 	 Recons. 0.08615
+2024-05-10 19:59:24,173 INFO Train. Iter 69400 : 	 Commit. 0.89071 	 PPL. 390.05 	 Recons. 0.08643
+2024-05-10 19:59:49,705 INFO Train. Iter 69600 : 	 Commit. 0.77646 	 PPL. 388.11 	 Recons. 0.08607
+2024-05-10 20:00:15,620 INFO Train. Iter 69800 : 	 Commit. 0.76188 	 PPL. 387.08 	 Recons. 0.08578
+2024-05-10 20:00:41,335 INFO Train. Iter 70000 : 	 Commit. 0.77529 	 PPL. 387.70 	 Recons. 0.08541
+2024-05-10 20:00:53,105 INFO --> 	 Eva. Iter 70000 :, FID. 0.3670, Diversity Real. 9.4735, Diversity. 9.5328, R_precision_real. [0.56919643 0.78236607 0.8671875 ], R_precision. [0.49665179 0.69084821 0.79241071], matching_score_real. 2.3670394888945987, matching_score_pred. 2.8010809251240323
+2024-05-10 20:01:19,509 INFO Train. Iter 70200 : 	 Commit. 0.76572 	 PPL. 387.53 	 Recons. 0.08578
+2024-05-10 20:01:45,158 INFO Train. Iter 70400 : 	 Commit. 0.79689 	 PPL. 388.25 	 Recons. 0.08624
+2024-05-10 20:02:10,762 INFO Train. Iter 70600 : 	 Commit. 0.82414 	 PPL. 386.77 	 Recons. 0.08672
+2024-05-10 20:02:36,642 INFO Train. Iter 70800 : 	 Commit. 0.77269 	 PPL. 387.48 	 Recons. 0.08569
+2024-05-10 20:03:02,231 INFO Train. Iter 71000 : 	 Commit. 0.76589 	 PPL. 387.31 	 Recons. 0.08562
+2024-05-10 20:03:14,048 INFO --> 	 Eva. Iter 71000 :, FID. 0.4685, Diversity Real. 9.4751, Diversity. 9.6388, R_precision_real. [0.60267857 0.78125    0.875     ], R_precision. [0.49776786 0.68638393 0.77566964], matching_score_real. 2.38084214925766, matching_score_pred. 2.911261405263628
+2024-05-10 20:03:40,424 INFO Train. Iter 71200 : 	 Commit. 0.78472 	 PPL. 386.24 	 Recons. 0.08602
+2024-05-10 20:04:06,077 INFO Train. Iter 71400 : 	 Commit. 0.81332 	 PPL. 386.35 	 Recons. 0.08549
+2024-05-10 20:04:31,697 INFO Train. Iter 71600 : 	 Commit. 0.77199 	 PPL. 386.75 	 Recons. 0.08537
+2024-05-10 20:04:57,589 INFO Train. Iter 71800 : 	 Commit. 0.76777 	 PPL. 387.03 	 Recons. 0.08530
+2024-05-10 20:05:23,199 INFO Train. Iter 72000 : 	 Commit. 0.76441 	 PPL. 387.58 	 Recons. 0.08541
+2024-05-10 20:05:34,967 INFO --> 	 Eva. Iter 72000 :, FID. 0.3393, Diversity Real. 9.3734, Diversity. 9.6059, R_precision_real. [0.56473214 0.76674107 0.85379464], R_precision. [0.484375   0.68191964 0.77232143], matching_score_real. 2.418500746999468, matching_score_pred. 2.920640868800027
+2024-05-10 20:06:01,430 INFO Train. Iter 72200 : 	 Commit. 0.74907 	 PPL. 386.77 	 Recons. 0.08509
+2024-05-10 20:06:27,129 INFO Train. Iter 72400 : 	 Commit. 0.75616 	 PPL. 387.03 	 Recons. 0.08506
+2024-05-10 20:06:52,811 INFO Train. Iter 72600 : 	 Commit. 0.75044 	 PPL. 386.85 	 Recons. 0.08480
+2024-05-10 20:07:18,793 INFO Train. Iter 72800 : 	 Commit. 0.76529 	 PPL. 388.44 	 Recons. 0.08524
+2024-05-10 20:07:44,474 INFO Train. Iter 73000 : 	 Commit. 0.77248 	 PPL. 386.86 	 Recons. 0.08512
+2024-05-10 20:07:56,194 INFO --> 	 Eva. Iter 73000 :, FID. 0.3989, Diversity Real. 9.1736, Diversity. 9.4006, R_precision_real. [0.57254464 0.78236607 0.87276786], R_precision. [0.49441964 0.70424107 0.8125    ], matching_score_real. 2.3512528368404935, matching_score_pred. 2.819340629237039
+2024-05-10 20:07:56,197 INFO --> --> 	 Diversity Improved from 9.46052 to 9.40058 !!!
+2024-05-10 20:07:56,562 INFO --> --> 	 Top3 Improved from 0.8025 to 0.8125 !!!
+2024-05-10 20:08:23,263 INFO Train. Iter 73200 : 	 Commit. 0.75711 	 PPL. 386.63 	 Recons. 0.08460
+2024-05-10 20:08:49,010 INFO Train. Iter 73400 : 	 Commit. 0.75698 	 PPL. 386.71 	 Recons. 0.08493
+2024-05-10 20:09:14,685 INFO Train. Iter 73600 : 	 Commit. 0.75954 	 PPL. 387.43 	 Recons. 0.08501
+2024-05-10 20:09:40,647 INFO Train. Iter 73800 : 	 Commit. 0.76777 	 PPL. 386.38 	 Recons. 0.08507
+2024-05-10 20:10:06,339 INFO Train. Iter 74000 : 	 Commit. 0.76412 	 PPL. 386.87 	 Recons. 0.08445
+2024-05-10 20:10:18,098 INFO --> 	 Eva. Iter 74000 :, FID. 0.3822, Diversity Real. 9.1125, Diversity. 9.5684, R_precision_real. [0.55580357 0.75111607 0.85267857], R_precision. [0.49107143 0.66964286 0.77455357], matching_score_real. 2.4114712391580855, matching_score_pred. 2.8817258392061507
+2024-05-10 20:10:44,614 INFO Train. Iter 74200 : 	 Commit. 0.76597 	 PPL. 386.89 	 Recons. 0.08477
+2024-05-10 20:11:10,322 INFO Train. Iter 74400 : 	 Commit. 0.76832 	 PPL. 387.30 	 Recons. 0.08477
+2024-05-10 20:11:36,065 INFO Train. Iter 74600 : 	 Commit. 0.76368 	 PPL. 386.14 	 Recons. 0.08427
+2024-05-10 20:12:02,024 INFO Train. Iter 74800 : 	 Commit. 0.77915 	 PPL. 386.75 	 Recons. 0.08467
+2024-05-10 20:12:27,666 INFO Train. Iter 75000 : 	 Commit. 0.77236 	 PPL. 386.44 	 Recons. 0.08444
+2024-05-10 20:12:39,411 INFO --> 	 Eva. Iter 75000 :, FID. 0.3847, Diversity Real. 9.2777, Diversity. 9.2516, R_precision_real. [0.59040179 0.79352679 0.86941964], R_precision. [0.52120536 0.68191964 0.76897321], matching_score_real. 2.3902419550078258, matching_score_pred. 2.8552765250205994
+2024-05-10 20:12:39,414 INFO --> --> 	 Diversity Improved from 9.40058 to 9.25156 !!!
+2024-05-10 20:13:06,178 INFO Train. Iter 75200 : 	 Commit. 0.74214 	 PPL. 385.94 	 Recons. 0.08406
+2024-05-10 20:13:31,861 INFO Train. Iter 75400 : 	 Commit. 0.74879 	 PPL. 387.47 	 Recons. 0.08399
+2024-05-10 20:13:57,862 INFO Train. Iter 75600 : 	 Commit. 0.72926 	 PPL. 385.75 	 Recons. 0.08393
+2024-05-10 20:14:23,487 INFO Train. Iter 75800 : 	 Commit. 0.73251 	 PPL. 386.00 	 Recons. 0.08364
+2024-05-10 20:14:49,180 INFO Train. Iter 76000 : 	 Commit. 0.73312 	 PPL. 387.22 	 Recons. 0.08426
+2024-05-10 20:15:01,209 INFO --> 	 Eva. Iter 76000 :, FID. 0.3508, Diversity Real. 9.2926, Diversity. 9.3980, R_precision_real. [0.60825893 0.796875   0.86830357], R_precision. [0.5234375  0.70647321 0.79575893], matching_score_real. 2.342437301363264, matching_score_pred. 2.8029937062944685
+2024-05-10 20:15:27,663 INFO Train. Iter 76200 : 	 Commit. 0.72984 	 PPL. 386.67 	 Recons. 0.08368
+2024-05-10 20:15:53,247 INFO Train. Iter 76400 : 	 Commit. 0.72385 	 PPL. 386.39 	 Recons. 0.08349
+2024-05-10 20:16:19,148 INFO Train. Iter 76600 : 	 Commit. 0.72409 	 PPL. 386.88 	 Recons. 0.08376
+2024-05-10 20:16:44,664 INFO Train. Iter 76800 : 	 Commit. 0.75358 	 PPL. 388.55 	 Recons. 0.08423
+2024-05-10 20:17:10,241 INFO Train. Iter 77000 : 	 Commit. 0.73763 	 PPL. 386.47 	 Recons. 0.08328
+2024-05-10 20:17:22,412 INFO --> 	 Eva. Iter 77000 :, FID. 0.4087, Diversity Real. 9.1780, Diversity. 9.5649, R_precision_real. [0.63058036 0.79241071 0.87388393], R_precision. [0.51785714 0.69419643 0.78459821], matching_score_real. 2.328405886888504, matching_score_pred. 2.7852998205593655
+2024-05-10 20:17:49,220 INFO Train. Iter 77200 : 	 Commit. 0.72223 	 PPL. 387.20 	 Recons. 0.08380
+2024-05-10 20:18:14,962 INFO Train. Iter 77400 : 	 Commit. 0.72636 	 PPL. 386.58 	 Recons. 0.08346
+2024-05-10 20:18:40,914 INFO Train. Iter 77600 : 	 Commit. 0.71350 	 PPL. 387.07 	 Recons. 0.08289
+2024-05-10 20:19:06,565 INFO Train. Iter 77800 : 	 Commit. 0.71497 	 PPL. 387.64 	 Recons. 0.08346
+2024-05-10 20:19:32,309 INFO Train. Iter 78000 : 	 Commit. 0.73334 	 PPL. 387.91 	 Recons. 0.08308
+2024-05-10 20:19:44,199 INFO --> 	 Eva. Iter 78000 :, FID. 0.4042, Diversity Real. 9.3850, Diversity. 9.2472, R_precision_real. [0.59375    0.77455357 0.86049107], R_precision. [0.48995536 0.66517857 0.76339286], matching_score_real. 2.384583060230528, matching_score_pred. 2.8993511285100664
+2024-05-10 20:20:10,617 INFO Train. Iter 78200 : 	 Commit. 0.73356 	 PPL. 387.25 	 Recons. 0.08313
+2024-05-10 20:20:36,247 INFO Train. Iter 78400 : 	 Commit. 0.76848 	 PPL. 388.98 	 Recons. 0.08396
+2024-05-10 20:21:02,121 INFO Train. Iter 78600 : 	 Commit. 0.75510 	 PPL. 388.85 	 Recons. 0.08343
+2024-05-10 20:21:27,706 INFO Train. Iter 78800 : 	 Commit. 0.73394 	 PPL. 387.53 	 Recons. 0.08336
+2024-05-10 20:21:53,281 INFO Train. Iter 79000 : 	 Commit. 0.73046 	 PPL. 388.43 	 Recons. 0.08292
+2024-05-10 20:22:05,325 INFO --> 	 Eva. Iter 79000 :, FID. 0.3785, Diversity Real. 9.2090, Diversity. 9.8749, R_precision_real. [0.59933036 0.7890625  0.86830357], R_precision. [0.53125    0.72433036 0.80245536], matching_score_real. 2.386175411088126, matching_score_pred. 2.7488188232694353
+2024-05-10 20:22:05,326 INFO --> --> 	 Top2 Improved from 0.7176 to 0.7243 !!!
+2024-05-10 20:22:05,327 INFO --> --> 	 matching_score Improved from 2.77804 to 2.74882 !!!
+2024-05-10 20:22:32,359 INFO Train. Iter 79200 : 	 Commit. 0.72867 	 PPL. 389.14 	 Recons. 0.08312
+2024-05-10 20:22:58,029 INFO Train. Iter 79400 : 	 Commit. 0.72992 	 PPL. 389.05 	 Recons. 0.08299
+2024-05-10 20:23:23,936 INFO Train. Iter 79600 : 	 Commit. 0.72495 	 PPL. 388.73 	 Recons. 0.08266
+2024-05-10 20:23:49,469 INFO Train. Iter 79800 : 	 Commit. 0.73046 	 PPL. 389.08 	 Recons. 0.08308
+2024-05-10 20:24:15,137 INFO Train. Iter 80000 : 	 Commit. 0.74577 	 PPL. 389.51 	 Recons. 0.08347
+2024-05-10 20:24:26,990 INFO --> 	 Eva. Iter 80000 :, FID. 0.4793, Diversity Real. 9.2900, Diversity. 9.2465, R_precision_real. [0.58147321 0.77455357 0.86941964], R_precision. [0.50334821 0.68638393 0.78571429], matching_score_real. 2.4020332864352634, matching_score_pred. 2.9002805777958462
+2024-05-10 20:24:53,324 INFO Train. Iter 80200 : 	 Commit. 0.72963 	 PPL. 387.37 	 Recons. 0.08234
+2024-05-10 20:25:19,007 INFO Train. Iter 80400 : 	 Commit. 0.71518 	 PPL. 388.08 	 Recons. 0.08279
+2024-05-10 20:25:44,867 INFO Train. Iter 80600 : 	 Commit. 0.70545 	 PPL. 388.69 	 Recons. 0.08245
+2024-05-10 20:26:10,426 INFO Train. Iter 80800 : 	 Commit. 0.72961 	 PPL. 389.40 	 Recons. 0.08305
+2024-05-10 20:26:36,338 INFO Train. Iter 81000 : 	 Commit. 0.75111 	 PPL. 389.70 	 Recons. 0.08359
+2024-05-10 20:26:48,306 INFO --> 	 Eva. Iter 81000 :, FID. 0.4876, Diversity Real. 9.0579, Diversity. 9.6993, R_precision_real. [0.60267857 0.78125    0.8671875 ], R_precision. [0.5078125  0.703125   0.78013393], matching_score_real. 2.3474800842148915, matching_score_pred. 2.8438439198902676
+2024-05-10 20:27:14,330 INFO Train. Iter 81200 : 	 Commit. 0.72818 	 PPL. 389.00 	 Recons. 0.08292
+2024-05-10 20:27:40,071 INFO Train. Iter 81400 : 	 Commit. 0.72620 	 PPL. 388.82 	 Recons. 0.08222
+2024-05-10 20:28:06,056 INFO Train. Iter 81600 : 	 Commit. 0.73432 	 PPL. 388.50 	 Recons. 0.08260
+2024-05-10 20:28:31,686 INFO Train. Iter 81800 : 	 Commit. 0.71478 	 PPL. 388.50 	 Recons. 0.08249
+2024-05-10 20:28:57,662 INFO Train. Iter 82000 : 	 Commit. 0.72727 	 PPL. 387.89 	 Recons. 0.08236
+2024-05-10 20:29:09,573 INFO --> 	 Eva. Iter 82000 :, FID. 0.4270, Diversity Real. 9.3762, Diversity. 9.1484, R_precision_real. [0.58370536 0.77566964 0.85825893], R_precision. [0.50892857 0.68080357 0.76785714], matching_score_real. 2.3858241524015154, matching_score_pred. 2.853437670639583
+2024-05-10 20:29:35,651 INFO Train. Iter 82200 : 	 Commit. 0.72644 	 PPL. 388.71 	 Recons. 0.08229
+2024-05-10 20:30:01,310 INFO Train. Iter 82400 : 	 Commit. 0.72228 	 PPL. 388.16 	 Recons. 0.08216
+2024-05-10 20:30:27,232 INFO Train. Iter 82600 : 	 Commit. 0.70519 	 PPL. 387.89 	 Recons. 0.08186
+2024-05-10 20:30:52,842 INFO Train. Iter 82800 : 	 Commit. 0.70614 	 PPL. 388.60 	 Recons. 0.08181
+2024-05-10 20:31:18,841 INFO Train. Iter 83000 : 	 Commit. 0.70606 	 PPL. 388.19 	 Recons. 0.08181
+2024-05-10 20:31:30,593 INFO --> 	 Eva. Iter 83000 :, FID. 0.3989, Diversity Real. 9.3439, Diversity. 9.8195, R_precision_real. [0.57700893 0.77790179 0.86272321], R_precision. [0.50446429 0.71205357 0.79464286], matching_score_real. 2.3872058732169017, matching_score_pred. 2.8521739670208524
+2024-05-10 20:31:56,618 INFO Train. Iter 83200 : 	 Commit. 0.70344 	 PPL. 388.55 	 Recons. 0.08182
+2024-05-10 20:32:22,231 INFO Train. Iter 83400 : 	 Commit. 0.70693 	 PPL. 388.92 	 Recons. 0.08197
+2024-05-10 20:32:48,088 INFO Train. Iter 83600 : 	 Commit. 0.69591 	 PPL. 388.53 	 Recons. 0.08157
+2024-05-10 20:33:13,634 INFO Train. Iter 83800 : 	 Commit. 0.69971 	 PPL. 388.79 	 Recons. 0.08140
+2024-05-10 20:33:39,515 INFO Train. Iter 84000 : 	 Commit. 0.69326 	 PPL. 388.80 	 Recons. 0.08142
+2024-05-10 20:33:51,667 INFO --> 	 Eva. Iter 84000 :, FID. 0.3782, Diversity Real. 9.5305, Diversity. 9.7247, R_precision_real. [0.59040179 0.79241071 0.87276786], R_precision. [0.51004464 0.71428571 0.79910714], matching_score_real. 2.362218533243452, matching_score_pred. 2.8374907544681003
+2024-05-10 20:33:51,670 INFO --> --> 	 Diversity Improved from 9.25156 to 9.72466 !!!
+2024-05-10 20:34:18,174 INFO Train. Iter 84200 : 	 Commit. 0.70582 	 PPL. 388.73 	 Recons. 0.08155
+2024-05-10 20:34:43,934 INFO Train. Iter 84400 : 	 Commit. 0.69953 	 PPL. 388.72 	 Recons. 0.08182
+2024-05-10 20:35:09,934 INFO Train. Iter 84600 : 	 Commit. 0.70514 	 PPL. 389.34 	 Recons. 0.08130
+2024-05-10 20:35:35,549 INFO Train. Iter 84800 : 	 Commit. 0.68940 	 PPL. 388.74 	 Recons. 0.08143
+2024-05-10 20:36:01,650 INFO Train. Iter 85000 : 	 Commit. 0.75097 	 PPL. 390.39 	 Recons. 0.08206
+2024-05-10 20:36:13,586 INFO --> 	 Eva. Iter 85000 :, FID. 0.3966, Diversity Real. 9.0922, Diversity. 9.3318, R_precision_real. [0.57142857 0.77008929 0.84821429], R_precision. [0.48995536 0.67633929 0.78236607], matching_score_real. 2.421200305223465, matching_score_pred. 2.914056292601994
+2024-05-10 20:36:13,587 INFO --> --> 	 Diversity Improved from 9.72466 to 9.33176 !!!
+2024-05-10 20:36:39,950 INFO Train. Iter 85200 : 	 Commit. 0.74335 	 PPL. 389.47 	 Recons. 0.08233
+2024-05-10 20:37:05,636 INFO Train. Iter 85400 : 	 Commit. 0.74449 	 PPL. 387.47 	 Recons. 0.08203
+2024-05-10 20:37:31,502 INFO Train. Iter 85600 : 	 Commit. 0.72885 	 PPL. 387.27 	 Recons. 0.08153
+2024-05-10 20:37:57,159 INFO Train. Iter 85800 : 	 Commit. 0.71241 	 PPL. 387.51 	 Recons. 0.08149
+2024-05-10 20:38:23,143 INFO Train. Iter 86000 : 	 Commit. 0.70130 	 PPL. 387.37 	 Recons. 0.08109
+2024-05-10 20:38:35,053 INFO --> 	 Eva. Iter 86000 :, FID. 0.3633, Diversity Real. 9.5176, Diversity. 9.2046, R_precision_real. [0.59263393 0.79241071 0.8671875 ], R_precision. [0.52232143 0.70870536 0.78794643], matching_score_real. 2.4125096840517863, matching_score_pred. 2.841669040066855
+2024-05-10 20:39:01,078 INFO Train. Iter 86200 : 	 Commit. 0.69274 	 PPL. 388.66 	 Recons. 0.08108
+2024-05-10 20:39:27,067 INFO Train. Iter 86400 : 	 Commit. 0.69358 	 PPL. 389.44 	 Recons. 0.08054
+2024-05-10 20:39:52,658 INFO Train. Iter 86600 : 	 Commit. 0.68349 	 PPL. 388.85 	 Recons. 0.08086
+2024-05-10 20:40:18,269 INFO Train. Iter 86800 : 	 Commit. 0.69627 	 PPL. 389.25 	 Recons. 0.08071
+2024-05-10 20:40:44,219 INFO Train. Iter 87000 : 	 Commit. 0.71684 	 PPL. 390.01 	 Recons. 0.08086
+2024-05-10 20:40:56,153 INFO --> 	 Eva. Iter 87000 :, FID. 0.4044, Diversity Real. 9.2555, Diversity. 9.4258, R_precision_real. [0.59709821 0.7734375  0.87053571], R_precision. [0.49776786 0.68080357 0.78571429], matching_score_real. 2.38627176625388, matching_score_pred. 2.8535189713750566
+2024-05-10 20:41:22,295 INFO Train. Iter 87200 : 	 Commit. 0.70011 	 PPL. 389.06 	 Recons. 0.08093
+2024-05-10 20:41:48,475 INFO Train. Iter 87400 : 	 Commit. 0.69970 	 PPL. 388.62 	 Recons. 0.08074
+2024-05-10 20:42:14,201 INFO Train. Iter 87600 : 	 Commit. 0.69443 	 PPL. 388.98 	 Recons. 0.08069
+2024-05-10 20:42:39,895 INFO Train. Iter 87800 : 	 Commit. 0.69414 	 PPL. 388.59 	 Recons. 0.08084
+2024-05-10 20:43:05,962 INFO Train. Iter 88000 : 	 Commit. 0.69620 	 PPL. 389.08 	 Recons. 0.08070
+2024-05-10 20:43:17,916 INFO --> 	 Eva. Iter 88000 :, FID. 0.4489, Diversity Real. 9.5539, Diversity. 9.8303, R_precision_real. [0.59821429 0.80915179 0.87611607], R_precision. [0.52901786 0.71316964 0.79017857], matching_score_real. 2.3421841306345805, matching_score_pred. 2.815625148160117
+2024-05-10 20:43:44,016 INFO Train. Iter 88200 : 	 Commit. 0.69185 	 PPL. 389.73 	 Recons. 0.08079
+2024-05-10 20:44:10,141 INFO Train. Iter 88400 : 	 Commit. 0.68944 	 PPL. 388.40 	 Recons. 0.08014
+2024-05-10 20:44:35,859 INFO Train. Iter 88600 : 	 Commit. 0.68216 	 PPL. 388.81 	 Recons. 0.08043
+2024-05-10 20:45:01,639 INFO Train. Iter 88800 : 	 Commit. 0.68022 	 PPL. 389.23 	 Recons. 0.08029
+2024-05-10 20:45:27,678 INFO Train. Iter 89000 : 	 Commit. 0.68308 	 PPL. 389.80 	 Recons. 0.08007
+2024-05-10 20:45:39,442 INFO --> 	 Eva. Iter 89000 :, FID. 0.4251, Diversity Real. 9.2373, Diversity. 9.6597, R_precision_real. [0.58705357 0.78013393 0.87388393], R_precision. [0.49888393 0.67745536 0.78794643], matching_score_real. 2.391506382397243, matching_score_pred. 2.8977327261652266
+2024-05-10 20:46:05,545 INFO Train. Iter 89200 : 	 Commit. 0.69973 	 PPL. 389.90 	 Recons. 0.08045
+2024-05-10 20:46:31,665 INFO Train. Iter 89400 : 	 Commit. 0.68285 	 PPL. 389.19 	 Recons. 0.08027
+2024-05-10 20:46:57,350 INFO Train. Iter 89600 : 	 Commit. 0.67889 	 PPL. 388.27 	 Recons. 0.08013
+2024-05-10 20:47:23,069 INFO Train. Iter 89800 : 	 Commit. 0.70897 	 PPL. 389.30 	 Recons. 0.08092
+2024-05-10 20:47:49,121 INFO Train. Iter 90000 : 	 Commit. 0.68391 	 PPL. 387.45 	 Recons. 0.07997
+2024-05-10 20:48:01,035 INFO --> 	 Eva. Iter 90000 :, FID. 0.4166, Diversity Real. 9.1846, Diversity. 9.8879, R_precision_real. [0.609375   0.78571429 0.859375  ], R_precision. [0.50334821 0.69196429 0.78348214], matching_score_real. 2.364861616066524, matching_score_pred. 2.8319926602499828
+2024-05-10 20:48:27,194 INFO Train. Iter 90200 : 	 Commit. 0.68244 	 PPL. 388.92 	 Recons. 0.08018
+2024-05-10 20:48:53,303 INFO Train. Iter 90400 : 	 Commit. 0.70955 	 PPL. 389.00 	 Recons. 0.08063
+2024-05-10 20:49:18,969 INFO Train. Iter 90600 : 	 Commit. 0.70022 	 PPL. 387.96 	 Recons. 0.08016
+2024-05-10 20:49:44,629 INFO Train. Iter 90800 : 	 Commit. 0.68063 	 PPL. 387.77 	 Recons. 0.07969
+2024-05-10 20:50:10,647 INFO Train. Iter 91000 : 	 Commit. 0.69444 	 PPL. 388.91 	 Recons. 0.08028
+2024-05-10 20:50:22,372 INFO --> 	 Eva. Iter 91000 :, FID. 0.3844, Diversity Real. 9.6062, Diversity. 9.5929, R_precision_real. [0.58147321 0.77008929 0.85491071], R_precision. [0.47879464 0.67745536 0.77566964], matching_score_real. 2.3868757571492876, matching_score_pred. 2.8401945488793507
+2024-05-10 20:50:22,375 INFO --> --> 	 Diversity Improved from 9.33176 to 9.59286 !!!
+2024-05-10 20:50:48,782 INFO Train. Iter 91200 : 	 Commit. 0.70004 	 PPL. 387.68 	 Recons. 0.08033
+2024-05-10 20:51:14,790 INFO Train. Iter 91400 : 	 Commit. 0.68182 	 PPL. 387.82 	 Recons. 0.07944
+2024-05-10 20:51:40,436 INFO Train. Iter 91600 : 	 Commit. 0.69181 	 PPL. 388.81 	 Recons. 0.08008
+2024-05-10 20:52:06,373 INFO Train. Iter 91800 : 	 Commit. 0.68268 	 PPL. 387.67 	 Recons. 0.07979
+2024-05-10 20:52:31,940 INFO Train. Iter 92000 : 	 Commit. 0.68975 	 PPL. 388.55 	 Recons. 0.07972
+2024-05-10 20:52:43,559 INFO --> 	 Eva. Iter 92000 :, FID. 0.4051, Diversity Real. 9.5106, Diversity. 9.8065, R_precision_real. [0.55915179 0.76785714 0.86383929], R_precision. [0.49553571 0.68415179 0.79241071], matching_score_real. 2.3626010162489757, matching_score_pred. 2.854770915848868
+2024-05-10 20:53:09,631 INFO Train. Iter 92200 : 	 Commit. 0.68208 	 PPL. 387.80 	 Recons. 0.07965
+2024-05-10 20:53:35,585 INFO Train. Iter 92400 : 	 Commit. 0.69561 	 PPL. 389.00 	 Recons. 0.07966
+2024-05-10 20:54:01,245 INFO Train. Iter 92600 : 	 Commit. 0.71156 	 PPL. 388.12 	 Recons. 0.07977
+2024-05-10 20:54:27,285 INFO Train. Iter 92800 : 	 Commit. 0.69326 	 PPL. 387.00 	 Recons. 0.07965
+2024-05-10 20:54:52,972 INFO Train. Iter 93000 : 	 Commit. 0.68879 	 PPL. 387.50 	 Recons. 0.07938
+2024-05-10 20:55:05,076 INFO --> 	 Eva. Iter 93000 :, FID. 0.3960, Diversity Real. 9.5906, Diversity. 9.7054, R_precision_real. [0.57924107 0.76785714 0.85491071], R_precision. [0.50223214 0.69419643 0.79241071], matching_score_real. 2.3903714077813283, matching_score_pred. 2.836212830884116
+2024-05-10 20:55:31,240 INFO Train. Iter 93200 : 	 Commit. 0.67775 	 PPL. 388.23 	 Recons. 0.07938
+2024-05-10 20:55:57,356 INFO Train. Iter 93400 : 	 Commit. 0.67651 	 PPL. 387.39 	 Recons. 0.07916
+2024-05-10 20:56:23,009 INFO Train. Iter 93600 : 	 Commit. 0.68427 	 PPL. 387.70 	 Recons. 0.07916
+2024-05-10 20:56:49,000 INFO Train. Iter 93800 : 	 Commit. 0.75531 	 PPL. 388.32 	 Recons. 0.08007
+2024-05-10 20:57:14,664 INFO Train. Iter 94000 : 	 Commit. 0.74843 	 PPL. 386.04 	 Recons. 0.07916
+2024-05-10 20:57:26,415 INFO --> 	 Eva. Iter 94000 :, FID. 0.4328, Diversity Real. 9.4077, Diversity. 9.5292, R_precision_real. [0.59821429 0.79464286 0.87834821], R_precision. [0.51004464 0.68638393 0.76674107], matching_score_real. 2.35974668604987, matching_score_pred. 2.936419350760324
+2024-05-10 20:57:26,418 INFO --> --> 	 Diversity Improved from 9.59286 to 9.52919 !!!
+2024-05-10 20:57:52,880 INFO Train. Iter 94200 : 	 Commit. 0.69458 	 PPL. 387.58 	 Recons. 0.07964
+2024-05-10 20:58:18,907 INFO Train. Iter 94400 : 	 Commit. 0.69349 	 PPL. 386.82 	 Recons. 0.07901
+2024-05-10 20:58:44,536 INFO Train. Iter 94600 : 	 Commit. 0.67998 	 PPL. 387.53 	 Recons. 0.07928
+2024-05-10 20:59:10,434 INFO Train. Iter 94800 : 	 Commit. 0.68649 	 PPL. 388.03 	 Recons. 0.07916
+2024-05-10 20:59:36,015 INFO Train. Iter 95000 : 	 Commit. 0.69193 	 PPL. 387.18 	 Recons. 0.07937
+2024-05-10 20:59:47,766 INFO --> 	 Eva. Iter 95000 :, FID. 0.2989, Diversity Real. 9.5200, Diversity. 9.3321, R_precision_real. [0.59821429 0.77678571 0.84151786], R_precision. [0.50446429 0.69196429 0.78459821], matching_score_real. 2.3721384150641307, matching_score_pred. 2.8405953219958713
+2024-05-10 21:00:13,788 INFO Train. Iter 95200 : 	 Commit. 0.67900 	 PPL. 386.88 	 Recons. 0.07923
+2024-05-10 21:00:39,882 INFO Train. Iter 95400 : 	 Commit. 0.68062 	 PPL. 387.84 	 Recons. 0.07913
+2024-05-10 21:01:05,539 INFO Train. Iter 95600 : 	 Commit. 0.69565 	 PPL. 386.91 	 Recons. 0.07904
+2024-05-10 21:01:31,587 INFO Train. Iter 95800 : 	 Commit. 0.73895 	 PPL. 388.32 	 Recons. 0.08009
+2024-05-10 21:01:57,287 INFO Train. Iter 96000 : 	 Commit. 0.69626 	 PPL. 385.77 	 Recons. 0.07892
+2024-05-10 21:02:08,828 INFO --> 	 Eva. Iter 96000 :, FID. 0.4484, Diversity Real. 9.2976, Diversity. 9.2839, R_precision_real. [0.58928571 0.7734375  0.85267857], R_precision. [0.49776786 0.68973214 0.78236607], matching_score_real. 2.3705981501511166, matching_score_pred. 2.878884017467499
+2024-05-10 21:02:08,831 INFO --> --> 	 Diversity Improved from 9.52919 to 9.28388 !!!
+2024-05-10 21:02:35,252 INFO Train. Iter 96200 : 	 Commit. 0.70619 	 PPL. 388.70 	 Recons. 0.07959
+2024-05-10 21:03:01,249 INFO Train. Iter 96400 : 	 Commit. 0.70538 	 PPL. 389.12 	 Recons. 0.07941
+2024-05-10 21:03:26,866 INFO Train. Iter 96600 : 	 Commit. 0.68287 	 PPL. 388.90 	 Recons. 0.07850
+2024-05-10 21:03:52,755 INFO Train. Iter 96800 : 	 Commit. 0.67353 	 PPL. 390.02 	 Recons. 0.07867
+2024-05-10 21:04:18,402 INFO Train. Iter 97000 : 	 Commit. 0.66425 	 PPL. 389.45 	 Recons. 0.07831
+2024-05-10 21:04:30,017 INFO --> 	 Eva. Iter 97000 :, FID. 0.4215, Diversity Real. 9.5898, Diversity. 9.5172, R_precision_real. [0.60379464 0.78236607 0.87276786], R_precision. [0.5078125  0.71763393 0.79129464], matching_score_real. 2.3914705174309865, matching_score_pred. 2.9041276488985335
+2024-05-10 21:04:30,018 INFO --> --> 	 Diversity Improved from 9.28388 to 9.51718 !!!
+2024-05-10 21:04:56,864 INFO Train. Iter 97200 : 	 Commit. 0.67216 	 PPL. 389.78 	 Recons. 0.07865
+2024-05-10 21:05:22,584 INFO Train. Iter 97400 : 	 Commit. 0.68405 	 PPL. 389.42 	 Recons. 0.07883
+2024-05-10 21:05:48,232 INFO Train. Iter 97600 : 	 Commit. 0.67302 	 PPL. 391.25 	 Recons. 0.07850
+2024-05-10 21:06:14,224 INFO Train. Iter 97800 : 	 Commit. 0.67320 	 PPL. 391.90 	 Recons. 0.07846
+2024-05-10 21:06:39,922 INFO Train. Iter 98000 : 	 Commit. 0.66822 	 PPL. 389.78 	 Recons. 0.07844
+2024-05-10 21:06:51,538 INFO --> 	 Eva. Iter 98000 :, FID. 0.4838, Diversity Real. 9.0541, Diversity. 9.2578, R_precision_real. [0.59709821 0.77678571 0.85267857], R_precision. [0.50558036 0.68191964 0.77120536], matching_score_real. 2.3856221650327956, matching_score_pred. 2.887400371687753
+2024-05-10 21:06:51,542 INFO --> --> 	 Diversity Improved from 9.51718 to 9.25782 !!!
+2024-05-10 21:07:18,276 INFO Train. Iter 98200 : 	 Commit. 0.67174 	 PPL. 392.45 	 Recons. 0.07843
+2024-05-10 21:07:43,980 INFO Train. Iter 98400 : 	 Commit. 0.65938 	 PPL. 391.06 	 Recons. 0.07808
+2024-05-10 21:08:09,616 INFO Train. Iter 98600 : 	 Commit. 0.66289 	 PPL. 392.47 	 Recons. 0.07823
+2024-05-10 21:08:35,589 INFO Train. Iter 98800 : 	 Commit. 0.68500 	 PPL. 392.21 	 Recons. 0.07842
+2024-05-10 21:09:01,220 INFO Train. Iter 99000 : 	 Commit. 0.66565 	 PPL. 392.01 	 Recons. 0.07826
+2024-05-10 21:09:12,942 INFO --> 	 Eva. Iter 99000 :, FID. 0.2911, Diversity Real. 9.2174, Diversity. 9.9276, R_precision_real. [0.58035714 0.765625   0.85379464], R_precision. [0.50558036 0.70424107 0.78013393], matching_score_real. 2.355146361248834, matching_score_pred. 2.83129574571337
+2024-05-10 21:09:39,409 INFO Train. Iter 99200 : 	 Commit. 0.66299 	 PPL. 392.55 	 Recons. 0.07799
+2024-05-10 21:10:05,085 INFO Train. Iter 99400 : 	 Commit. 0.65397 	 PPL. 392.88 	 Recons. 0.07787
+2024-05-10 21:10:30,747 INFO Train. Iter 99600 : 	 Commit. 0.65252 	 PPL. 393.08 	 Recons. 0.07797
+2024-05-10 21:10:56,792 INFO Train. Iter 99800 : 	 Commit. 0.68177 	 PPL. 393.19 	 Recons. 0.07850
+2024-05-10 21:11:22,551 INFO Train. Iter 100000 : 	 Commit. 0.67892 	 PPL. 392.25 	 Recons. 0.07834
+2024-05-10 21:11:34,294 INFO --> 	 Eva. Iter 100000 :, FID. 0.3535, Diversity Real. 9.5283, Diversity. 9.2158, R_precision_real. [0.59821429 0.78794643 0.86160714], R_precision. [0.52455357 0.70424107 0.79241071], matching_score_real. 2.365653387137822, matching_score_pred. 2.80720146213259
