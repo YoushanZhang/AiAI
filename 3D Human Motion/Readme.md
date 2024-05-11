@@ -50,15 +50,17 @@ Download the additional datasets from the AMASS collection, which are integrated
 
 These datasets can be found on the AMASS dataset repository [AMASS](https://amass.is.tue.mpg.de/) and should be downloaded and placed in the data directory within your project structure. For additional information, please refer to [HumanML3D](https://github.com/EricGuo5513/HumanML3D)
 
-## Training
+Once HumanML3D is generated, you can run the text to numpy mapping file (`npy_text_mapping_v1.ipynb1`) to generate predefined labels from text descriptions. Post that, you can generate sampled datasets based on custom percentage of motions from datasets which is implemented in `TRME_preprocess_sampling.ipynb` file.
+
+## Training with TRME
 To train the model:
 
+Once you run the sampling notebook, you can obtain the custom sampled dataset with which you can start training our model using `Training_TRME.ipynb` file.
 
-## Evaluation
-Evaluate the trained model
+## Evaluation with TRME
+To evaluate the above trained model you can run the `Evaluation_TRME.ipynb` file to obtain the performance metrics like `FID` (Fréchet inception distance),`Diversity`,`R-Precision (Top-3)`,`MM-Dist` (Multimodal distance)
 
-
-## Visualization
+## Visualization with TRME
 Visualize motion predictions from textual descriptions
 
 ## Citations:
