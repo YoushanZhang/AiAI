@@ -27,7 +27,7 @@ In the domain of 3D human motion generation from textual descriptions, the TRME 
 - `TRME/` - Clone this directory to download and train the TRME (Ours) model. For more information on the original VQVAE & GPT architecture, refer to the original github page [T2M-GPT](https://github.com/Mael-zys/T2M-GPT)
 
 ## Installation
-To set up the necessary environment:
+To set up the necessary environment for TRME:
 
 ```bash
 conda env create -f environment.yml
@@ -47,6 +47,22 @@ Download the additional datasets from the AMASS collection, which are integrated
 - `CNRS`
 - `DanceDB`
 - `GRAB`
+
+We are using two 3D human motion-language dataset: HumanML3D. For the dataset, you could find the details as well as download link [[here]](https://github.com/EricGuo5513/HumanML3D).   
+
+For the custom dataset, the file directory should look like HumanML3D directory structure but with your own directory name:  
+```
+./dataset/HumanML3D/ (Instead of HumanML3D, you could give any custom directory name and change it in all the relevant scripts to call and run this)
+├── new_joint_vecs/
+├── texts/
+├── Mean.npy # same as in [HumanML3D](https://github.com/EricGuo5513/HumanML3D) 
+├── Std.npy # same as in [HumanML3D](https://github.com/EricGuo5513/HumanML3D) 
+├── train.txt
+├── val.txt
+├── test.txt
+├── train_val.txt
+└── all.txt
+```
 
 These datasets can be found on the AMASS dataset repository [AMASS](https://amass.is.tue.mpg.de/) and should be downloaded and placed in the data directory within your project structure. For additional information, please refer to [HumanML3D](https://github.com/EricGuo5513/HumanML3D)
 
