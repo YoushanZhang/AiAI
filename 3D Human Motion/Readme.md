@@ -22,7 +22,7 @@
 In the domain of 3D human motion generation from textual descriptions, the TRME model significantly improves architectural flexibility and dataset diversity. By incorporating an additional layer of residual blocks into the Vector Quantized Variational Autoencoder (VQ-VAE) and utilizing the comprehensive "CHAD" dataset, our model captures finer motion details, improving both the diversity and quality of generated human motions. 
 
 ## Repository Contents
-- `MDM/` - Clone this directory to download and train the Motion Diffusion Model. For more information, refer to the original github page [MDM](https://github.com/GuyTevet/motion-diffusion-model)
+- `MDM/` - Clone this directory to download and train the Motion Diffusion Model. `save` directory includes the checkpoints for the models. For more information, refer to the original github page [MDM](https://github.com/GuyTevet/motion-diffusion-model)
 - `T2M/` - Clone this directory to download and train the text to motion model. For more information, refer to the original github page [T2M](https://github.com/EricGuo5513/text-to-motion)
 - `TRME/` - Clone this directory to download and train the TRME (Ours) model. For more information on the original VQVAE & GPT architecture, refer to the original github page [T2M-GPT](https://github.com/Mael-zys/T2M-GPT)
 
