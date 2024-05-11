@@ -48,7 +48,7 @@ Download the additional datasets from the AMASS collection, which are integrated
 - `DanceDB`
 - `GRAB`
 
-These datasets can be found on the AMASS dataset repository (https://amass.is.tue.mpg.de/) and should be downloaded and placed in the data directory within your project structure. For additional information, please refer to [HumanML3D](https://github.com/EricGuo5513/HumanML3D)
+These datasets can be found on the AMASS dataset repository [AMASS](https://amass.is.tue.mpg.de/) and should be downloaded and placed in the data directory within your project structure. For additional information, please refer to [HumanML3D](https://github.com/EricGuo5513/HumanML3D)
 
 ## Training
 To train the model:
@@ -110,5 +110,6 @@ Visualize motion predictions from textual descriptions
 We appreciate prior contributions as a source of inspiration for Text to 3D Human Motion Generation from :  
 
 * Public code repositories like [text-to-motion](https://github.com/EricGuo5513/text-to-motion), [TM2T](https://github.com/EricGuo5513/TM2T), [MDM](https://github.com/GuyTevet/motion-diffusion-model).
+* Public datasets - [AMASS](https://amass.is.tue.mpg.de/)
 
 <a href='https://github.com/YoushanZhang/'>Dr. Youshan Zhang</a> for guidance and valuable feedback.
