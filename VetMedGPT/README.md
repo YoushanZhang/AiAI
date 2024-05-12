@@ -15,11 +15,12 @@ To address this gap, our project focuses on:
 - **Model Development**: We developed a novel generative pre-trained transformer, VetMedGPT, specifically tailored for veterinary medicine healthcare. This model is fine-tuned and tested on the VetMed dataset to enhance its effectiveness in animal health diagnosis and care.
 ![Workflow](https://github.com/YoushanZhang/AiAI/blob/main/VetMedGPT/img/Workflow.jpeg)
 - **Training Arguments**
-  | Setting                         | Description                                                    |
+ 
+| Setting                         | Description                                                   |
 |---------------------------------|----------------------------------------------------------------|
 | Parameters                      | 1B                                                           |
 | Attention Variant               | Grouped Query Attention                                        |
-| Model Size                      | Layers: 16, Heads: 16, Query Groups: 4, Embedding Size: 2048, Intermediate Size (Swiglu): 7168|
+| Model Size                      | Layers: 16, Heads: 16, Query Groups: 4, Embedding Size: 2048, Intermediate Size (Swiglu): 7168 |
 | Sequence Length                 | 2048                                                           |
 | Batch Size                      | 2 million tokens (2048 * 1024)                                             |
 | Learning Rate                   | 4e-4                                                           |
@@ -28,7 +29,8 @@ To address this gap, our project focuses on:
 | Total Tokens During Training    | 120B                                          |
 | Hardware                        | 6 A100-80G GPUs                                              |
 - **Finetune Arguments**
-  | Setting                         | Description                                                    |
+
+| Setting                         | Description                                                    |
 |---------------------------------|----------------------------------------------------------------|
 | per_device_train_batch_size     | 48                                                           |
 | max_new_tokens                  | 512                                                            |
