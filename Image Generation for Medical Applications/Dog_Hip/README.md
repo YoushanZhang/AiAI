@@ -94,7 +94,7 @@ for seed in range(i):
         display(img)
 ```
 ## Norberg Angle prediction model:
-We published the results through the Symposium on Artificial Intelligence in Veterinary Medicine 2024. And you can find the results [here](https://www.researchgate.net/publication/380167225_Diffusion_Data_Augmentation_for_Enhancing_Norberg_Hip_Angle_Estimation). These experiments were completed bu the notebook through the path `Dog_Hip_predict\Dog_hip_training_v9.ipynb` from the [link](https://yuad-my.sharepoint.com/:f:/g/personal/syueh_mail_yu_edu/EtfXe9VM9rtIoYwemdFNoxoBma16sDeEfTBqY8VSZkXkiA?e=AdV3Jj).
+We published the results through the Symposium on Artificial Intelligence in Veterinary Medicine 2024. And you can find the published results [here](https://www.researchgate.net/publication/380167225_Diffusion_Data_Augmentation_for_Enhancing_Norberg_Hip_Angle_Estimation). These experiments were completed by the notebook through the path `DogHip_predict\Dog_hip_training_v9.ipynb` from the [link](https://yuad-my.sharepoint.com/:f:/g/personal/syueh_mail_yu_edu/EtfXe9VM9rtIoYwemdFNoxoBma16sDeEfTBqY8VSZkXkiA?e=AdV3Jj).
 
 
 
