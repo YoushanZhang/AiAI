@@ -3,7 +3,7 @@ VetMedGPT is a specialized tool developed to assist in the initial diagnosis and
 
 - You can access the pretrain Model [VetMedGPT 1B](https://huggingface.co/azsxscdvfb/VetMedGPT-1B-V0.2/tree/main)
 - And the finetuned version [VetMedGPT 1B chat](https://huggingface.co/azsxscdvfb/VetMedGPT-1B-chat-V0.2/tree/main) 
-- Explore the Website and Prototype [website](vetmedgpt.zapto.org)
+- Explore the Website and Prototype [website](http://vetmedgpt.zapto.org)
 ![UI](https://github.com/YoushanZhang/AiAI/blob/main/VetMedGPT/img/Web%20page%20UI.jpeg)
 ## Project Overview
 In the realm of AI, significant advancements have been achieved in developing large language models (LLMs) catering to various domains, including human healthcare. However, the domain of veterinary science has often been overlooked, resulting in limitations in scope, efficacy, or availability of existing AI models for animal healthcare.
